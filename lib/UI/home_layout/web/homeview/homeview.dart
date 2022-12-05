@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:landing_page/UI/home_layout/web/widgets/navbar.dart';
+//dependencies
+
+//file addresses
+import '../components/home_view_body.dart';
+import 'package:landing_page/UI/home_layout/widgets/navbar.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
 
+  const HomeView({Key? key}) : super(key: key);
   @override
   State<HomeView> createState() => _HomeViewState();
 }
-
 class _HomeViewState extends State<HomeView> {
+  
   @override
   Widget build(BuildContext context) {
-    
-    
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          NavBar()
+          HomeViewBody(),
+          Header(),
         ],
-      ),
-  
+      ),  
     );
   }
 }
+

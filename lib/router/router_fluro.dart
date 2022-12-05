@@ -1,5 +1,7 @@
+//dependencies
 import 'package:fluro/fluro.dart';
-import 'package:landing_page/UI/home_layout/web/homeview/homeview.dart';
+//file addresses
+import 'package:landing_page/UI/home_layout/home_layout.dart';
 
 class RouterFluro {
   
@@ -9,7 +11,7 @@ class RouterFluro {
     
     router.define(
       '/',
-      handler: Handler(handlerFunc: (( context, parameters ) => const HomeView() ))
+      handler: Handler(handlerFunc: (( context, parameters ) => const ResponsiveLayout() ))
     );
     
   }
