@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 //dependencies
+import 'package:google_fonts/google_fonts.dart';
 
 //file addresses
 import 'package:landing_page/utils/spaces.dart';
@@ -12,7 +13,7 @@ class Header extends StatelessWidget {
 
   final List<String> navItems = [
     'Home',
-    'Contact',
+    'Services',
     'Products',
     'Features'
   ];
@@ -21,10 +22,22 @@ class Header extends StatelessWidget {
     
      return navItems.map((item) => Padding(
           padding: const EdgeInsets.only(left: 50),
-          child: Text(item, 
-          style: const TextStyle(
-            fontSize: 15
-          ),
+          child: Column(
+            children: [
+            Spacer(),
+            Text(item, 
+              style: GoogleFonts.rye(
+                fontSize: 15
+              ),
+            ),
+            Spacer(),
+            if(item == 'Home')
+            Container(
+              height: 3,
+              width: 32,
+              color: Colors.black87,
+            )
+          ],
         ),
       ),
     ).toList();
@@ -49,7 +62,12 @@ class Header extends StatelessWidget {
             ),
             addHorizontalSpace(5),
             if( w >= 789 )
-            const Text('Tu oportunidad es ahora'),
+            Text(
+              'Shelby - BarberShop',
+              style: GoogleFonts.rye(
+                fontSize: 15
+              ),
+            ),
             const Spacer(),
              ...navItem(), 
             addHorizontalSpace(30),
