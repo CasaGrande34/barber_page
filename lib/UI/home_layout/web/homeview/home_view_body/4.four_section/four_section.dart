@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
 //file addresses
-import '../../../../../../../utils/spaces.dart';
+import '../../../../../../utils/spaces.dart';
 
 class FourSection extends StatelessWidget {
   const FourSection({Key? key}) : super(key: key);

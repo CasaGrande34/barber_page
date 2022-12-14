@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 //file addresses
 import 'package:landing_page/utils/spaces.dart';
-import 'package:landing_page/UI/home_layout/widgets/theme_charger_switch.dart';
+import 'package:landing_page/widgets/theme_charger_switch.dart';
 
 class Header extends StatelessWidget {
   
@@ -24,13 +24,13 @@ class Header extends StatelessWidget {
           padding: const EdgeInsets.only(left: 50),
           child: Column(
             children: [
-            Spacer(),
+            const Spacer(),
             Text(item, 
               style: GoogleFonts.rye(
                 fontSize: 15
               ),
             ),
-            Spacer(),
+            const Spacer(),
             if(item == 'Home')
             Container(
               height: 3,

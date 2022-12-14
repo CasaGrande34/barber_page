@@ -9,14 +9,16 @@ class TextButtonCustom extends StatelessWidget {
   final double height;
   final Color colorButton;
   final Color colorText;
+  final Color  colorBorder;
   
   const TextButtonCustom({
     Key? key,
     required this.text,
     required this.onPressed,
     this.height = 55.0,
-    this.colorText = const Color(0xff373e98),
     this.colorButton = Colors.white,
+    this.colorText = const Color(0xff373e98),
+    this.colorBorder = Colors.transparent,
   }) : super(key: key);
 
   @override
@@ -27,7 +29,7 @@ class TextButtonCustom extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular( 40.0 ),
         ),
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         padding: const EdgeInsets.all( 0.0 ),
       ),
       onPressed: onPressed, 
@@ -39,13 +41,14 @@ class TextButtonCustom extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular( 40.0 ),
           border: Border.all(
-            color: colorButton,
+            color: colorBorder,
           ),
+          color: colorButton
         ),
         child: Text(
           text,
           style: GoogleFonts.josefinSans(
-            color: colorButton,
+            color: colorText,
             fontSize: 12.0,
             fontWeight: FontWeight.w800,
           ),

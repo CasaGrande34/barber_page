@@ -24,7 +24,7 @@ class ButtonBlue extends StatelessWidget {
         backgroundColor: MaterialStatePropertyAll<Color>(Colors.blue ),
       ),
       onPressed: onPressed, 
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         height: height,
         child: Center(

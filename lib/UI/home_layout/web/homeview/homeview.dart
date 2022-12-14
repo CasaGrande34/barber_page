@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 //dependencies
 
 //file addresses
-import '../../widgets/components_web/home_view_body/home_view_body.dart';
-import 'package:landing_page/UI/home_layout/widgets/header.dart';
+import 'home_view_body/home_view_body.dart';
+import 'package:landing_page/widgets/components_web/header.dart';
 
 class HomeView extends StatefulWidget {
 
@@ -18,7 +18,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       body: Stack(
         children: [
-          HomeViewBody(),
+          const HomeViewBody(),
           Header(),
         ],
       ),  

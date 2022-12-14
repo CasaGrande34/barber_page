@@ -23,11 +23,11 @@ class ProfileImage extends StatelessWidget {
         height: diameter,
         width: diameter,
         child: ClipRRect(
+          borderRadius: BorderRadius.circular(300.0),
           child: Image.asset(
             image,
             fit: BoxFit.cover,
           ),
-          borderRadius: BorderRadius.circular(300.0),
           
         ),
       ),

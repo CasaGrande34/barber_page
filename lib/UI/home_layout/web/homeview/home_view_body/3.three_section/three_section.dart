@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
 //file addresses
-import '../../../profile_title.dart';
-import '../../../../../../../utils/spaces.dart';
-import 'components/slider_custom.dart';
+import '../../../../../../utils/spaces.dart';
+import '../../../../../../widgets/components_web/profile_title.dart';
+import '../../../../../../widgets/slider_custom.dart';
 
 class ThreeSection extends StatefulWidget {
   
@@ -18,7 +18,6 @@ class _ThreeSectionState extends State<ThreeSection> {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width; 
-    double h = MediaQuery.of(context).size.height; 
     return Container(
             height: 550,
             width: w,
@@ -31,9 +30,17 @@ class _ThreeSectionState extends State<ThreeSection> {
                   child: Container(
                     height: 450.0,
                     width: 700.0,
+                    clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: const Color.fromARGB(255, 36, 36, 36),
                       borderRadius: BorderRadius.circular( 400.0 ),
+                    ),
+                    child: Opacity(
+                      opacity: 0.1,
+                      child: Image.asset('assets/decoration/fondo_barber.jpg',
+                        fit: BoxFit.cover,
+                        
+                      ),
                     ),
                   ),
                 ),
@@ -48,7 +55,7 @@ class _ThreeSectionState extends State<ThreeSection> {
                       borderRadius: BorderRadius.circular( 20.0 ),
                     ),
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: SliderCustom(),
+                    child: const SliderCustom(),
                   ),
                 ),
                 const ProfileTitle(

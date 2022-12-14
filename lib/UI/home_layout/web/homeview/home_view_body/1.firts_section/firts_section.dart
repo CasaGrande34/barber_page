@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
 //file addresses
-import '../../../profile_image.dart';
-import '../../../profile_title.dart';
-import '../../../../../../../utils/spaces.dart';
+import '../../../../../../utils/spaces.dart';
+import '../../../../../../widgets/components_web/profile_image.dart';
+import '../../../../../../widgets/components_web/profile_title.dart';
 
 class FirstSection extends StatefulWidget {
   const FirstSection({Key? key}) : super(key: key);
@@ -18,13 +18,12 @@ class _FirstSectionState extends State<FirstSection> {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width; 
-    double h = MediaQuery.of(context).size.height; 
     return  Stack(
             children: [
               Row(
                 children: [
                   Container(
-                    height: 700.0,
+                    height: 770.0,
                     width: w * 0.45,
                     color: Colors.white,
                     child: Stack(

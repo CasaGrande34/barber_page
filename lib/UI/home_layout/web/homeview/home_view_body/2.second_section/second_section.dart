@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
 //file addresses
-import '../../../info_palette.dart';
-import '../../../../../../../utils/spaces.dart';
+import '../../../../../../utils/spaces.dart';
+import '../../../../../../widgets/components_web/info_palette.dart';
 
 class SecondSection extends StatefulWidget {
-  SecondSection({Key? key}) : super(key: key);
+  double pixels;
+  SecondSection({
+    Key? key,
+    required this.pixels,
+  }) : super(key: key);
 
   @override
   State<SecondSection> createState() => _SecondSectionState();
@@ -15,7 +19,7 @@ class SecondSection extends StatefulWidget {
 class _SecondSectionState extends State<SecondSection> {
   @override
   Widget build(BuildContext context) {
-    return     Container(
+    return Container(
             height: 450.0,
             width: double.infinity,
             color: Colors.white,
@@ -56,21 +60,45 @@ class _SecondSectionState extends State<SecondSection> {
                     addVerticalSpace(40.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        InfoPalette(
-                          title: 'Cortes de pelo',
-                          text: 'Clásicos o modernos. Marcamos tendencia combinando máquinas y tijeras.',
-                          icon: Icons.people_rounded,
+                      children: [
+                        AnimatedOpacity(
+                          opacity: widget.pixels >= 120 ? 1.0 : 0.0,
+                          duration: const Duration( milliseconds: 600),
+                          child: AnimatedPadding(
+                            padding: EdgeInsets.only( left: widget.pixels >= 120 ? 0.0 : 300.0 ),
+                            duration: const Duration( milliseconds: 600 ),
+                            child: InfoPalette(
+                              title: 'Cortes de pelo',
+                              text: 'Clásicos o modernos. Marcamos tendencia combinando máquinas y tijeras.',
+                              icon: Icons.people_rounded,
+                            ),
+                          ),
                         ),
-                        InfoPalette(
-                          title: 'Barbas',
-                          text: 'Afeitada tradicional o recorte de barba. Contamos con el servicio de toalla caliente + asesoramiento.',
-                          icon: Icons.pie_chart_rounded,
+                        AnimatedOpacity(
+                          duration: const Duration( milliseconds: 650 ),
+                          opacity: widget.pixels >= 120 ? 1.0 : 0.0,
+                          child: AnimatedPadding(
+                            duration: const Duration( milliseconds: 650 ),
+                            padding: EdgeInsets.only( left: widget.pixels >= 120 ? 0.0 : 200.0 ),
+                            child: InfoPalette(
+                              title: 'Barbas',
+                              text: 'Afeitada tradicional o recorte de barba. Contamos con el servicio de toalla caliente + asesoramiento.',
+                              icon: Icons.pie_chart_rounded,
+                            ),
+                          ),
                         ),
-                        InfoPalette(
-                          title: 'Niños',
-                          text: 'Hemos trabajado para que nuestros clientes mas jovenes cuenten con un lugar donde se sientan comodos.',
-                          icon: Icons.person_rounded,
+                        AnimatedOpacity(
+                          opacity: widget.pixels >= 120 ? 1.0 : 0.0,
+                          duration: const Duration( milliseconds: 700 ),                          
+                          child: AnimatedPadding(
+                            duration: const Duration( milliseconds: 700 ),
+                            padding: EdgeInsets.only( left: widget.pixels >= 120 ? 0.0 : 100.0 ),
+                            child: InfoPalette(
+                              title: 'Niños',
+                              text: 'Hemos trabajado para que nuestros clientes mas jovenes cuenten con un lugar donde se sientan comodos.',
+                              icon: Icons.person_rounded,
+                            ),
+                          ),
                         ),
                       ],
                     ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SliderCustom extends StatefulWidget {
-  SliderCustom({Key? key}) : super(key: key);
+  const SliderCustom({Key? key}) : super(key: key);
 
   @override
   State<SliderCustom> createState() => _SliderCustomState();
@@ -45,8 +45,8 @@ class _SliderCustomState extends State<SliderCustom> {
       controller: pageController,
       scrollDirection: Axis.horizontal,
       
-      children: [
-         _Slide(image: 'assets/decoration/1.jpg'),
+      children: const [
+         _Slide(image: 'assets/decoration/3.jpg'),
          _Slide(image: 'assets/decoration/2.jpg'),
       ] 
       
@@ -64,8 +64,6 @@ class _Slide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width; 
-    double h = MediaQuery.of(context).size.height; 
     return Image.asset( 
       image,
       fit: BoxFit.cover,

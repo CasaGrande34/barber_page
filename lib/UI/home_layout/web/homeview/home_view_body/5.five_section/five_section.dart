@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../../../../../../../utils/spaces.dart';
-import '../../../../buttons/button_blue.dart';
-import '../../../../buttons/textbutton_custom.dart';
-
 //dependencies
-
+import 'package:google_fonts/google_fonts.dart';
 //file addresses
-
+import '../../../../../../utils/spaces.dart';
+import '../../../../../../widgets/footer.dart';
+import '../../../../../../widgets/buttons/textbutton_custom.dart';
 
 class FiveSection extends StatelessWidget {
   
@@ -17,7 +13,6 @@ class FiveSection extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
       double w = MediaQuery.of(context).size.width; 
-      double h = MediaQuery.of(context).size.height; 
       return Container(
         width: w,
         height: 600,
@@ -26,8 +21,8 @@ class FiveSection extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             Align(
-              alignment: Alignment( 0.0, 1.0 ),
-              child: Container(
+              alignment: const Alignment( 0.0, 1.0 ),
+              child: SizedBox(
                 height: 600.0,
                 width: 400.0,
                 child: Column(
@@ -63,12 +58,43 @@ class FiveSection extends StatelessWidget {
                           text: 'Get My price',
                           
                         ),
+                        addHorizontalSpace( 20.0 ),
+                        TextButtonCustom(
+                          onPressed: () {},
+                          text: 'Try for free',
+                          colorButton: Colors.black,
+                          colorText: Colors.white,
+                          
+                        ),
+                        
                       ],
                     )
                   ],
                 ),
               ),
             ),
+            const Positioned(
+              bottom: 0,
+              child: Footer()
+            ),
+            Align(
+              alignment: const Alignment( 1.18, 0.0 ),
+              child: Container(
+                height: 200.0,
+                width: 200.0,
+                decoration: BoxDecoration(
+                  color: Colors.amber[400],
+                  borderRadius: BorderRadius.circular( 100.0 ),
+                  boxShadow: const <BoxShadow>[
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 10.0,
+                      offset: Offset( 0.0, 5.0 ),
+                    )
+                  ]
+                ),
+              ),
+            )
           ],
         ),
       );
