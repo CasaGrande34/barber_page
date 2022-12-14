@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 //dependencies
 
 //file addresses
-import '../components/home_view_body/home_view_body.dart';
+import '../../widgets/components_web/home_view_body/home_view_body.dart';
 import 'package:landing_page/UI/home_layout/widgets/header.dart';
 
 class HomeView extends StatefulWidget {

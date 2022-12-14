@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 //dependencies
 
 //file addresses
-import 'package:landing_page/UI/home_layout/web/components/home_view_body/components/firts_section.dart';
-import 'components/second_section.dart';
-import 'package:landing_page/UI/home_layout/web/components/home_view_body/components/three_section.dart';
+import 'package:landing_page/UI/home_layout/widgets/components_web/home_view_body/components/firts_section/firts_section.dart';
+import 'package:landing_page/UI/home_layout/widgets/components_web/home_view_body/components/five_section/five_section.dart';
+import 'components/four_section/four_section.dart';
+import 'components/second_section/second_section.dart';
+import 'package:landing_page/UI/home_layout/widgets/components_web/home_view_body/components/three_section/three_section.dart';
 
 
 class HomeViewBody extends StatelessWidget {
@@ -28,7 +30,11 @@ class HomeViewBody extends StatelessWidget {
           //?Tercera Seccion.
           const ThreeSection(),
           /*	------------------------------------- */ 
-          
+          //?Cuarta Seccion.
+          const FourSection(),
+          /*	------------------------------------- */ 
+          //? Quint seccion.
+          const FiveSection()
         ],
       ),
     );

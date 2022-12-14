@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
 //file addresses
-import '../../info_palette.dart';
-import '../../../../../../utils/spaces.dart';
+import '../../../info_palette.dart';
+import '../../../../../../../utils/spaces.dart';
 
 class SecondSection extends StatefulWidget {
   SecondSection({Key? key}) : super(key: key);

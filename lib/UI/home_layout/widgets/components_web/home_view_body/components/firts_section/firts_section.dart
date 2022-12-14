@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
 //file addresses
-import '../../profile_image.dart';
-import '../../profile_title.dart';
-import '../../../../../../utils/spaces.dart';
+import '../../../profile_image.dart';
+import '../../../profile_title.dart';
+import '../../../../../../../utils/spaces.dart';
 
 class FirstSection extends StatefulWidget {
   const FirstSection({Key? key}) : super(key: key);
@@ -144,25 +144,25 @@ class _FirstSectionState extends State<FirstSection> {
                           top: 140.0,
                           left: 70.0,
                           diameter: 220.0,
-                          image: 'assets/profileimages/1.jpg',
+                          image: 'assets/clients/1.jpg',
                         ),
                         const ProfileImage(
                           top: 170.0,
                           left: 322.0,
                           diameter: 120.0,
-                          image: 'assets/profileimages/2.jpg',
+                          image: 'assets/clients/2.jpg',
                         ),
                         const ProfileImage(
                           top: 300.0,
                           left: 280.0,
                           diameter: 300.0,
-                          image: 'assets/profileimages/3.jpg',
+                          image: 'assets/clients/3.jpg',
                         ),
                         const ProfileImage(
                           top: 370.0,
                           left: 70.0,
                           diameter: 190.0,
-                          image: 'assets/profileimages/4.jpg',
+                          image: 'assets/clients/4.jpg',
                         ),
                         const ProfileTitle(
                           top: 540.0, 

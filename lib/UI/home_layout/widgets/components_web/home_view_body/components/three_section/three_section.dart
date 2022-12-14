@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
 //file addresses
-import '../../profile_title.dart';
-import '../../../../../../utils/spaces.dart';
+import '../../../profile_title.dart';
+import '../../../../../../../utils/spaces.dart';
+import 'components/slider_custom.dart';
 
 class ThreeSection extends StatefulWidget {
   
@@ -19,7 +20,7 @@ class _ThreeSectionState extends State<ThreeSection> {
     double w = MediaQuery.of(context).size.width; 
     double h = MediaQuery.of(context).size.height; 
     return Container(
-            height: 500,
+            height: 550,
             width: w,
             color: Colors.white,
             child: Stack(
@@ -31,7 +32,7 @@ class _ThreeSectionState extends State<ThreeSection> {
                     height: 450.0,
                     width: 700.0,
                     decoration: BoxDecoration(
-                      color: Colors.amber[400],
+                      color: Colors.black,
                       borderRadius: BorderRadius.circular( 400.0 ),
                     ),
                   ),
@@ -43,13 +44,11 @@ class _ThreeSectionState extends State<ThreeSection> {
                     height: 400.0,
                     width: 700.0,
                     decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: Colors.amber,
                       borderRadius: BorderRadius.circular( 20.0 ),
                     ),
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: Image.asset('assets/profileimages/1.jpg',
-                      fit: BoxFit.cover,
-                    ),
+                    child: SliderCustom(),
                   ),
                 ),
                 const ProfileTitle(
