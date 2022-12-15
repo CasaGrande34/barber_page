@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 //file addresses
 import '../../../../../../utils/spaces.dart';
-import '../../../../../../widgets/footer.dart';
+import '../../../../../../widgets/components_web/footer.dart';
 import '../../../../../../widgets/buttons/textbutton_custom.dart';
 
 class FiveSection extends StatelessWidget {

@@ -43,10 +43,10 @@ class _HomeViewBodyState extends State<HomeViewBody> {
       child: Column(
         children: [
           
-          //? Primera seccion.
+          //? Primera Seccion.
            const FirstSection(),
           /*	------------------------------------- */ 
-          //?Seccion de los servicios.
+          //?Segunda Seccion
           SecondSection( pixels: pixels ),      
           /*	------------------------------------- */ 
           //?Tercera Seccion.
@@ -55,7 +55,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           //?Cuarta Seccion.
            const FourSection(),
           /*	------------------------------------- */ 
-          //? Quint seccion.
+          //? Quinta Seccion.
            const FiveSection()
         ],
       ),

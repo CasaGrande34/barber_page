@@ -7,42 +7,32 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/utils/spaces.dart';
 import 'package:landing_page/widgets/theme_charger_switch.dart';
 
-class Header extends StatelessWidget {
+import '../navbar_item.dart';
+
+class Header extends StatefulWidget {
   
   Header({Key? key}) : super(key: key);
 
-  final List<String> navItems = [
-    'Home',
-    'Services',
-    'Products',
-    'Features'
+  @override
+  State<Header> createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
+  final List<bool> selected = [
+    true, false, false, false,
   ];
 
-  List<Widget> navItem() {
-    
-     return navItems.map((item) => Padding(
-          padding: const EdgeInsets.only(left: 50),
-          child: Column(
-            children: [
-            const Spacer(),
-            Text(item, 
-              style: GoogleFonts.rye(
-                fontSize: 15
-              ),
-            ),
-            const Spacer(),
-            if(item == 'Home')
-            Container(
-              height: 3,
-              width: 32,
-              color: Colors.black87,
-            )
-          ],
-        ),
-      ),
-    ).toList();
+  void select(int n) {
+    for (int i = 0; i < 4; i++) {
+      if(i!=n) {
+        selected[i] = false;
+      } else {
+        selected[i] = true;
+      }
+      
+    }
   }
-  
+  // List<Widget> navItem() {
   @override
   Widget build(BuildContext context) {
     
@@ -69,7 +59,45 @@ class Header extends StatelessWidget {
               ),
             ),
             const Spacer(),
-             ...navItem(), 
+            NavBarItem(
+              text: 'Home',
+              active: selected[0],
+              touched: () {
+                setState(() {
+                  select(0); 
+                });
+              },
+            ),
+            addHorizontalSpace( 50.0 ),
+            NavBarItem(
+              text: 'Services',
+              active: selected[1],
+              touched: () {
+                setState(() {
+                  select(1); 
+                });
+              },
+            ),
+            addHorizontalSpace( 50.0 ),
+            NavBarItem(
+              text: 'Products',
+              active: selected[2],
+              touched: () {
+                setState(() {
+                  select(2); 
+                });
+              },
+            ),
+            addHorizontalSpace( 50.0 ),
+            NavBarItem(
+              text: 'Settings',
+              active: selected[3],
+              touched: () {
+                setState(() {
+                  select(3); 
+                });
+              },
+            ),
             addHorizontalSpace(30),
             if( w >= 636 )
             const ThemeChangerButton(),
