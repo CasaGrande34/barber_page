@@ -19,7 +19,7 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
   @override
   void initState() {
     _isLoading = true;
-    Future.delayed(const Duration( milliseconds: 1000 ), () {
+    Future.delayed(const Duration( milliseconds: 2000 ), () {
       setState(() {
         _isLoading = false;
       });

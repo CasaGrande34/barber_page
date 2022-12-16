@@ -48,7 +48,7 @@ class _HeaderState extends State<Header> {
             addHorizontalSpace(30),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5),
-              child: Image.asset('assets/logos/logo_barberia.png',scale: 1.2),
+              child: Image.asset('assets/logos/logo_barberia_color.png',scale: 1.2),
             ),
             addHorizontalSpace(5),
             if( w >= 789 )

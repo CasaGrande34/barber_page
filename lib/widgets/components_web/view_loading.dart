@@ -20,8 +20,23 @@ class ViewLoading extends StatelessWidget {
           height: h,
           color: Colors.black,
           child: Center(
-            child: Image.asset('assets/logos/logo_barberia.png',
-              height: 300,
+            child: Stack(
+              children: [
+                Image.asset('assets/logos/logo_barberia_fnegro.png',
+                  height: 300,
+                ),
+                TweenAnimationBuilder(
+                  tween: Tween<double>(begin: 0.0, end: 1.0),
+                  curve: Curves.elasticIn,
+                  duration: const Duration( milliseconds: 1300 ),
+                  builder: (context, value, child) => Transform.scale(
+                    scale: 1.0 * value,
+                    child: Image.asset('assets/logos/logo_barberia_color.png',
+                      height: 300,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         )

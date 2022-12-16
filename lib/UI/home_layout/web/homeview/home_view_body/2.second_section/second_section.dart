@@ -37,11 +37,13 @@ class _SecondSectionState extends State<SecondSection> {
                 //   ),
                   
                 // ),
-                Positioned(
-                  right: 0,
+                AnimatedPositioned(
+                  curve: Curves.easeOutQuad,
+                  right: widget.pixels >= 120 && widget.pixels < 850 ? 0.0 : -100.0 ,
+                  duration: const Duration( milliseconds: 700),
                   child: AnimatedOpacity(
                     opacity: widget.pixels >= 120 && widget.pixels < 880 ? 1.0 : 0.0,
-                    duration: const Duration( milliseconds: 600),
+                    duration: const Duration( milliseconds: 700),
                     child: Opacity(
                       opacity: 0.25,
                       child: Image.asset('assets/logos/logo_barberia.png',
@@ -69,6 +71,7 @@ class _SecondSectionState extends State<SecondSection> {
                           opacity: widget.pixels >= 120 && widget.pixels < 850 ? 1.0 : 0.0,
                           duration: const Duration( milliseconds: 650),
                           child: AnimatedPadding(
+                            curve: Curves.easeOutQuad,
                             padding: EdgeInsets.only( left: widget.pixels >= 120 && widget.pixels < 850 ? 0.0 : 100.0 ),
                             duration: const Duration( milliseconds: 650 ),
                             child: const InfoPalette(
@@ -82,6 +85,7 @@ class _SecondSectionState extends State<SecondSection> {
                           duration: const Duration( milliseconds: 650 ),
                           opacity: widget.pixels >= 120 && widget.pixels < 850 ? 1.0 : 0.0,
                           child: AnimatedPadding(
+                            curve: Curves.easeOutQuad,
                             duration: const Duration( milliseconds: 650 ),
                             padding: EdgeInsets.only( left: widget.pixels >= 120 && widget.pixels < 850 ? 0.0 : 100.0 ),
                             child: const InfoPalette(
@@ -95,6 +99,7 @@ class _SecondSectionState extends State<SecondSection> {
                           opacity: widget.pixels >= 120 && widget.pixels < 850 ? 1.0 : 0.0,
                           duration: const Duration( milliseconds: 650 ),                          
                           child: AnimatedPadding(
+                            curve: Curves.easeOutQuad,
                             duration: const Duration( milliseconds: 650 ),
                             padding: EdgeInsets.only( left: widget.pixels >= 120 && widget.pixels < 850 ? 0.0 : 100.0 ),
                             child: const InfoPalette(
@@ -107,29 +112,34 @@ class _SecondSectionState extends State<SecondSection> {
                       ],
                     ),
                     addVerticalSpace(60.0),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black87,
-                        padding: const EdgeInsets.all(0.0)
-                      ),
-                      onPressed: () {}, 
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 30.0, 
-                          vertical: 8.0,
+                    AnimatedScale(
+                      curve: Curves.elasticInOut,
+                      duration: const Duration( milliseconds: 1200 ),         
+                      scale: widget.pixels > 200 && widget.pixels < 950 ? 1.0 : 0.0,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black87,
+                          padding: const EdgeInsets.all(0.0)
                         ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40.0),
-                          border: Border.all(
-                            color: Colors.grey[800]!,
-                          )
-                        ),
-                        child: Text(
-                          'Explore more..',
-                          style: GoogleFonts.nunito(
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.w800,
+                        onPressed: () {}, 
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 30.0, 
+                            vertical: 8.0,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40.0),
+                            border: Border.all(
+                              color: Colors.grey[800]!,
+                            )
+                          ),
+                          child: Text(
+                            'Explore more..',
+                            style: GoogleFonts.nunito(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w800,
+                            ),
                           ),
                         ),
                       ),
