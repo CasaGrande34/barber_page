@@ -24,8 +24,10 @@ class ProfileImage extends StatelessWidget {
         width: diameter,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(300.0),
-          child: Image.asset(
-            image,
+          child: FadeInImage(
+            placeholderFilterQuality: FilterQuality.low,
+            image: AssetImage(image),
+            placeholder: const AssetImage('assets/props/loading.gif'),
             fit: BoxFit.cover,
           ),
           

@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 //file addresses
 import '../../../../../../utils/spaces.dart';
-import '../../../../../../widgets/components_web/profile_title.dart';
+import '../../../../../../widgets/solo_icon.dart';
 import '../../../../../../widgets/slider_custom.dart';
 
 class ThreeSection extends StatefulWidget {
-  
-  const ThreeSection({Key? key}) : super(key: key);
+  double pixels;
+  ThreeSection({
+    Key? key,
+    required this.pixels,
+  }) : super(key: key);
 
   @override
   State<ThreeSection> createState() => _ThreeSectionState();
@@ -44,9 +47,11 @@ class _ThreeSectionState extends State<ThreeSection> {
                     ),
                   ),
                 ),
-                Positioned(
+                AnimatedPositioned(
+                  duration: const Duration( milliseconds: 700 ),
+                  curve: Curves.easeOutQuad,
                   top: 20.0,
-                  left: 100.0,
+                  left: widget.pixels >= 410 && widget.pixels < 1600? 100.0 : 20.0,
                   child: Container(
                     height: 400.0,
                     width: 700.0,
@@ -58,22 +63,38 @@ class _ThreeSectionState extends State<ThreeSection> {
                     child: const SliderCustom(),
                   ),
                 ),
-                const ProfileTitle(
+                Positioned(
                   top: 15.0, 
-                  left: 30.0, 
-                  factor: 1.0, 
-                  title: 'Send a final design to the team', 
-                  subtitle: 'Sara, Client'
-                ),
-                const ProfileTitle(
-                  top: 400.0, 
-                  left: 620.0, 
-                  factor: 1.0, 
-                  title: 'Publish your project whenever you want', 
-                  subtitle: 'Micheal'
+                  left: 75.0, 
+                  child: AnimatedScale(
+                    curve: Curves.easeInSine,
+                    scale: widget.pixels > 420 ? 1.0 : 0.0,
+                    duration: const Duration( milliseconds: 700 ),
+                    child: SoloIcon(
+                      icon: Icons.arrow_circle_left,
+                      pixels: widget.pixels, 
+                      factor: 1.0,
+                    ),                
+                  ),
                 ),
                 Positioned(
-                  right: 270.0,
+                  top: 390.0, 
+                  left: 780.0,                   
+                  child: AnimatedScale(
+                    curve: Curves.easeInSine,
+                    scale: widget.pixels > 420 && widget.pixels < 1600 ? 1.0 : 0.0,
+                    duration: const Duration( milliseconds: 700 ),
+                    child: SoloIcon(
+                      icon: Icons.arrow_circle_right,
+                      pixels: widget.pixels, 
+                      factor: 1.0, 
+                    ),          
+                  ),
+                ),
+                AnimatedPositioned(
+                  duration: const Duration( milliseconds: 700 ),
+                  curve: Curves.decelerate,
+                  right: widget.pixels >= 415 && widget.pixels < 1500 ? 270.0 : 5.0,
                   top: 150.0,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,12 +143,17 @@ class _ThreeSectionState extends State<ThreeSection> {
                     ],
                   ),
                 ),
-                Positioned(
-                  top: 10,
+              AnimatedPositioned(
+                  duration: const Duration( milliseconds: 700 ),
+                  top: widget.pixels >= 410 && widget.pixels < 1600 ? 10.0 : -20,
                   right: -5.0,
-                  child: Image.asset('assets/props/maquina_barber.png',
-                    height: 400.0,
-                    fit: BoxFit.contain,                  
+                  child: AnimatedScale(
+                    duration: const Duration( milliseconds: 700 ),
+                    scale: widget.pixels > 400 ? 1.0 : 0.0,
+                    child: Image.asset('assets/props/maquina_barber.png',
+                      height: 400.0,
+                      fit: BoxFit.contain,                  
+                    ),
                   )
                 )
               ],

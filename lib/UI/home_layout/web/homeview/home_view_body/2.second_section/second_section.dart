@@ -39,14 +39,14 @@ class _SecondSectionState extends State<SecondSection> {
                 // ),
                 AnimatedPositioned(
                   curve: Curves.easeOutQuad,
-                  right: widget.pixels >= 120 && widget.pixels < 850 ? 0.0 : -100.0 ,
+                  right: widget.pixels >= 120 && widget.pixels < 930 ? 0.0 : -100.0 ,
                   duration: const Duration( milliseconds: 700),
                   child: AnimatedOpacity(
-                    opacity: widget.pixels >= 120 && widget.pixels < 880 ? 1.0 : 0.0,
+                    opacity: widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
                     duration: const Duration( milliseconds: 700),
                     child: Opacity(
                       opacity: 0.25,
-                      child: Image.asset('assets/logos/logo_barberia.png',
+                      child: Image.asset('assets/logos/logo_barberia_color.png',
                         fit: BoxFit.contain,                  
                         height: 340,
                         
@@ -68,11 +68,11 @@ class _SecondSectionState extends State<SecondSection> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         AnimatedOpacity(
-                          opacity: widget.pixels >= 120 && widget.pixels < 850 ? 1.0 : 0.0,
+                          opacity: widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
                           duration: const Duration( milliseconds: 650),
                           child: AnimatedPadding(
                             curve: Curves.easeOutQuad,
-                            padding: EdgeInsets.only( left: widget.pixels >= 120 && widget.pixels < 850 ? 0.0 : 100.0 ),
+                            padding: EdgeInsets.only( left: widget.pixels >= 120 && widget.pixels < 930 ? 0.0 : 100.0 ),
                             duration: const Duration( milliseconds: 650 ),
                             child: const InfoPalette(
                               title: 'Cortes de pelo',
@@ -83,11 +83,11 @@ class _SecondSectionState extends State<SecondSection> {
                         ),
                         AnimatedOpacity(
                           duration: const Duration( milliseconds: 650 ),
-                          opacity: widget.pixels >= 120 && widget.pixels < 850 ? 1.0 : 0.0,
+                          opacity: widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
                           child: AnimatedPadding(
                             curve: Curves.easeOutQuad,
                             duration: const Duration( milliseconds: 650 ),
-                            padding: EdgeInsets.only( left: widget.pixels >= 120 && widget.pixels < 850 ? 0.0 : 100.0 ),
+                            padding: EdgeInsets.only( left: widget.pixels >= 120 && widget.pixels < 930 ? 0.0 : 100.0 ),
                             child: const InfoPalette(
                               title: 'Barbas',
                               text: 'Afeitada tradicional o recorte de barba. Contamos con el servicio de toalla caliente + asesoramiento.',
@@ -96,12 +96,12 @@ class _SecondSectionState extends State<SecondSection> {
                           ),
                         ),
                         AnimatedOpacity(
-                          opacity: widget.pixels >= 120 && widget.pixels < 850 ? 1.0 : 0.0,
+                          opacity: widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
                           duration: const Duration( milliseconds: 650 ),                          
                           child: AnimatedPadding(
                             curve: Curves.easeOutQuad,
                             duration: const Duration( milliseconds: 650 ),
-                            padding: EdgeInsets.only( left: widget.pixels >= 120 && widget.pixels < 850 ? 0.0 : 100.0 ),
+                            padding: EdgeInsets.only( left: widget.pixels >= 120 && widget.pixels < 930 ? 0.0 : 100.0 ),
                             child: const InfoPalette(
                               title: 'Niños',
                               text: 'Hemos trabajado para que nuestros clientes mas jovenes cuenten con un lugar donde se sientan comodos.',
@@ -115,7 +115,7 @@ class _SecondSectionState extends State<SecondSection> {
                     AnimatedScale(
                       curve: Curves.elasticInOut,
                       duration: const Duration( milliseconds: 1200 ),         
-                      scale: widget.pixels > 200 && widget.pixels < 950 ? 1.0 : 0.0,
+                      scale: widget.pixels > 270 && widget.pixels < 950 ? 1.0 : 0.0,
                       child: TextButton(
                         style: TextButton.styleFrom(
                           backgroundColor: Colors.white,

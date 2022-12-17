@@ -46,9 +46,13 @@ class _HeaderState extends State<Header> {
         children: [
           
             addHorizontalSpace(30),
-            Padding(
+            const Padding(
               padding: const EdgeInsets.symmetric(vertical: 5),
-              child: Image.asset('assets/logos/logo_barberia_color.png',scale: 1.2),
+              child: FadeInImage(
+                placeholderFilterQuality: FilterQuality.low,
+                image: AssetImage('assets/logos/logo_barberia_color.png'),
+                placeholder: AssetImage('assets/props/loading.gif'),
+                ),
             ),
             addHorizontalSpace(5),
             if( w >= 789 )

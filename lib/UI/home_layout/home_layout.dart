@@ -34,7 +34,8 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
         if (constraints.maxWidth < 600) {
           return const HomeScreenM();
         } else {
-          return _isLoading ? ViewLoading() : HomeView();
+          // return _isLoading ? ViewLoading() : HomeView();
+          return HomeView();
         }
       }
     );

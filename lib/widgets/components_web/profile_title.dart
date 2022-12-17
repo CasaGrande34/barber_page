@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
+//dependencies
 import 'package:google_fonts/google_fonts.dart';
-
+//file addresses
 import 'package:landing_page/utils/spaces.dart';
 
 class ProfileTitle extends StatelessWidget {
   final double top;
   final double left;
   final double factor;
-  final String? title;
   final String subtitle;
   final bool startsRating;
+  final double pixels;
   
   const ProfileTitle({
     Key? key,
     required this.top,
     required this.left,
     required this.factor,
-    required this.title,
     required this.subtitle,
-    this.startsRating = false,
+    this.startsRating = false, 
+    this.pixels = 0.0,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AnimatedPositioned(
-      duration: const Duration( milliseconds: 500 ),
+      duration: const Duration( milliseconds: 1000 ),
       top: top,
       left: left,
       child: Container(
@@ -46,7 +47,7 @@ class ProfileTitle extends StatelessWidget {
               radius: 12.0 * factor,
               backgroundColor: Colors.grey[800],
               child: Icon(
-                Icons.mail_outline_rounded,
+                Icons.favorite,
                 size: 12.0 * factor ,
                 color: Colors.white,
               ),
@@ -56,21 +57,14 @@ class ProfileTitle extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                  Text(
-                    title!,
-                    style: GoogleFonts.nunito(
-                      fontSize: 9.0 * factor,
-                      color: Colors.black,
-                      
-                    ),
-                  ),
+              
                   Text(
                   subtitle,
                   style: GoogleFonts.nunito(
-                    fontSize: 8.0 * factor,
+                    fontSize: 9.0 * factor,
                     color: Colors.black87,
                     
-                  )
+                  ),
                 ),
                 (startsRating) ? 
                 Row(
@@ -83,7 +77,7 @@ class ProfileTitle extends StatelessWidget {
                   ],
                 ) : const SizedBox()
               ],
-            )
+            ),
           ],
         ),
       ),

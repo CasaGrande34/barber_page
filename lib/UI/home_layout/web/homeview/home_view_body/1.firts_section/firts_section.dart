@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
@@ -8,7 +9,11 @@ import '../../../../../../widgets/components_web/profile_image.dart';
 import '../../../../../../widgets/components_web/profile_title.dart';
 
 class FirstSection extends StatefulWidget {
-  const FirstSection({Key? key}) : super(key: key);
+  final double pixels;
+  const FirstSection({
+    Key? key,
+    required this.pixels,
+  }) : super(key: key);
 
   @override
   State<FirstSection> createState() => _FirstSectionState();
@@ -40,9 +45,11 @@ class _FirstSectionState extends State<FirstSection> {
                             ),
                           ),
                         ),
-                        Positioned(
+                        AnimatedPositioned(
+                          duration: const Duration( milliseconds: 700 ),
+                          curve: Curves.easeOutBack,
                           top: 200.0,
-                          left: 100.0,
+                          left: widget.pixels < 480 ? 100.0 : 0,
                           child: SizedBox(
                             height: 400.0,
                             width: 400.0,
@@ -167,7 +174,7 @@ class _FirstSectionState extends State<FirstSection> {
                           top: 540.0, 
                           left: 100.0, 
                           factor: 1.0, 
-                          title: 'Bernardo Avellaneda', 
+                          // title: 'Bernardo Avellaneda', 
                           subtitle: 'Increible atencion y cuidado',
                           startsRating: true,
                         ),
@@ -175,7 +182,7 @@ class _FirstSectionState extends State<FirstSection> {
                           top: 140.0, 
                           left: -10.0, 
                           factor: 1.3, 
-                          title: 'Jacinto El Pollo', 
+                          // title: 'Jacinto El Pollo', 
                           subtitle: 'Muy buena atencion y la estetica del lugar 10 puntos',
                           startsRating: true,
                         ),
@@ -183,7 +190,7 @@ class _FirstSectionState extends State<FirstSection> {
                           top: 160.0, 
                           left: 395.0, 
                           factor: 1.1, 
-                          title: '', 
+                          // title: '', 
                           subtitle: 'Super atentos, sin dudas volveria',
                           startsRating: true,
                         ),
@@ -191,17 +198,21 @@ class _FirstSectionState extends State<FirstSection> {
                           top: 270.0, 
                           left: 440.0, 
                           factor: 1.6, 
-                          title: 'Marcelo Arallano', 
+                          // title: 'Marcelo Arallano', 
                           subtitle: 'Los chicos estan al detalle, muy profesionales.',
                           startsRating: true,
                         ),
-                        const Positioned(
+                        Positioned(
                           bottom: 10,
                           left: 35,
-                          child: Icon(
-                            Icons.keyboard_double_arrow_down_rounded,
-                            size: 40.0,
-                            color: Colors.grey,
+                          child: AnimatedOpacity(
+                            duration: const Duration( milliseconds: 700),
+                            opacity: widget.pixels > 100 ? 0.0 : 1.0,
+                            child: Icon(
+                              Icons.keyboard_double_arrow_down_rounded,
+                              size: 40.0,
+                              color: Colors.grey,
+                            ),
                           )
                         )
                       ],

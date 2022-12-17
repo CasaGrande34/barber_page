@@ -31,7 +31,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     scrollController.addListener(() {
       setState(() {
         pixels = scrollController.position.pixels;
-        print( scrollController.position.pixels );
+        // print( scrollController.position.maxScrollExtent );
       });
     });
   }
@@ -39,19 +39,20 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      
       physics: const BouncingScrollPhysics(),
       controller: scrollController,
       child: Column(
         children: [
           
           //? Primera Seccion.
-           const FirstSection(),
+          FirstSection( pixels: pixels ),
           /*	------------------------------------- */ 
           //?Segunda Seccion
           SecondSection( pixels: pixels ),      
           /*	------------------------------------- */ 
           //?Tercera Seccion.
-           const ThreeSection(),
+          ThreeSection( pixels: pixels ),
           /*	------------------------------------- */ 
           //?Cuarta Seccion.
            const FourSection(),
