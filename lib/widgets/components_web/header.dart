@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
+import 'package:landing_page/theme/theme_changer.dart';
 
 //file addresses
 import 'package:landing_page/utils/spaces.dart';
 import 'package:landing_page/widgets/theme_charger_switch.dart';
+import 'package:provider/provider.dart';
 
 import '../navbar_item.dart';
 
@@ -35,11 +37,11 @@ class _HeaderState extends State<Header> {
   // List<Widget> navItem() {
   @override
   Widget build(BuildContext context) {
-    
+    final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     double w = MediaQuery.of(context).size.width; 
     double h = MediaQuery.of(context).size.height; 
     return Container(
-      color: Colors.grey,
+      color: appTheme.colorScheme.onSecondary,
       height: h * .1,
       width: w,
       child: Row(
@@ -59,7 +61,8 @@ class _HeaderState extends State<Header> {
             Text(
               'Shelby - BarberShop',
               style: GoogleFonts.rye(
-                fontSize: 15
+                fontSize: 15,
+                color: appTheme.colorScheme.secondary,
               ),
             ),
             const Spacer(),

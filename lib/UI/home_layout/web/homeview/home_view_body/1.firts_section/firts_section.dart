@@ -1,8 +1,9 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
+import 'package:landing_page/theme/theme_changer.dart';
+import 'package:provider/provider.dart';
 //file addresses
 import '../../../../../../utils/spaces.dart';
 import '../../../../../../widgets/components_web/profile_image.dart';
@@ -22,6 +23,9 @@ class FirstSection extends StatefulWidget {
 class _FirstSectionState extends State<FirstSection> {
   @override
   Widget build(BuildContext context) {
+    
+    ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
+    
     double w = MediaQuery.of(context).size.width; 
     return  Stack(
             children: [
@@ -30,7 +34,7 @@ class _FirstSectionState extends State<FirstSection> {
                   Container(
                     height: 770.0,
                     width: w * 0.45,
-                    color: Colors.white,
+                    color: appTheme.colorScheme.background,
                     child: Stack(
                       children: [
                         Transform(
@@ -40,7 +44,7 @@ class _FirstSectionState extends State<FirstSection> {
                             height: 350.0,
                             width: 700.0,
                             decoration: BoxDecoration(
-                              color: Colors.grey[300],
+                              color: appTheme.colorScheme.onBackground,
                               borderRadius: BorderRadius.circular(300.0)
                             ),
                           ),
@@ -130,7 +134,7 @@ class _FirstSectionState extends State<FirstSection> {
                   ),
                   Container(
                     height: 770.0,
-                    color: Colors.white,
+                    color: appTheme.colorScheme.background,
                     width: w * 0.55,
                     child: Stack(
                       clipBehavior: Clip.none,
@@ -211,7 +215,7 @@ class _FirstSectionState extends State<FirstSection> {
                             child: Icon(
                               Icons.keyboard_double_arrow_down_rounded,
                               size: 40.0,
-                              color: Colors.grey,
+                              color:  appTheme.colorScheme.secondary,
                             ),
                           )
                         )

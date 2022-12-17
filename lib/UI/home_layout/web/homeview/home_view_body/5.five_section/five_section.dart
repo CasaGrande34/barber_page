@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
+import 'package:landing_page/theme/theme_changer.dart';
+import 'package:provider/provider.dart';
 //file addresses
 import '../../../../../../utils/spaces.dart';
 import '../../../../../../widgets/components_web/footer.dart';
@@ -12,11 +14,12 @@ class FiveSection extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
+      final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
       double w = MediaQuery.of(context).size.width; 
       return Container(
         width: w,
         height: 600,
-        color: const Color(0xff373e98),
+        color: appTheme.colorScheme.background,
         child: Stack(
           clipBehavior: Clip.none,
           children: [

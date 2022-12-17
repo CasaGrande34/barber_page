@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
+import 'package:landing_page/theme/theme_changer.dart';
 //file addresses
 import 'package:landing_page/utils/spaces.dart';
+import 'package:provider/provider.dart';
 
 class ProfileTitle extends StatelessWidget {
   final double top;
@@ -24,6 +26,7 @@ class ProfileTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     return AnimatedPositioned(
       duration: const Duration( milliseconds: 1000 ),
       top: top,
@@ -32,7 +35,7 @@ class ProfileTitle extends StatelessWidget {
         padding: EdgeInsets.all( 8.0 * factor),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: Colors.white,
+          color: appTheme.colorScheme.primary,
           boxShadow: [
             BoxShadow(
               color: Colors.black12,
@@ -49,7 +52,7 @@ class ProfileTitle extends StatelessWidget {
               child: Icon(
                 Icons.favorite,
                 size: 12.0 * factor ,
-                color: Colors.white,
+                color: appTheme.colorScheme.onPrimary,
               ),
             ),
             addHorizontalSpace(5.0),
@@ -68,12 +71,12 @@ class ProfileTitle extends StatelessWidget {
                 ),
                 (startsRating) ? 
                 Row(
-                  children: const [
-                    Icon(Icons.star, size: 12.0, color: Colors.yellow,),
-                    Icon(Icons.star, size: 12.0, color: Colors.yellow,),
-                    Icon(Icons.star, size: 12.0, color: Colors.yellow,),
-                    Icon(Icons.star, size: 12.0, color: Colors.yellow,),
-                    Icon(Icons.star, size: 12.0, color: Colors.yellow,),
+                  children: [
+                    Icon(Icons.star, size: 12.0, color: appTheme.colorScheme.onPrimary,),
+                    Icon(Icons.star, size: 12.0, color: appTheme.colorScheme.onPrimary,),
+                    Icon(Icons.star, size: 12.0, color: appTheme.colorScheme.onPrimary,),
+                    Icon(Icons.star, size: 12.0, color: appTheme.colorScheme.onPrimary,),
+                    Icon(Icons.star, size: 12.0, color: appTheme.colorScheme.onPrimary,),
                   ],
                 ) : const SizedBox()
               ],

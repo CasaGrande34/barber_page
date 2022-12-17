@@ -16,6 +16,7 @@ class ThemeChangerButton extends StatelessWidget {
     
     //Theme
     final themeChangerButton = Provider.of<ThemeCharger>(context);
+    final appTheme = themeChangerButton.currentTheme;
 
     return Row(
       children: [
@@ -23,10 +24,12 @@ class ThemeChangerButton extends StatelessWidget {
         Switch.adaptive(
             value: themeChangerButton.isDark, 
             onChanged: ((value) => themeChangerButton.isDark = value),
+            activeColor:  appTheme.colorScheme.primary,
+            activeTrackColor:  appTheme.colorScheme.onPrimary,
         ),  
         addHorizontalSpace(5),
         (themeChangerButton.isDark == true)?
-        const Icon(FontAwesomeIcons.moon)
+        Icon(FontAwesomeIcons.moon, color: appTheme.colorScheme.primary)
         : const Icon(FontAwesomeIcons.sun),
        ]
     );

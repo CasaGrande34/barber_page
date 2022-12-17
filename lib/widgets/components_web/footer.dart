@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:landing_page/theme/theme_changer.dart';
 import 'package:landing_page/utils/spaces.dart';
+import 'package:provider/provider.dart';
 
 class Footer extends StatelessWidget {
 const Footer({Key? key}) : super(key: key);
 
 @override
 Widget build(BuildContext context) {
+  final appTheme = Provider.of<ThemeCharger>(context).currentTheme;;
   double w = MediaQuery.of(context).size.width; 
   return Container(
     height: 300.0,
     width: w,
-    color: Colors.grey[300],
+    color: appTheme.colorScheme.background,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,

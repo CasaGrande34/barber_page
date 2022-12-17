@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
+import 'package:landing_page/theme/theme_changer.dart';
+import 'package:provider/provider.dart';
 //file addresses
 import '../../../../../../utils/spaces.dart';
 import '../../../../../../widgets/solo_icon.dart';
@@ -20,11 +22,12 @@ class ThreeSection extends StatefulWidget {
 class _ThreeSectionState extends State<ThreeSection> {
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     double w = MediaQuery.of(context).size.width; 
     return Container(
             height: 550,
             width: w,
-            color: Colors.white,
+            color: appTheme.colorScheme.background,
             child: Stack(
               clipBehavior: Clip.none,
               children: [

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 //file addresses
+import '../../../../../../theme/theme_changer.dart';
 import '../../../../../../utils/spaces.dart';
 import '../../../../../../widgets/components_web/info_palette.dart';
 
@@ -19,10 +21,11 @@ class SecondSection extends StatefulWidget {
 class _SecondSectionState extends State<SecondSection> {
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     return Container(
             height: 450.0,
             width: double.infinity,
-            color: Colors.white,
+            color: appTheme.colorScheme.background,
             child: Stack(
               children: [
                 // Positioned(

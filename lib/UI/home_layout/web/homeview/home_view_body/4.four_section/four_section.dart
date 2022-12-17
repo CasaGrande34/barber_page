@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
+import 'package:landing_page/theme/theme_changer.dart';
+import 'package:provider/provider.dart';
 //file addresses
 import '../../../../../../utils/spaces.dart';
 
@@ -9,13 +11,14 @@ class FourSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     double w = MediaQuery.of(context).size.width; 
     double h = MediaQuery.of(context).size.height; 
     return Container(
       height: 600.0,
       width: w,
       decoration: BoxDecoration(
-        color: Colors.grey[300],
+        color: appTheme.colorScheme.background,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(200),
           topRight: Radius.circular(200),
