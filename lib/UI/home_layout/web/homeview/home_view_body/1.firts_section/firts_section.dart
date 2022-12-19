@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 //dependencies
+import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/theme/theme_changer.dart';
-import 'package:provider/provider.dart';
 //file addresses
 import '../../../../../../utils/spaces.dart';
 import '../../../../../../widgets/components_web/profile_image.dart';

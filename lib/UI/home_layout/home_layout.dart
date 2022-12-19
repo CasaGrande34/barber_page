@@ -35,7 +35,8 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
           return const HomeScreenM();
         } else {
           // return _isLoading ? ViewLoading() : HomeView();
-          return HomeView();
+          // return HomeView();
+          return const ViewLoading();
         }
       }
     );
