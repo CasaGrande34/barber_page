@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:landing_page/widgets/components_web/image_listview.dart';
 //dependencies
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -139,74 +140,51 @@ class _FirstSectionState extends State<FirstSection> {
                     child: Stack(
                       clipBehavior: Clip.none,
                       children: [
-                          Positioned(
-                          right: 0.0,
-                          top: 30.0,
+                          
+                        Positioned(
+                          right: 280,
+                          bottom: 270,
                           child: Transform.rotate(
-                            angle: 40,
-                            child: Image.asset(
-                              'assets/props/tijeras.png',
-                              height: 300,
+                            angle: 0.35 * pi,
+                            child: Container(
+                              height: 250,
+                              width: 970,
+                              child: ImageListView(
+                                startIndex: 1,
+                                duration: 60, 
+                              ),
                             ),
                           ),
                         ),
-                        const ProfileImage(
-                          top: 140.0,
-                          left: 70.0,
-                          diameter: 220.0,
-                          image: 'assets/clients/1.jpg',
-                        ),
-                        const ProfileImage(
-                          top: 170.0,
-                          left: 322.0,
-                          diameter: 120.0,
-                          image: 'assets/clients/2.jpg',
-                        ),
-                        const ProfileImage(
-                          top: 300.0,
-                          left: 280.0,
-                          diameter: 300.0,
-                          image: 'assets/clients/3.jpg',
-                        ),
-                        const ProfileImage(
-                          top: 370.0,
-                          left: 70.0,
-                          diameter: 190.0,
-                          image: 'assets/clients/4.jpg',
-                        ),
-                        const ProfileTitle(
-                          top: 540.0, 
-                          left: 100.0, 
-                          factor: 1.0, 
-                          // title: 'Bernardo Avellaneda', 
-                          subtitle: 'Increible atencion y cuidado',
-                          startsRating: true,
-                        ),
-                        const ProfileTitle(
-                          top: 140.0, 
-                          left: -10.0, 
-                          factor: 1.3, 
-                          // title: 'Jacinto El Pollo', 
-                          subtitle: 'Muy buena atencion y la estetica del lugar 10 puntos',
-                          startsRating: true,
-                        ),
-                        const ProfileTitle(
-                          top: 160.0, 
-                          left: 395.0, 
-                          factor: 1.1, 
-                          // title: '', 
-                          subtitle: 'Super atentos, sin dudas volveria',
-                          startsRating: true,
-                        ),
-                        const ProfileTitle(
-                          top: 270.0, 
-                          left: 440.0, 
-                          factor: 1.6, 
-                          // title: 'Marcelo Arallano', 
-                          subtitle: 'Los chicos estan al detalle, muy profesionales.',
-                          startsRating: true,
-                        ),
                         Positioned(
+                          right: -10,
+                          bottom: 270,
+                          child: Transform.rotate(
+                            angle: 0.35 * pi,
+                            child: Container(
+                              height: 250,
+                              width: 970,
+                              child: ImageListView(
+                                startIndex: 2,
+                                duration: 60, 
+                              ),
+                            ),
+                          ),
+                        ),
+
+
+                        //  Positioned(
+                        //   left: -120,
+                        //   child: ImageListView(startIndex: 1, duration: 60)),
+                                 
+                        //  Positioned(
+                        //   left: 190,
+                        //   child: ImageListView(startIndex: 2, duration: 50)),
+                               
+                             
+                           
+                         
+                         Positioned(
                           bottom: 10,
                           left: 35,
                           child: AnimatedOpacity(
