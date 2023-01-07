@@ -19,7 +19,9 @@ class _HomeViewState extends State<HomeView> {
       body: Stack(
         children: [
           const HomeViewBody(),
-          Header(),
+          /*TENGO QUE VER QUE HAGO CON ESTE HEADER POR QUE IMPLEMENTE UN HEADER EN EL FIRST SECCION Y QUIERO QUE ESTE SE 
+          MUESTRE DE MANERA DINAMICA CUANDO ESTOY EN SECCION MAS ABAJO Y QUIERO SUBIR. */
+          // Header(),
         ],
       ),  
     );

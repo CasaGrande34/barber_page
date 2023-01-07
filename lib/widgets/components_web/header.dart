@@ -13,7 +13,11 @@ import '../navbar_item.dart';
 
 class Header extends StatefulWidget {
   
-  Header({Key? key}) : super(key: key);
+  final double pixels;
+  Header({
+    Key? key,
+    required this.pixels,
+  }) : super(key: key);
 
   @override
   State<Header> createState() => _HeaderState();
@@ -24,6 +28,11 @@ class _HeaderState extends State<Header> {
     true, false, false, false,
   ];
 
+/* 
+recibimos un numero como parametro y vamos a indicar que si el indice es diferente de este numero dado entonces 
+le indicamos a la lista selected en la posicion del indice que sea falso pero si el numero dado es igual al indice entonces el valor 
+de la lista se transforma en true y se transforma en true entonces seguimos creando logica para nuestro header
+ */
   void select(int n) {
     for (int i = 0; i < 4; i++) {
       if(i!=n) {
@@ -68,6 +77,7 @@ class _HeaderState extends State<Header> {
             const Spacer(),
             NavBarItem(
               text: 'Home',
+              //le indicamos a cada NavBarItem un valor de la lista con el indice
               active: selected[0],
               touched: () {
                 setState(() {
