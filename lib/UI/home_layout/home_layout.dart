@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:landing_page/UI/home_layout/mobile/screens/home_screen.dart';
 import 'package:landing_page/UI/home_layout/web/homeview/homeview.dart';
-import 'package:landing_page/widgets/components_web/homepage_indexnavbar.dart';
 
 import '../../widgets/components_web/view_loading.dart';
 
@@ -36,9 +35,8 @@ class _ResponsiveLayoutState extends State<ResponsiveLayout> {
           return const HomeScreenM();
         } else {
           // return _isLoading ? ViewLoading() : HomeView();
-          // return HomeView();
+          return HomeView();
           // return const ViewLoading();
-          return HomePageIndexNavBar();
         }
       }
     );
