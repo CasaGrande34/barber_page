@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 //file addresses
 import '../../../../../../theme/theme_changer.dart';
 import '../../../../../../utils/spaces.dart';
-import '../../../widgets/components_web/info_palette.dart';
+import '../../../widgets/info_palette.dart';
 
 class SecondSection extends StatefulWidget {
   final double pixels;

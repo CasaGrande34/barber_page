@@ -7,8 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../../../theme/theme_changer.dart';
 import '../../../../../../utils/spaces.dart';
 import '../../../../../../theme/theme_changer.dart';
-import '../../../widgets/components_web/header.dart';
-import 'package:landing_page/UI/home_layout/web/widgets/components_web/image_listview.dart';
+import '../../../widgets/header/header.dart';
+import 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
 
 class FirstSection extends StatefulWidget {
   final double pixels;
@@ -25,34 +25,28 @@ class _FirstSectionState extends State<FirstSection> {
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
-    double w = MediaQuery.of(context).size.width;
-
-    return Column(
+    final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
+    return Stack(
       children: [
-        Header(
-          pixels: widget.pixels,
-        ),
-        Stack(
+        Row(
           children: [
-            Row(
-              children: [
-                //🔥🔥Espacio de firstSection
-                Container(
-                  height: 770.0,
-                  width: w * 0.45,
-                  color: appTheme.colorScheme.background,
-                  child: _LeftBody(widget: widget),
-                ),
-                Container(
-                  height: 770.0,
-                  color: appTheme.colorScheme.background,
-                  width: w * 0.55,
-                  child: _RightBody(widget: widget),
-                )
-              ],
+            //🔥🔥Espacio de firstSection
+            Container(
+              height: 753.0,
+              width: w * 0.45,
+              color: appTheme.colorScheme.background,
+              child: _LeftBody(widget: widget),
             ),
+            Container(
+              height: 753.0,
+              color: appTheme.colorScheme.background,
+              width: w * 0.55,
+              child: _RightBody(widget: widget),
+            )
           ],
         ),
+        Header(pixels: widget.pixels),
       ],
     );
   }
@@ -77,7 +71,7 @@ class _LeftBody extends StatelessWidget {
             height: 350.0,
             width: 700.0,
             decoration: BoxDecoration(
-                color: appTheme.colorScheme.background,
+                color: appTheme.colorScheme.onBackground,
                 borderRadius: BorderRadius.circular(300.0)),
           ),
         ),
@@ -178,31 +172,31 @@ class _RightBody extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Positioned(
-          right: 280,
-          bottom: 270,
+          right: 300,
+          bottom: 190,
           child: Transform.rotate(
             angle: 0.35 * pi,
             child: const SizedBox(
               height: 250,
-              width: 970,
+              width: 790,
               child: ImageListView(
                 startIndex: 1,
-                duration: 60,
+                duration: 140,
               ),
             ),
           ),
         ),
         Positioned(
-          right: -10,
-          bottom: 270,
+          right: 0,
+          bottom: 190,
           child: Transform.rotate(
             angle: 0.35 * pi,
             child: const SizedBox(
               height: 250,
-              width: 970,
+              width: 790,
               child: ImageListView(
                 startIndex: 2,
-                duration: 60,
+                duration: 200,
               ),
             ),
           ),
@@ -216,6 +210,33 @@ class _RightBody extends StatelessWidget {
         //   left: 190,
         //   child: ImageListView(startIndex: 2, duration: 50)),
 
+        Positioned(
+          top: 75,
+          left: -150,
+          child: Container(
+            height: 70,
+            width: 600,
+            color: appTheme.colorScheme.background,
+            // color: Colors.blueGrey,
+            child: Image.asset(
+              'assets/decoration/border_top.png',
+              alignment: Alignment.center,
+            ),
+          ),
+        ),
+
+        Positioned(
+          right: 10,
+          bottom: 0,
+          child: Container(
+            height: 40,
+            width: 690,
+            color: appTheme.colorScheme.background,
+            // color: Colors.blueGrey,
+            child: Image.asset('assets/decoration/border_bottom.png',
+                width: double.infinity, alignment: Alignment.center),
+          ),
+        ),
         Positioned(
             bottom: 10,
             left: 35,

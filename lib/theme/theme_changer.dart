@@ -65,7 +65,7 @@ const ColorScheme colorSchemeLight = ColorScheme(
   onSurface: Colors.yellowAccent,
 );
 const ColorScheme colorSchemedark = ColorScheme(
-  background: Color(0xfff6f6f5),
+  background: Color.fromARGB(255, 52, 52, 52),
   onBackground: Color(0xff464646),
   brightness: Brightness.dark,
   primary: Color(0xffFFF8E1),

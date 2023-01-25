@@ -52,6 +52,7 @@ class _ImageListViewState extends State<ImageListView> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       controller: _scrollController,
       scrollDirection: Axis.horizontal,
       itemCount: 7,

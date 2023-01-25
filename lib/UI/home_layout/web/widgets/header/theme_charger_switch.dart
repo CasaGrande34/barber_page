@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //file addresses
-import '../../../../utils/spaces.dart';
-import '../../../../theme/theme_changer.dart';
+import '../../../../../utils/spaces.dart';
+import '../../../../../theme/theme_changer.dart';
 
 class ThemeChangerButton extends StatelessWidget {
   const ThemeChangerButton({

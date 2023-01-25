@@ -6,10 +6,10 @@ import 'package:landing_page/theme/theme_changer.dart';
 
 //file addresses
 import 'package:landing_page/utils/spaces.dart';
-import 'package:landing_page/UI/home_layout/web/widgets/theme_charger_switch.dart';
+import 'package:landing_page/UI/home_layout/web/widgets/header/theme_charger_switch.dart';
 import 'package:provider/provider.dart';
 
-import '../navbar_item.dart';
+import 'navbar_item.dart';
 
 class Header extends StatefulWidget {
   final double pixels;
