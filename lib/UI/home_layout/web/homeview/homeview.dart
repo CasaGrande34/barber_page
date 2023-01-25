@@ -3,28 +3,25 @@ import 'package:flutter/material.dart';
 
 //file addresses
 import 'home_view_body/home_view_body.dart';
-import 'package:landing_page/widgets/components_web/header.dart';
 
 class HomeView extends StatefulWidget {
-
   const HomeView({Key? key}) : super(key: key);
   @override
   State<HomeView> createState() => _HomeViewState();
 }
+
 class _HomeViewState extends State<HomeView> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
-          const HomeViewBody(),
+        children: const [
+          HomeViewBody(),
           /*TENGO QUE VER QUE HAGO CON ESTE HEADER POR QUE IMPLEMENTE UN HEADER EN EL FIRST SECCION Y QUIERO QUE ESTE SE 
           MUESTRE DE MANERA DINAMICA CUANDO ESTOY EN SECCION MAS ABAJO Y QUIERO SUBIR. */
           // Header(),
         ],
-      ),  
+      ),
     );
   }
 }
-

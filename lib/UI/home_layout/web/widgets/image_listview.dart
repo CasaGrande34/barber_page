@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 
 class ImageListView extends StatefulWidget {
-  
   final int startIndex;
   final int duration;
   const ImageListView({
@@ -19,46 +17,48 @@ class ImageListView extends StatefulWidget {
 
 class _ImageListViewState extends State<ImageListView> {
   late ScrollController _scrollController;
-  
+
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-    _scrollController.addListener(() { 
-      if(_scrollController.position.atEdge) {
+    _scrollController.addListener(() {
+      /* 
+      Agregamos una escucha y esta escuchando la propiedad atEdge que regresa un booleano
+      que indica si estamos en el borde superior o inferior del scroll
+       */
+      if (_scrollController.position.atEdge) {
         _autoScroll();
       }
     });
-    
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) { 
+    //El autoScroll metodo se inicializa luego de que los widget se renderizen y actualicen
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _autoScroll();
     });
   }
-  
+
   _autoScroll() {
-    final _currentScrollPosition = _scrollController.offset;
-    final _scrollEndPosition = _scrollController.position.maxScrollExtent;
-    
+    final currentScrollPosition = _scrollController.offset;
+    final scrollEndPosition = _scrollController.position.maxScrollExtent;
+
     scheduleMicrotask(() {
       _scrollController.animateTo(
-          _currentScrollPosition == _scrollEndPosition ? 0 : _scrollEndPosition, 
-          duration: Duration( seconds: widget.duration ), 
-          curve: Curves.linear
-        
-        );
+          currentScrollPosition == scrollEndPosition ? 0 : scrollEndPosition,
+          duration: Duration(seconds: widget.duration),
+          curve: Curves.linear);
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       controller: _scrollController,
       scrollDirection: Axis.horizontal,
-      itemCount: 8,
-      itemBuilder: ((context, index) { return _ImageTile(
-             image: 'assets/clients/${widget.startIndex + index }.jpg',
-        
-      );
+      itemCount: 7,
+      itemBuilder: ((context, index) {
+        return _ImageTile(
+          image: 'assets/clients/${widget.startIndex + index}.jpg',
+        );
       }),
     );
   }
@@ -80,7 +80,3 @@ class _ImageTile extends StatelessWidget {
     );
   }
 }
-
-
-
-

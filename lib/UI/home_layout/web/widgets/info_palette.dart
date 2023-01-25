@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+//dependencies
 import 'package:google_fonts/google_fonts.dart';
+//file addresses
 import 'package:landing_page/utils/spaces.dart';
 
 class InfoPalette extends StatelessWidget {
   final String title;
-  final String text; 
+  final String text;
   final IconData icon;
-  
+
   const InfoPalette({
     Key? key,
     required this.title,
@@ -45,10 +47,9 @@ class InfoPalette extends StatelessWidget {
           child: Text(
             text,
             style: GoogleFonts.nunito(
-              fontWeight: FontWeight.w400,
-              color: Colors.black54,
-              fontSize: 14.0
-            ),
+                fontWeight: FontWeight.w400,
+                color: Colors.black54,
+                fontSize: 14.0),
           ),
         ),
         addVerticalSpace(15.0),
