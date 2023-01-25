@@ -51,16 +51,20 @@ class _ImageListViewState extends State<ImageListView> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      controller: _scrollController,
-      scrollDirection: Axis.horizontal,
-      itemCount: 7,
-      itemBuilder: ((context, index) {
-        return _ImageTile(
-          image: 'assets/clients/${widget.startIndex + index}.jpg',
-        );
-      }),
+    return Container(
+      decoration: BoxDecoration(
+          gradient: RadialGradient(colors: [Colors.black, Colors.transparent])),
+      child: ListView.builder(
+        shrinkWrap: true,
+        controller: _scrollController,
+        scrollDirection: Axis.horizontal,
+        itemCount: 7,
+        itemBuilder: ((context, index) {
+          return _ImageTile(
+            image: 'assets/clients/${widget.startIndex + index}.jpg',
+          );
+        }),
+      ),
     );
   }
 }

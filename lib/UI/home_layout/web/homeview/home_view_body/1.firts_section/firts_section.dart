@@ -47,6 +47,25 @@ class _FirstSectionState extends State<FirstSection> {
           ],
         ),
         Header(pixels: widget.pixels),
+        //BORDERS
+        Positioned(
+          top: 85,
+          right: 445,
+          child: Image.asset(
+            'assets/decoration/border.png',
+            fit: BoxFit.cover,
+            width: 640,
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          right: 142,
+          child: Image.asset(
+            'assets/decoration/border.png',
+            width: 640,
+            fit: BoxFit.cover,
+          ),
+        ),
       ],
     );
   }
@@ -152,6 +171,18 @@ class _LeftBody extends StatelessWidget {
             ),
           ),
         ),
+        Positioned(
+            bottom: 10,
+            left: 35,
+            child: AnimatedOpacity(
+              duration: const Duration(milliseconds: 700),
+              opacity: widget.pixels > 100 ? 0.0 : 1.0,
+              child: Icon(
+                Icons.keyboard_double_arrow_down_rounded,
+                size: 40.0,
+                color: appTheme.colorScheme.secondary,
+              ),
+            ))
       ],
     );
   }
@@ -171,17 +202,28 @@ class _RightBody extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
+        //Carousel de imagenes
         Positioned(
           right: 300,
           bottom: 190,
           child: Transform.rotate(
             angle: 0.35 * pi,
-            child: const SizedBox(
+            child: SizedBox(
               height: 250,
-              width: 790,
-              child: ImageListView(
-                startIndex: 1,
-                duration: 140,
+              width: 900,
+              child: ShaderMask(
+                blendMode: BlendMode.dstOut,
+                shaderCallback: (rect) {
+                  return LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [Colors.black, Colors.transparent, Colors.black],
+                  ).createShader(rect);
+                },
+                child: ImageListView(
+                  startIndex: 1,
+                  duration: 140,
+                ),
               ),
             ),
           ),
@@ -191,64 +233,45 @@ class _RightBody extends StatelessWidget {
           bottom: 190,
           child: Transform.rotate(
             angle: 0.35 * pi,
-            child: const SizedBox(
+            child: SizedBox(
               height: 250,
-              width: 790,
-              child: ImageListView(
-                startIndex: 2,
-                duration: 200,
+              width: 900,
+              child: ShaderMask(
+                blendMode: BlendMode.dstOut,
+                shaderCallback: (rect) {
+                  return LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [Colors.black, Colors.transparent, Colors.black],
+                  ).createShader(rect);
+                },
+                child: ImageListView(
+                  startIndex: 8,
+                  duration: 200,
+                ),
               ),
             ),
           ),
         ),
-
-        //  Positioned(
-        //   left: -120,
-        //   child: ImageListView(startIndex: 1, duration: 60)),
-
-        //  Positioned(
-        //   left: 190,
-        //   child: ImageListView(startIndex: 2, duration: 50)),
-
+        //BORDERS Color de fondo para las imagenes que estan en el otro stack de arriba
         Positioned(
           top: 75,
-          left: -150,
+          left: -220,
           child: Container(
-            height: 70,
+            height: 40,
             width: 600,
             color: appTheme.colorScheme.background,
-            // color: Colors.blueGrey,
-            child: Image.asset(
-              'assets/decoration/border_top.png',
-              alignment: Alignment.center,
-            ),
           ),
         ),
-
         Positioned(
-          right: 10,
+          right: 65,
           bottom: 0,
           child: Container(
             height: 40,
             width: 690,
             color: appTheme.colorScheme.background,
-            // color: Colors.blueGrey,
-            child: Image.asset('assets/decoration/border_bottom.png',
-                width: double.infinity, alignment: Alignment.center),
           ),
         ),
-        Positioned(
-            bottom: 10,
-            left: 35,
-            child: AnimatedOpacity(
-              duration: const Duration(milliseconds: 700),
-              opacity: widget.pixels > 100 ? 0.0 : 1.0,
-              child: Icon(
-                Icons.keyboard_double_arrow_down_rounded,
-                size: 40.0,
-                color: appTheme.colorScheme.secondary,
-              ),
-            ))
       ],
     );
   }
