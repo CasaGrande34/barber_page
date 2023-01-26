@@ -1,14 +1,28 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
+const listImagesListView = [
+  'assets/clients/0.jpg',
+  'assets/clients/1.jpg',
+  'assets/clients/2.jpg',
+  'assets/clients/3.jpg',
+  'assets/clients/4.jpg',
+  'assets/clients/5.jpg',
+  'assets/clients/6.jpg',
+  'assets/clients/7.jpg',
+  'assets/clients/8.jpg',
+];
+
 class ImageListView extends StatefulWidget {
-  final int startIndex;
+  //🔥🔥Me tira un error el sumar el index con el positionindex tengo que acomodarlo
+  final int positionIndex;
   final int duration;
+  final bool reverse;
   const ImageListView({
     Key? key,
-    required this.startIndex,
+    required this.positionIndex,
     required this.duration,
+    this.reverse = false,
   }) : super(key: key);
 
   @override
@@ -51,20 +65,18 @@ class _ImageListViewState extends State<ImageListView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          gradient: RadialGradient(colors: [Colors.black, Colors.transparent])),
-      child: ListView.builder(
-        shrinkWrap: true,
-        controller: _scrollController,
-        scrollDirection: Axis.horizontal,
-        itemCount: 7,
-        itemBuilder: ((context, index) {
-          return _ImageTile(
-            image: 'assets/clients/${widget.startIndex + index}.jpg',
-          );
-        }),
-      ),
+    return ListView.builder(
+      reverse: widget.reverse,
+      controller: _scrollController,
+      scrollDirection: Axis.horizontal,
+      itemCount: listImagesListView.length,
+      itemBuilder: ((context, index) {
+        //🔥🔥Me tira un error el sumar el index con el positionindex tengo que acomodarlo
+        final imageindex = listImagesListView[index + widget.positionIndex];
+        return _ImageTile(
+          image: imageindex,
+        );
+      }),
     );
   }
 }

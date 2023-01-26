@@ -8,24 +8,25 @@ import '../../../../../../utils/spaces.dart';
 import '../../../widgets/solo_icon.dart';
 import '../../../widgets/slider_custom.dart';
 
-class ThreeSection extends StatefulWidget {
+class FourtSection extends StatefulWidget {
   final double pixels;
-  const ThreeSection({
+  const FourtSection({
     Key? key,
     required this.pixels,
   }) : super(key: key);
 
   @override
-  State<ThreeSection> createState() => _ThreeSectionState();
+  State<FourtSection> createState() => _FourtSectionState();
 }
 
-class _ThreeSectionState extends State<ThreeSection> {
+class _FourtSectionState extends State<FourtSection> {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
-    double w = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
     return Container(
-      height: 550,
+      height: h,
       width: w,
       color: appTheme.colorScheme.background,
       child: Stack(
