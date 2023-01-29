@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
+import 'package:landing_page/theme/theme_changer.dart';
 import 'package:provider/provider.dart';
 //file addresses
-import '../../../../../../theme/theme_changer.dart';
 import '../../../../../../utils/spaces.dart';
-import '../../../widgets/info_palette.dart';
+import '../../../widgets/solo_icon.dart';
+import '../../../widgets/slider_custom.dart';
 
 class ThirdSection extends StatefulWidget {
   final double pixels;
@@ -29,139 +30,132 @@ class _ThirdSectionState extends State<ThirdSection> {
       width: w,
       color: appTheme.colorScheme.background,
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
-          // Positioned(
-          //   right: -200.0,
-          //   child: Container(
-          //     height: 330.0,
-          //     width: 430.0,
-          //     decoration: BoxDecoration(
-          //       color: Colors.grey[200],
-          //       borderRadius: BorderRadius.circular(300.0),
-          //     ),
-          //   ),
-
-          // ),
+          Positioned(
+            left: -250.0,
+            child: Container(
+              height: 450.0,
+              width: 700.0,
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 36, 36, 36),
+                borderRadius: BorderRadius.circular(400.0),
+              ),
+              child: Opacity(
+                opacity: 0.1,
+                child: Image.asset(
+                  'assets/decoration/fondo_barber.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
           AnimatedPositioned(
-              curve: Curves.easeOutQuad,
-              right: widget.pixels >= 120 && widget.pixels < 930 ? 0.0 : -100.0,
+            duration: const Duration(milliseconds: 700),
+            curve: Curves.easeOutQuad,
+            top: 20.0,
+            left: widget.pixels >= 410 && widget.pixels < 1600 ? 100.0 : 20.0,
+            child: Container(
+              height: 400.0,
+              width: 700.0,
+              decoration: BoxDecoration(
+                color: Colors.amber,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              clipBehavior: Clip.antiAliasWithSaveLayer,
+              child: const SliderCustom(),
+            ),
+          ),
+          Positioned(
+            top: 15.0,
+            left: 75.0,
+            child: AnimatedScale(
+              curve: Curves.easeInSine,
+              scale: widget.pixels > 420 ? 1.0 : 0.0,
               duration: const Duration(milliseconds: 700),
-              child: AnimatedOpacity(
-                opacity:
-                    widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
-                duration: const Duration(milliseconds: 700),
-                child: Opacity(
-                  opacity: 0.25,
-                  child: Image.asset(
-                    'assets/logos/logo_barberia_color.png',
-                    fit: BoxFit.contain,
-                    height: 340,
+              child: SoloIcon(
+                icon: Icons.arrow_circle_left,
+                pixels: widget.pixels,
+                factor: 1.0,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 390.0,
+            left: 780.0,
+            child: AnimatedScale(
+              curve: Curves.easeInSine,
+              scale: widget.pixels > 420 && widget.pixels < 1600 ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 700),
+              child: SoloIcon(
+                icon: Icons.arrow_circle_right,
+                pixels: widget.pixels,
+                factor: 1.0,
+              ),
+            ),
+          ),
+          AnimatedPositioned(
+            duration: const Duration(milliseconds: 700),
+            curve: Curves.decelerate,
+            right: widget.pixels >= 415 && widget.pixels < 1500 ? 270.0 : 5.0,
+            top: 150.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Easy Project Management',
+                  style: GoogleFonts.rye(
+                      fontWeight: FontWeight.w800, fontSize: 25.0),
+                ),
+                addVerticalSpace(15),
+                SizedBox(
+                  width: 280.0,
+                  child: Text(
+                    'In veniam dolor labore elit aliquip mollit eiusmod incididunt reprehenderit.',
+                    style: GoogleFonts.nunito(
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black54,
+                      fontSize: 14.0,
+                    ),
                   ),
                 ),
-              )),
-          Column(
-            children: [
-              Text(
-                'Nuestros servicios',
-                style: GoogleFonts.rye(
-                    fontSize: 20.0, fontWeight: FontWeight.w700),
-              ),
-              addVerticalSpace(40.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  AnimatedOpacity(
-                    opacity:
-                        widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
-                    duration: const Duration(milliseconds: 650),
-                    child: AnimatedPadding(
-                      curve: Curves.easeOutQuad,
-                      padding: EdgeInsets.only(
-                          left: widget.pixels >= 120 && widget.pixels < 930
-                              ? 0.0
-                              : 100.0),
-                      duration: const Duration(milliseconds: 650),
-                      child: const InfoPalette(
-                        title: 'Cortes de pelo',
-                        text:
-                            'Clásicos o modernos. Marcamos tendencia combinando máquinas y tijeras.',
-                        icon: Icons.people_rounded,
+                addVerticalSpace(15),
+                TextButton(
+                    style: TextButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100.0)),
+                      backgroundColor: Colors.grey[900],
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 50.0,
+                        vertical: 20.0,
                       ),
                     ),
-                  ),
-                  AnimatedOpacity(
-                    duration: const Duration(milliseconds: 650),
-                    opacity:
-                        widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
-                    child: AnimatedPadding(
-                      curve: Curves.easeOutQuad,
-                      duration: const Duration(milliseconds: 650),
-                      padding: EdgeInsets.only(
-                          left: widget.pixels >= 120 && widget.pixels < 930
-                              ? 0.0
-                              : 100.0),
-                      child: const InfoPalette(
-                        title: 'Barbas',
-                        text:
-                            'Afeitada tradicional o recorte de barba. Contamos con el servicio de toalla caliente + asesoramiento.',
-                        icon: Icons.pie_chart_rounded,
-                      ),
-                    ),
-                  ),
-                  AnimatedOpacity(
-                    opacity:
-                        widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
-                    duration: const Duration(milliseconds: 650),
-                    child: AnimatedPadding(
-                      curve: Curves.easeOutQuad,
-                      duration: const Duration(milliseconds: 650),
-                      padding: EdgeInsets.only(
-                          left: widget.pixels >= 120 && widget.pixels < 930
-                              ? 0.0
-                              : 100.0),
-                      child: const InfoPalette(
-                        title: 'Niños',
-                        text:
-                            'Hemos trabajado para que nuestros clientes mas jovenes cuenten con un lugar donde se sientan comodos.',
-                        icon: Icons.person_rounded,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              addVerticalSpace(60.0),
-              AnimatedScale(
-                curve: Curves.elasticInOut,
-                duration: const Duration(milliseconds: 1200),
-                scale: widget.pixels > 270 && widget.pixels < 950 ? 1.0 : 0.0,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black87,
-                      padding: const EdgeInsets.all(0.0)),
-                  onPressed: () {},
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30.0,
-                      vertical: 8.0,
-                    ),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40.0),
-                        border: Border.all(
-                          color: Colors.grey[800]!,
-                        )),
+                    onPressed: () {},
                     child: Text(
-                      'Explore more..',
+                      'Try for free',
                       style: GoogleFonts.nunito(
                         fontSize: 12.0,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
                       ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+                    ))
+              ],
+            ),
           ),
+          AnimatedPositioned(
+              duration: const Duration(milliseconds: 700),
+              top: widget.pixels >= 410 && widget.pixels < 1600 ? 10.0 : -20,
+              right: -5.0,
+              child: AnimatedScale(
+                duration: const Duration(milliseconds: 700),
+                scale: widget.pixels > 400 ? 1.0 : 0.0,
+                child: Image.asset(
+                  'assets/props/maquina_barber.png',
+                  height: 400.0,
+                  fit: BoxFit.contain,
+                ),
+              ))
         ],
       ),
     );

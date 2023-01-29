@@ -60,7 +60,7 @@ class _FirstSplashViewState extends State<FirstSplashView> {
         _d = true;
       });
     });
-    timer6 = Timer(const Duration(milliseconds: 3850), () {
+    timer6 = Timer(const Duration(milliseconds: 4700), () {
       setState(() {
         Navigator.of(context).pushReplacement(
           ThisIsFadeRoute(route: const SecondSplashView()),
@@ -90,7 +90,7 @@ class _FirstSplashViewState extends State<FirstSplashView> {
         child: Column(
           children: [
             AnimatedContainer(
-              duration: Duration(milliseconds: _d ? 900 : 2500),
+              duration: Duration(milliseconds: _d ? 1300 : 3000),
               curve: _d ? Curves.fastLinearToSlowEaseIn : Curves.elasticOut,
               height: _d
                   ? 0
@@ -103,14 +103,15 @@ class _FirstSplashViewState extends State<FirstSplashView> {
             AnimatedContainer(
               duration: Duration(
                   seconds: _d
-                      ? 1
+                      ? 2
                       : _c
-                          ? 200
-                          : 20),
+                          ? 600
+                          : 100),
               decoration: BoxDecoration(
-                  // color: _b ? Colors.white : Colors.transparent,
-                  borderRadius:
-                      _d ? BorderRadius.only() : BorderRadius.circular(30)),
+                // color: _b ? Colors.white : Colors.transparent,
+                borderRadius:
+                    _d ? BorderRadius.only() : BorderRadius.circular(30),
+              ),
               child: Center(
                 child: _e
                     ? AnimatedTextKit(
@@ -119,7 +120,7 @@ class _FirstSplashViewState extends State<FirstSplashView> {
                           FadeAnimatedText(
                             'Shelby Barber',
                             duration: const Duration(
-                              milliseconds: 1700,
+                              milliseconds: 2500,
                             ),
                             textStyle: const TextStyle(
                               fontSize: 30,
@@ -155,8 +156,10 @@ class ThisIsFadeRoute extends PageRouteBuilder {
               Animation<double> secondaryAnimation,
               Widget child,
             ) =>
-                FadeTransition(
-                  opacity: animation,
+                SlideTransition(
+                  position:
+                      Tween(begin: Offset(0.0, 1.0), end: Offset(0.0, 0.0))
+                          .animate(animation),
                   child: route,
                 ));
 }
@@ -182,12 +185,12 @@ class _SecondSplashViewState extends State<SecondSplashView> {
   void initState() {
     super.initState();
     _currentIndex = 0;
-    // timer1 = Timer(const Duration(milliseconds: 6000), () {
-    //   setState(() {
-    //     Navigator.of(context)
-    //         .pushReplacement(ThisIsFadeRoute(route: const HomeView()));
-    //   });
-    // });
+    timer1 = Timer(const Duration(milliseconds: 6000), () {
+      setState(() {
+        Navigator.of(context)
+            .pushReplacement(ThisIsFadeRoute(route: const HomeView()));
+      });
+    });
   }
 
   @override
@@ -277,7 +280,7 @@ class _SecondSplashViewState extends State<SecondSplashView> {
                   autoPlayCurve: Curves.easeInOutQuint,
                   autoPlay: true,
                   autoPlayInterval: Duration(milliseconds: 3400),
-                  autoPlayAnimationDuration: Duration(milliseconds: 2000),
+                  autoPlayAnimationDuration: Duration(milliseconds: 1900),
                 ),
                 items: _carouselImages
                     .map((e) => ClipRRect(

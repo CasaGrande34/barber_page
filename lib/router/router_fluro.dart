@@ -10,7 +10,7 @@ class RouterFluro {
     router.define(
       '/',
       handler: Handler(
-        handlerFunc: ((context, parameters) => const SecondSplashView()),
+        handlerFunc: ((context, parameters) => const FirstSplashView()),
       ),
     );
   }
