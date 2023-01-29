@@ -78,7 +78,7 @@ class FiveSection extends StatelessWidget {
                     ClipOval(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: Image.asset(
-                        'assets/clients/9.jpg',
+                        'assets/clients/8.jpg',
                         width: w * .25,
                         height: h * .65,
                         fit: BoxFit.cover,
