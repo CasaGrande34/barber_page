@@ -5,7 +5,6 @@ import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 //file addresses
 import 'package:landing_page/UI/home_layout/web/homeview/home_view_body/1.first_section/first_section.dart';
 import 'package:landing_page/UI/home_layout/web/homeview/home_view_body/5.five_section/five_section.dart';
-import '1.first_section/first_section.dart';
 import '4.fourth_section/fourth_section.dart';
 import '2.second_section/second_section.dart';
 import 'package:landing_page/UI/home_layout/web/homeview/home_view_body/3.third_section/third_section.dart';
