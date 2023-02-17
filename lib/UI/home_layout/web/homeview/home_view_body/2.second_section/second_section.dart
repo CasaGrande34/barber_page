@@ -8,10 +8,10 @@ import '../../../../../../utils/spaces.dart';
 import '../../../widgets/info_palette.dart';
 
 class SecondSection extends StatefulWidget {
-  final double pixels;
+  final double? pixels;
   const SecondSection({
     Key? key,
-    required this.pixels,
+    this.pixels = 0.0,
   }) : super(key: key);
 
   @override
@@ -44,11 +44,12 @@ class _SecondSectionState extends State<SecondSection> {
           // ),
           AnimatedPositioned(
               curve: Curves.easeOutQuad,
-              right: widget.pixels >= 120 && widget.pixels < 930 ? 0.0 : -100.0,
+              right:
+                  widget.pixels! >= 120 && widget.pixels! < 930 ? 0.0 : -100.0,
               duration: const Duration(milliseconds: 700),
               child: AnimatedOpacity(
                 opacity:
-                    widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
+                    widget.pixels! >= 120 && widget.pixels! < 930 ? 1.0 : 0.0,
                 duration: const Duration(milliseconds: 700),
                 child: Opacity(
                   opacity: 0.25,
@@ -71,13 +72,14 @@ class _SecondSectionState extends State<SecondSection> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   AnimatedOpacity(
-                    opacity:
-                        widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
+                    opacity: widget.pixels! >= 120 && widget.pixels! < 930
+                        ? 1.0
+                        : 0.0,
                     duration: const Duration(milliseconds: 650),
                     child: AnimatedPadding(
                       curve: Curves.easeOutQuad,
                       padding: EdgeInsets.only(
-                          left: widget.pixels >= 120 && widget.pixels < 930
+                          left: widget.pixels! >= 120 && widget.pixels! < 930
                               ? 0.0
                               : 100.0),
                       duration: const Duration(milliseconds: 650),
@@ -91,13 +93,14 @@ class _SecondSectionState extends State<SecondSection> {
                   ),
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 650),
-                    opacity:
-                        widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
+                    opacity: widget.pixels! >= 120 && widget.pixels! < 930
+                        ? 1.0
+                        : 0.0,
                     child: AnimatedPadding(
                       curve: Curves.easeOutQuad,
                       duration: const Duration(milliseconds: 650),
                       padding: EdgeInsets.only(
-                          left: widget.pixels >= 120 && widget.pixels < 930
+                          left: widget.pixels! >= 120 && widget.pixels! < 930
                               ? 0.0
                               : 100.0),
                       child: const InfoPalette(
@@ -109,14 +112,15 @@ class _SecondSectionState extends State<SecondSection> {
                     ),
                   ),
                   AnimatedOpacity(
-                    opacity:
-                        widget.pixels >= 120 && widget.pixels < 930 ? 1.0 : 0.0,
+                    opacity: widget.pixels! >= 120 && widget.pixels! < 930
+                        ? 1.0
+                        : 0.0,
                     duration: const Duration(milliseconds: 650),
                     child: AnimatedPadding(
                       curve: Curves.easeOutQuad,
                       duration: const Duration(milliseconds: 650),
                       padding: EdgeInsets.only(
-                          left: widget.pixels >= 120 && widget.pixels < 930
+                          left: widget.pixels! >= 120 && widget.pixels! < 930
                               ? 0.0
                               : 100.0),
                       child: const InfoPalette(
@@ -133,7 +137,7 @@ class _SecondSectionState extends State<SecondSection> {
               AnimatedScale(
                 curve: Curves.elasticInOut,
                 duration: const Duration(milliseconds: 1200),
-                scale: widget.pixels > 270 && widget.pixels < 950 ? 1.0 : 0.0,
+                scale: widget.pixels! > 270 && widget.pixels! < 950 ? 1.0 : 0.0,
                 child: TextButton(
                   style: TextButton.styleFrom(
                       backgroundColor: Colors.white,

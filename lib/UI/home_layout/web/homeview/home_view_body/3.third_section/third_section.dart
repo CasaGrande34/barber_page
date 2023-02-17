@@ -9,10 +9,10 @@ import '../../../widgets/solo_icon.dart';
 import '../../../widgets/slider_custom.dart';
 
 class ThirdSection extends StatefulWidget {
-  final double pixels;
+  final double? pixels;
   const ThirdSection({
     Key? key,
-    required this.pixels,
+    this.pixels = 0.0,
   }) : super(key: key);
 
   @override
@@ -55,7 +55,7 @@ class _ThirdSectionState extends State<ThirdSection> {
             duration: const Duration(milliseconds: 700),
             curve: Curves.easeOutQuad,
             top: 20.0,
-            left: widget.pixels >= 410 && widget.pixels < 1600 ? 100.0 : 20.0,
+            left: widget.pixels! >= 410 && widget.pixels! < 1600 ? 100.0 : 20.0,
             child: Container(
               height: 400.0,
               width: 700.0,
@@ -72,11 +72,11 @@ class _ThirdSectionState extends State<ThirdSection> {
             left: 75.0,
             child: AnimatedScale(
               curve: Curves.easeInSine,
-              scale: widget.pixels > 420 ? 1.0 : 0.0,
+              scale: widget.pixels! > 420 ? 1.0 : 0.0,
               duration: const Duration(milliseconds: 700),
               child: SoloIcon(
                 icon: Icons.arrow_circle_left,
-                pixels: widget.pixels,
+                pixels: widget.pixels!,
                 factor: 1.0,
               ),
             ),
@@ -86,11 +86,11 @@ class _ThirdSectionState extends State<ThirdSection> {
             left: 780.0,
             child: AnimatedScale(
               curve: Curves.easeInSine,
-              scale: widget.pixels > 420 && widget.pixels < 1600 ? 1.0 : 0.0,
+              scale: widget.pixels! > 420 && widget.pixels! < 1600 ? 1.0 : 0.0,
               duration: const Duration(milliseconds: 700),
               child: SoloIcon(
                 icon: Icons.arrow_circle_right,
-                pixels: widget.pixels,
+                pixels: widget.pixels!,
                 factor: 1.0,
               ),
             ),
@@ -98,7 +98,7 @@ class _ThirdSectionState extends State<ThirdSection> {
           AnimatedPositioned(
             duration: const Duration(milliseconds: 700),
             curve: Curves.decelerate,
-            right: widget.pixels >= 415 && widget.pixels < 1500 ? 270.0 : 5.0,
+            right: widget.pixels! >= 415 && widget.pixels! < 1500 ? 270.0 : 5.0,
             top: 150.0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -145,11 +145,11 @@ class _ThirdSectionState extends State<ThirdSection> {
           ),
           AnimatedPositioned(
               duration: const Duration(milliseconds: 700),
-              top: widget.pixels >= 410 && widget.pixels < 1600 ? 10.0 : -20,
+              top: widget.pixels! >= 410 && widget.pixels! < 1600 ? 10.0 : -20,
               right: -5.0,
               child: AnimatedScale(
                 duration: const Duration(milliseconds: 700),
-                scale: widget.pixels > 400 ? 1.0 : 0.0,
+                scale: widget.pixels! > 400 ? 1.0 : 0.0,
                 child: Image.asset(
                   'assets/props/maquina_barber.png',
                   height: 400.0,

@@ -42,7 +42,7 @@ class _SplashViewState extends State<SplashView>
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 4),
+      duration: const Duration(seconds: 4),
     );
     _animation = Tween<double>(begin: -50, end: 2000).animate(_controller);
 
@@ -152,7 +152,7 @@ class _SplashViewState extends State<SplashView>
             ),
             AnimatedPositioned(
               bottom: 0,
-              duration: Duration(seconds: 3),
+              duration: const Duration(seconds: 3),
               curve: Curves.fastOutSlowIn,
               left: _animation.value,
               child: Container(

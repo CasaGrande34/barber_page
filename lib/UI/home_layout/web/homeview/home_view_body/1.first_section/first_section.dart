@@ -10,10 +10,10 @@ import '../../../widgets/header/header.dart';
 import 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
 
 class FirstSection extends StatefulWidget {
-  final double pixels;
+  final double? pixels;
   const FirstSection({
     Key? key,
-    required this.pixels,
+    this.pixels = 0.0,
   }) : super(key: key);
 
   @override
@@ -45,7 +45,7 @@ class _FirstSectionState extends State<FirstSection> {
             )
           ],
         ),
-        Header(pixels: widget.pixels),
+        Header(pixels: widget.pixels!),
         //BORDERS
         Positioned(
           top: 85,
@@ -96,7 +96,7 @@ class _LeftBody extends StatelessWidget {
           duration: const Duration(milliseconds: 700),
           curve: Curves.easeOutBack,
           top: 200.0,
-          left: widget.pixels < 480 ? 100.0 : 0,
+          left: widget.pixels! < 480 ? 100.0 : 0,
           child: SizedBox(
             height: 400.0,
             width: 400.0,
@@ -175,7 +175,7 @@ class _LeftBody extends StatelessWidget {
             left: 35,
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: 700),
-              opacity: widget.pixels > 100 ? 0.0 : 1.0,
+              opacity: widget.pixels! > 100 ? 0.0 : 1.0,
               child: Icon(
                 Icons.keyboard_double_arrow_down_rounded,
                 size: 40.0,

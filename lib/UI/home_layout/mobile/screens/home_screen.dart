@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 
 //dependencies
 
@@ -12,7 +12,7 @@ class HomeScreenM extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Shelby Barber',
             style: TextStyle(color: Colors.white),
           ),
