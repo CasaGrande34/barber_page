@@ -143,23 +143,25 @@ class _SplashViewState extends State<SplashView>
                                   //   fontWeight: FontWeight.w700,
                                   // ),
                                   ),
+                              FadeAnimatedText('Cargando...',
+                                  duration: const Duration(
+                                    milliseconds: 2500,
+                                  ),
+                                  textStyle: GoogleFonts.rye(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w700,
+                                  )
+                                  // const TextStyle(
+                                  //   fontSize: 30,
+                                  //   fontWeight: FontWeight.w700,
+                                  // ),
+                                  ),
                             ],
                           )
                         : const SizedBox(),
                   ),
-                )
+                ),
               ],
-            ),
-            AnimatedPositioned(
-              bottom: 0,
-              duration: const Duration(seconds: 3),
-              curve: Curves.fastOutSlowIn,
-              left: _animation.value,
-              child: Container(
-                width: 50,
-                height: 50,
-                color: Colors.red,
-              ),
             ),
           ],
         ),

@@ -12,6 +12,8 @@ import 'package:provider/provider.dart';
 
 import 'navbar_item.dart';
 
+const cantidadDePaginas = 6;
+
 class Header extends StatefulWidget {
   const Header({
     Key? key,
@@ -27,6 +29,8 @@ class _HeaderState extends State<Header> {
     false,
     false,
     false,
+    false,
+    false,
   ];
 
 /* 
@@ -35,7 +39,7 @@ le indicamos a la lista selected en la posicion del indice que sea falso pero si
 de la lista se transforma en true y se transforma en true entonces seguimos creando logica para nuestro header
  */
   void select(int n) {
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < cantidadDePaginas; i++) {
       if (i != n) {
         selected[i] = false;
       } else {
@@ -63,7 +67,6 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 5),
             child: FadeInImage(
-              placeholderFilterQuality: FilterQuality.low,
               image: AssetImage('assets/logos/logo_barberia_color.png'),
               placeholder: AssetImage('assets/props/loading.gif'),
             ),
@@ -119,6 +122,28 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
               setState(() {
                 select(3);
                 handleScroll.boxScroll(3, Curves.ease, 3);
+              });
+            },
+          ),
+          addHorizontalSpace(50.0),
+          NavBarItem(
+            text: 'otro1',
+            active: selected[4],
+            touched: () {
+              setState(() {
+                select(4);
+                handleScroll.boxScroll(4, Curves.ease, 3);
+              });
+            },
+          ),
+          addHorizontalSpace(50.0),
+          NavBarItem(
+            text: 'Otro2',
+            active: selected[5],
+            touched: () {
+              setState(() {
+                select(5);
+                handleScroll.boxScroll(5, Curves.ease, 3);
               });
             },
           ),

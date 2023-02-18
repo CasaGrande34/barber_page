@@ -15,12 +15,12 @@ const listImagesListView = [
 
 class ImageListView extends StatefulWidget {
   //🔥🔥Me tira un error el sumar el index con el positionindex tengo que acomodarlo
-  final int positionIndex;
+  // final int positionIndex;
   final int duration;
   final bool reverse;
   const ImageListView({
     Key? key,
-    required this.positionIndex,
+    // required this.positionIndex,
     required this.duration,
     this.reverse = false,
   }) : super(key: key);
@@ -72,7 +72,7 @@ class _ImageListViewState extends State<ImageListView> {
       itemCount: listImagesListView.length,
       itemBuilder: ((context, index) {
         //🔥🔥Me tira un error el sumar el index con el positionindex tengo que acomodarlo
-        final imageindex = listImagesListView[index + widget.positionIndex];
+        final imageindex = listImagesListView[index];
         return _ImageTile(
           image: imageindex,
         );

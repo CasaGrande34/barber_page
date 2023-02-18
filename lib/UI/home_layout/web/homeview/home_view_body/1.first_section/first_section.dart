@@ -21,10 +21,6 @@ class FirstSection extends StatefulWidget {
 class _FirstSectionState extends State<FirstSection> {
   @override
   Widget build(BuildContext context) {
-    final pixels = Provider.of<ScrollHandlerProvider>(context)
-        .scrollController
-        .position
-        .pixels;
     ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
@@ -103,7 +99,7 @@ class _LeftBody extends StatelessWidget {
           duration: const Duration(milliseconds: 700),
           curve: Curves.easeOutBack,
           top: 200.0,
-          left: pixels < 480 ? 100.0 : 0,
+          left: pixels <= 480 ? 100.0 : 0,
           child: SizedBox(
             height: 400.0,
             width: 400.0,
@@ -235,7 +231,7 @@ class _RightBody extends StatelessWidget {
                   ).createShader(rect);
                 },
                 child: const ImageListView(
-                  positionIndex: 1,
+                  // positionIndex: 1,
                   duration: 140,
                 ),
               ),
@@ -261,7 +257,7 @@ class _RightBody extends StatelessWidget {
                 },
                 child: const ImageListView(
                   reverse: true,
-                  positionIndex: 4,
+                  // positionIndex: 4,
                   duration: 200,
                 ),
               ),
