@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:landing_page/providers/scroll_provider.dart';
 // import 'package:landing_page/providers/scroll_provider.dart';
 //dependencies
 import 'package:provider/provider.dart';
@@ -10,10 +11,16 @@ import 'package:landing_page/theme/theme_changer.dart';
 
 void main() {
   RouterFluro.configureRoutes();
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (_) => ThemeCharger(2)),
-    // ChangeNotifierProvider(create: (_) => ScrollHandler()),
-  ], child: const MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ThemeCharger(2)),
+        ChangeNotifierProvider(
+            create: (_) => ScrollHandlerProvider(), lazy: false),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

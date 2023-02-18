@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 //dependencies
 import 'package:google_fonts/google_fonts.dart';
+import 'package:landing_page/providers/scroll_provider.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 
 //file addresses
@@ -12,10 +13,8 @@ import 'package:provider/provider.dart';
 import 'navbar_item.dart';
 
 class Header extends StatefulWidget {
-  final double pixels;
   const Header({
     Key? key,
-    required this.pixels,
   }) : super(key: key);
 
   @override
@@ -45,12 +44,15 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
     }
   }
 
-  // List<Widget> navItem() {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
+    //ScrollController
+    final handleScroll = Provider.of<ScrollHandlerProvider>(context);
+
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
+
     return Container(
       color: appTheme.colorScheme.onSecondary,
       height: h * .1,
@@ -83,6 +85,7 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
             touched: () {
               setState(() {
                 select(0);
+                handleScroll.boxScroll(0, Curves.ease, 3);
               });
             },
           ),
@@ -93,6 +96,7 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
             touched: () {
               setState(() {
                 select(1);
+                handleScroll.boxScroll(1, Curves.ease, 3);
               });
             },
           ),
@@ -103,6 +107,7 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
             touched: () {
               setState(() {
                 select(2);
+                handleScroll.boxScroll(2, Curves.ease, 3);
               });
             },
           ),
@@ -113,6 +118,7 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
             touched: () {
               setState(() {
                 select(3);
+                handleScroll.boxScroll(3, Curves.ease, 3);
               });
             },
           ),

@@ -1,19 +1,17 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:landing_page/providers/scroll_provider.dart';
 //dependencies
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 //file addresses
 import '../../../../../../theme/theme_changer.dart';
 import '../../../../../../utils/spaces.dart';
-import '../../../widgets/header/header.dart';
 import 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
 
 class FirstSection extends StatefulWidget {
-  final double? pixels;
   const FirstSection({
     Key? key,
-    this.pixels = 0.0,
   }) : super(key: key);
 
   @override
@@ -23,6 +21,10 @@ class FirstSection extends StatefulWidget {
 class _FirstSectionState extends State<FirstSection> {
   @override
   Widget build(BuildContext context) {
+    final pixels = Provider.of<ScrollHandlerProvider>(context)
+        .scrollController
+        .position
+        .pixels;
     ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
@@ -45,7 +47,9 @@ class _FirstSectionState extends State<FirstSection> {
             )
           ],
         ),
-        Header(pixels: widget.pixels!),
+        //Simulamos el tamanio del header
+        // Header
+
         //BORDERS
         Positioned(
           top: 85,
@@ -80,6 +84,8 @@ class _LeftBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
+    final pixels = Provider.of<ScrollHandlerProvider>(context).scroll;
+
     return Stack(
       children: [
         Transform(
@@ -88,15 +94,16 @@ class _LeftBody extends StatelessWidget {
             height: 350.0,
             width: 700.0,
             decoration: BoxDecoration(
-                color: appTheme.colorScheme.onBackground,
-                borderRadius: BorderRadius.circular(300.0)),
+              color: appTheme.colorScheme.onBackground,
+              borderRadius: BorderRadius.circular(300.0),
+            ),
           ),
         ),
         AnimatedPositioned(
           duration: const Duration(milliseconds: 700),
           curve: Curves.easeOutBack,
           top: 200.0,
-          left: widget.pixels! < 480 ? 100.0 : 0,
+          left: pixels < 480 ? 100.0 : 0,
           child: SizedBox(
             height: 400.0,
             width: 400.0,
@@ -134,20 +141,22 @@ class _LeftBody extends StatelessWidget {
                       width: 230.0,
                       child: TextField(
                         decoration: InputDecoration(
-                            hintText: 'Enter your mail address',
-                            hintStyle: GoogleFonts.nunito(fontSize: 12.0),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50.0),
-                            )),
+                          hintText: 'Enter your mail address',
+                          hintStyle: GoogleFonts.nunito(fontSize: 12.0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
+                        ),
                       ),
                     ),
                     addHorizontalSpace(20.0),
                     TextButton(
                       style: TextButton.styleFrom(
-                          backgroundColor: Colors.black87,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0),
-                          )),
+                        backgroundColor: Colors.black87,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                      ),
                       onPressed: () {},
                       child: SizedBox(
                         height: 45.0,
@@ -171,17 +180,20 @@ class _LeftBody extends StatelessWidget {
         ),
         //ARROW DOWN
         Positioned(
-            bottom: 10,
-            left: 35,
-            child: AnimatedOpacity(
-              duration: const Duration(milliseconds: 700),
-              opacity: widget.pixels! > 100 ? 0.0 : 1.0,
-              child: Icon(
-                Icons.keyboard_double_arrow_down_rounded,
-                size: 40.0,
-                color: appTheme.colorScheme.secondary,
-              ),
-            ))
+          bottom: 10,
+          left: 35,
+          child: AnimatedOpacity(
+            duration: const Duration(milliseconds: 700),
+            opacity: pixels > 10 ? 0.0 : 1.0,
+            child: Icon(
+              pixels > 10
+                  ? Icons.keyboard_double_arrow_down_rounded
+                  : Icons.add_alert,
+              size: 40.0,
+              color: appTheme.colorScheme.secondary,
+            ),
+          ),
+        )
       ],
     );
   }
@@ -197,6 +209,10 @@ class _RightBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
+    final pixels = Provider.of<ScrollHandlerProvider>(context)
+        .scrollController
+        .position
+        .pixels;
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -257,7 +273,7 @@ class _RightBody extends StatelessWidget {
           top: 75,
           left: -220,
           child: Container(
-            height: 40,
+            height: 80,
             width: 600,
             color: appTheme.colorScheme.background,
           ),
