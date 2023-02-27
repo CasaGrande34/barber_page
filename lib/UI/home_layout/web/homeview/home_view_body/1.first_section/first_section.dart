@@ -9,16 +9,9 @@ import '../../../../../../theme/theme_changer.dart';
 import '../../../../../../utils/spaces.dart';
 import 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
 
-class FirstSection extends StatefulWidget {
-  const FirstSection({
-    Key? key,
-  }) : super(key: key);
+class FirstSection extends StatelessWidget {
+  const FirstSection({super.key});
 
-  @override
-  State<FirstSection> createState() => _FirstSectionState();
-}
-
-class _FirstSectionState extends State<FirstSection> {
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
@@ -33,13 +26,13 @@ class _FirstSectionState extends State<FirstSection> {
               height: h,
               width: w * 0.45,
               color: appTheme.colorScheme.background,
-              child: _LeftBody(widget: widget),
+              child: const _LeftBody(),
             ),
             Container(
               height: h,
               color: appTheme.colorScheme.background,
               width: w * 0.55,
-              child: _RightBody(widget: widget),
+              child: const _RightBody(),
             )
           ],
         ),
@@ -70,18 +63,33 @@ class _FirstSectionState extends State<FirstSection> {
   }
 }
 
-class _LeftBody extends StatelessWidget {
-  const _LeftBody({
-    required this.widget,
-  });
+class _LeftBody extends StatefulWidget {
+  const _LeftBody();
 
-  final FirstSection widget;
+  @override
+  State<_LeftBody> createState() => _LeftBodyState();
+}
+
+class _LeftBodyState extends State<_LeftBody> {
+  double pixels = 0.0;
+
+  @override
+  void didChangeDependencies() {
+    final controller =
+        Provider.of<ScrollHandlerProviderCustom>(context).scrollController;
+    final pixelsProvider = controller.position.pixels;
+    controller.addListener(() {
+      setState(() {
+        pixels = pixelsProvider;
+      });
+    });
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
-    final pixels = Provider.of<ScrollHandlerProvider>(context).scroll;
-
+    print(pixels);
     return Stack(
       children: [
         Transform(
@@ -196,19 +204,12 @@ class _LeftBody extends StatelessWidget {
 }
 
 class _RightBody extends StatelessWidget {
-  const _RightBody({
-    required this.widget,
-  });
-
-  final FirstSection widget;
+  const _RightBody();
 
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
-    final pixels = Provider.of<ScrollHandlerProvider>(context)
-        .scrollController
-        .position
-        .pixels;
+    // final pixels = Provider.of<ScrollHandlerProvider>(context);
     return Stack(
       clipBehavior: Clip.none,
       children: [

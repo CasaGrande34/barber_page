@@ -1,0 +1,12 @@
+export 'package:landing_page/UI/home_layout/web/widgets/footer/footer.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/header/header.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/header/navbar_item.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/header/theme_charger_switch.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/info_palette.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/profile_image.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/profile_title.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/slider_custom.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/solo_icon.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/view_loading.dart';
+export 'package:landing_page/UI/home_layout/web/widgets/list_widget_home/list_widget_home.dart';

@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:landing_page/UI/home_layout/web/homeview/home_view_body/5.five_section/five_section.dart';
-import 'package:landing_page/UI/home_layout/web/homeview/home_view_body/presentacion%20-%20pagina%200/presentacion_widget.dart';
-import 'package:landing_page/providers/scroll_provider.dart';
-import 'package:provider/provider.dart';
-//dependencies
-//🔥🔥🔥PROBAMOS PAQUETE WEB
-import 'package:web_smooth_scroll/web_smooth_scroll.dart';
-//file addresses
-import 'package:landing_page/UI/home_layout/web/homeview/home_view_body/1.first_section/first_section.dart';
-// import 'package:landing_page/UI/home_layout/web/homeview/home_view_body/5.five_section/five_section.dart';
-// import '4.fourth_section/fourth_section.dart';
-import '2.second_section/second_section.dart';
-import 'package:landing_page/UI/home_layout/web/homeview/home_view_body/3.third_section/third_section.dart';
 
-import '4.fourth_section/fourth_section.dart';
+import 'package:provider/provider.dart';
+import 'package:landing_page/providers/scroll_provider.dart';
+
+import 'package:web_smooth_scroll/web_smooth_scroll.dart';
+import '../../widgets/list_widget_home/list_widget_home.dart';
 
 //Global var
 double pixelsSCroll = 0.0;
@@ -32,7 +23,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   Widget build(BuildContext context) {
     // final h = MediaQuery.of(context).size.height;
     //Controller
-    final handleScroll = Provider.of<ScrollHandlerProvider>(context);
+    final handleScroll = Provider.of<ScrollHandlerProviderCustom>(context);
     return WebSmoothScroll(
       controller: handleScroll.scrollController,
       child: SingleChildScrollView(
@@ -57,12 +48,3 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     );
   }
 }
-
-List<Widget> containersWidget = [
-  const Presentacion(),
-  const FirstSection(),
-  const SecondSection(),
-  const ThirdSection(),
-  const FourthSection(),
-  const FiveSection(),
-];

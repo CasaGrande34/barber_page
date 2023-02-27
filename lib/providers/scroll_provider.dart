@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ScrollHandlerProvider extends ChangeNotifier {
+import '../UI/home_layout/web/widgets/export_widgets_home.dart';
+
+class ScrollHandlerProviderCustom extends ChangeNotifier {
 //-------------------------Controller 🔥
   final ScrollController scrollController = ScrollController();
+
   double pixels = 0.0;
 
-  double get scroll {
+  double scroll() {
     final double scroll = scrollController.position.pixels;
     pixels = scroll;
     notifyListeners();
@@ -13,7 +16,7 @@ class ScrollHandlerProvider extends ChangeNotifier {
     return pixels;
   }
 
-  //🔥 -------------------------------- title>Estoy trabajando aca. date>17/2/23
+  //🔥 -------------------------------- title>Trabajo logrado. date>17/2/23
   void boxScroll(int position, Curve curve, int seconds) {
     final RenderBox renderBox =
         keysList[position].currentContext!.findRenderObject() as RenderBox;
@@ -42,21 +45,11 @@ class ScrollHandlerProvider extends ChangeNotifier {
       }
       navegateScroll(newPosition, seconds, curve);
     }
-
-    notifyListeners();
   }
 
   void navegateScroll(double offset, int seconds, Curve curve) {
     scrollController.animateTo(offset,
         duration: Duration(seconds: seconds), curve: curve);
+    notifyListeners();
   }
 }
-
-List<GlobalKey> keysList = [
-  GlobalKey(),
-  GlobalKey(),
-  GlobalKey(),
-  GlobalKey(),
-  GlobalKey(),
-  GlobalKey(),
-];

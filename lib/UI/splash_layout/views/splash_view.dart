@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-//dependencies
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:google_fonts/google_fonts.dart';
-//file addresses
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:landing_page/UI/home_layout/web/homeview/homeview.dart';
 
 /* 
@@ -22,12 +20,12 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _animation;
-  bool _a = false;
-  bool _b = false;
-  bool _c = false;
-  bool _d = false;
-  bool _e = false;
+  late Animation<double> animation;
+  bool a = false;
+  bool b = false;
+  bool c = false;
+  bool d = false;
+  bool e = false;
 
   late Timer timer1;
   late Timer timer2;
@@ -44,39 +42,41 @@ class _SplashViewState extends State<SplashView>
       vsync: this,
       duration: const Duration(seconds: 4),
     );
-    _animation = Tween<double>(begin: -50, end: 2000).animate(_controller);
+    animation = Tween<double>(begin: -50, end: 2000).animate(_controller);
 
     timer1 = Timer(const Duration(milliseconds: 200), () {
       setState(() {
-        _a = true;
+        a = true;
       });
     });
     timer2 = Timer(const Duration(milliseconds: 400), () {
       setState(() {
-        _b = true;
+        b = true;
       });
     });
     timer3 = Timer(const Duration(milliseconds: 1800), () {
       setState(() {
-        _c = true;
+        c = true;
         _controller.forward();
       });
     });
     timer4 = Timer(const Duration(milliseconds: 1700), () {
       setState(() {
-        _e = true;
+        e = true;
       });
     });
     timer5 = Timer(const Duration(milliseconds: 7000), () {
       setState(() {
-        _d = true;
+        d = true;
       });
     });
     timer6 = Timer(const Duration(milliseconds: 9000), () {
       setState(() {
         Navigator.of(context).pushReplacement(
           ThisIsFadeRoute(
-              begin: const Offset(0.0, 1.0), route: const HomeView()),
+            begin: const Offset(0.0, 1.0),
+            route: const HomeView(),
+          ),
         );
       });
     });
@@ -107,11 +107,11 @@ class _SplashViewState extends State<SplashView>
               children: [
                 //LOGO 🔥🔥
                 AnimatedContainer(
-                  duration: Duration(milliseconds: _d ? 2400 : 4500),
-                  curve: _d ? Curves.fastLinearToSlowEaseIn : Curves.elasticOut,
-                  height: _d
+                  duration: Duration(milliseconds: d ? 2400 : 4500),
+                  curve: d ? Curves.fastLinearToSlowEaseIn : Curves.elasticOut,
+                  height: d
                       ? 0
-                      : _a
+                      : a
                           ? h / 2.1
                           : 0,
                   width: 230,
@@ -120,13 +120,13 @@ class _SplashViewState extends State<SplashView>
                 //SHELBY BARBER TEXT .🔥🔥
                 AnimatedContainer(
                   duration: Duration(
-                      milliseconds: _d
+                      milliseconds: d
                           ? 4500
-                          : _c
+                          : c
                               ? 3200
                               : 2000),
                   child: Center(
-                    child: _e
+                    child: e
                         ? AnimatedTextKit(
                             totalRepeatCount: 1,
                             animatedTexts: [

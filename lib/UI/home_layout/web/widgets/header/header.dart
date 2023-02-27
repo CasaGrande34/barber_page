@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 //dependencies
-import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/providers/scroll_provider.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 
@@ -10,6 +9,7 @@ import 'package:landing_page/utils/spaces.dart';
 import 'package:landing_page/UI/home_layout/web/widgets/header/theme_charger_switch.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../utils/styles.dart';
 import 'navbar_item.dart';
 
 const cantidadDePaginas = 6;
@@ -52,7 +52,7 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     //ScrollController
-    final handleScroll = Provider.of<ScrollHandlerProvider>(context);
+    final handleScroll = Provider.of<ScrollHandlerProviderCustom>(context);
 
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
@@ -73,13 +73,12 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
           ),
           addHorizontalSpace(5),
           if (w >= 789)
-            Text(
-              'Shelby - BarberShop',
-              style: GoogleFonts.rye(
-                fontSize: 15,
-                color: appTheme.colorScheme.secondary,
-              ),
+            // ----------------
+            const TypewriterText(
+              text: 'ShelbyBarber',
             ),
+          // ----------------
+
           const Spacer(),
           NavBarItem(
             text: 'Home',
@@ -152,6 +151,51 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
           addHorizontalSpace(13),
         ],
       ),
+    );
+  }
+}
+
+class TypewriterText extends StatefulWidget {
+  final String text;
+
+  const TypewriterText({super.key, required this.text});
+
+  @override
+  TypewriterTextState createState() => TypewriterTextState();
+}
+
+class TypewriterTextState extends State<TypewriterText> {
+  String _displayText = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _startTyping();
+  }
+
+  int index = 0;
+  void _startTyping() async {
+    for (int i = 0; i < widget.text.length; i++) {
+      index = await Future.delayed(const Duration(milliseconds: 500));
+
+      index = widget.text.length;
+      _displayText = widget.text.substring(0, i + 1);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(_displayText, style: Styles.oldStandardTt),
+        index >= _displayText.length
+            ? const SizedBox()
+            : Container(
+                height: 20,
+                width: 5,
+                color: Colors.red,
+              ),
+      ],
     );
   }
 }
