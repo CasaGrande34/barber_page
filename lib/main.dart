@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentTheme = Provider.of<ThemeCharger>(context).currentTheme;
     return MaterialApp(
-      scrollBehavior: MyCustomScrollBehavior(),
+      // scrollBehavior: MyCustomScrollBehavior(),
       theme: currentTheme,
       debugShowCheckedModeBanner: false,
       title: 'Material App',

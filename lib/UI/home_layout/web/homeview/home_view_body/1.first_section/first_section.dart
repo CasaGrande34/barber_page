@@ -9,6 +9,8 @@ import '../../../../../../theme/theme_changer.dart';
 import '../../../../../../utils/spaces.dart';
 import 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
 
+import '../../../../../../utils/styles.dart';
+
 class FirstSection extends StatelessWidget {
   const FirstSection({super.key});
 
@@ -40,24 +42,24 @@ class FirstSection extends StatelessWidget {
         // Header
 
         //BORDERS
-        Positioned(
-          top: 85,
-          right: 445,
-          child: Image.asset(
-            'assets/decoration/border.png',
-            fit: BoxFit.cover,
-            width: 640,
-          ),
-        ),
-        Positioned(
-          bottom: 15,
-          right: 142,
-          child: Image.asset(
-            'assets/decoration/border.png',
-            width: 640,
-            fit: BoxFit.cover,
-          ),
-        ),
+        // Positioned(
+        //   top: 85,
+        //   right: 445,
+        //   child: Image.asset(
+        //     'assets/decoration/border.png',
+        //     fit: BoxFit.cover,
+        //     width: 640,
+        //   ),
+        // ),
+        // Positioned(
+        //   bottom: 15,
+        //   right: 142,
+        //   child: Image.asset(
+        //     'assets/decoration/border.png',
+        //     width: 640,
+        //     fit: BoxFit.cover,
+        //   ),
+        // ),
       ],
     );
   }
@@ -224,12 +226,18 @@ class _RightBody extends StatelessWidget {
               width: 900,
               child: ShaderMask(
                 blendMode: BlendMode.dstOut,
-                shaderCallback: (rect) {
+                shaderCallback: (Rect bounds) {
                   return const LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
-                    colors: [Colors.black, Colors.transparent, Colors.black],
-                  ).createShader(rect);
+                    colors: [
+                      Styles.colorNegroMate,
+                      Colors.transparent,
+                      Colors.transparent,
+                      Styles.colorNegroMate
+                    ],
+                    stops: [0.1, 0.6, 0.5, 0.8],
+                  ).createShader(bounds);
                 },
                 child: const ImageListView(
                   // positionIndex: 1,
@@ -249,12 +257,18 @@ class _RightBody extends StatelessWidget {
               width: 900,
               child: ShaderMask(
                 blendMode: BlendMode.dstOut,
-                shaderCallback: (rect) {
+                shaderCallback: (Rect bounds) {
                   return const LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
-                    colors: [Colors.black, Colors.transparent, Colors.black],
-                  ).createShader(rect);
+                    colors: [
+                      Styles.colorNegroMate,
+                      Colors.transparent,
+                      Colors.transparent,
+                      Styles.colorNegroMate
+                    ],
+                    stops: [0.1, 0.6, 0.5, 0.8],
+                  ).createShader(bounds);
                 },
                 child: const ImageListView(
                   reverse: true,
@@ -266,24 +280,24 @@ class _RightBody extends StatelessWidget {
           ),
         ),
         //BORDERS Color de fondo para las imagenes que estan en el otro stack de arriba
-        Positioned(
-          top: 75,
-          left: -220,
-          child: Container(
-            height: 80,
-            width: 600,
-            color: appTheme.colorScheme.background,
-          ),
-        ),
-        Positioned(
-          right: 65,
-          bottom: 0,
-          child: Container(
-            height: 40,
-            width: 690,
-            color: appTheme.colorScheme.background,
-          ),
-        ),
+        // Positioned(
+        //   top: 75,
+        //   left: -220,
+        //   child: Container(
+        //     height: 80,
+        //     width: 600,
+        //     color: appTheme.colorScheme.background,
+        //   ),
+        // ),
+        // Positioned(
+        //   right: 65,
+        //   bottom: 0,
+        //   child: Container(
+        //     height: 40,
+        //     width: 690,
+        //     color: appTheme.colorScheme.background,
+        //   ),
+        // ),
         Positioned(
           top: 30,
           right: 20,

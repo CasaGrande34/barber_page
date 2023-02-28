@@ -47,8 +47,8 @@ class ScrollHandlerProviderCustom extends ChangeNotifier {
     }
   }
 
-  void navegateScroll(double offset, int seconds, Curve curve) {
-    scrollController.animateTo(offset,
+  void navegateScroll(double offset, int seconds, Curve curve) async {
+    await scrollController.animateTo(offset,
         duration: Duration(seconds: seconds), curve: curve);
     notifyListeners();
   }

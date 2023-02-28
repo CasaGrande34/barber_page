@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import '../../../../utils/styles.dart';
+
 const listImagesListView = [
   'assets/clients/0.jpg',
   'assets/clients/1.jpg',
@@ -52,16 +54,21 @@ class _ImageListViewState extends State<ImageListView> {
   }
 
   _autoScroll() {
-    final currentScrollPosition = _scrollController.offset;
-    final scrollEndPosition = _scrollController.position.maxScrollExtent;
+    final currentPosition = _scrollController.offset;
+    final EndPosition = _scrollController.position.maxScrollExtent;
 
     scheduleMicrotask(() {
       _scrollController.animateTo(
-          currentScrollPosition == scrollEndPosition ? 0 : scrollEndPosition,
+          currentPosition == EndPosition ? 0 : EndPosition,
           duration: Duration(seconds: widget.duration),
           curve: Curves.linear);
     });
   }
+  /* 
+  
+    height: 250,
+      width: 900,
+   */
 
   @override
   Widget build(BuildContext context) {
