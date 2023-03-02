@@ -3,20 +3,15 @@ import 'package:flutter/material.dart';
 import '../UI/home_layout/web/widgets/export_widgets_home.dart';
 
 class ScrollHandlerProviderCustom extends ChangeNotifier {
-//-------------------------Controller 🔥
   final ScrollController scrollController = ScrollController();
 
-  double pixels = 0.0;
-
-  double scroll() {
-    final double scroll = scrollController.position.pixels;
-    pixels = scroll;
-    notifyListeners();
-
-    return pixels;
+  ScrollHandlerProviderCustom() {
+    scrollController.addListener(() {
+      scrollController.position.pixels;
+      notifyListeners();
+    });
   }
 
-  //🔥 -------------------------------- title>Trabajo logrado. date>17/2/23
   void boxScroll(int position, Curve curve, int seconds) {
     final RenderBox renderBox =
         keysList[position].currentContext!.findRenderObject() as RenderBox;
@@ -51,5 +46,11 @@ class ScrollHandlerProviderCustom extends ChangeNotifier {
     await scrollController.animateTo(offset,
         duration: Duration(seconds: seconds), curve: curve);
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
   }
 }

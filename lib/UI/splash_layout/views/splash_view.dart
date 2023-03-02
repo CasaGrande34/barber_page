@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:landing_page/UI/home_layout/web/homeview/homeview.dart';
 
+import '../../../utils/fonts_app.dart';
+
 /* 
 ESTUVO HACIENDO PRUEBAS PARA PROBAR LA APP EN LA WEB Y EN EL CELU Y AL PARECER CUADNO LLAMO AL SPLASHVIEW PASO DIRECTAMENTE
 AL HOMEVIEW Y NO PASO POR EL HOMELAYOUT, VOY A CAMBIARLO AHORA PARA HACER LAS PRUEBBAS 🔥🔥🔥  
@@ -128,34 +130,17 @@ class _SplashViewState extends State<SplashView>
                   child: Center(
                     child: e
                         ? AnimatedTextKit(
-                            totalRepeatCount: 1,
                             animatedTexts: [
                               FadeAnimatedText('Shelby Barber',
                                   duration: const Duration(
-                                    milliseconds: 2500,
+                                    milliseconds: 3000,
                                   ),
-                                  textStyle: GoogleFonts.rye(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w700,
-                                  )
-                                  // const TextStyle(
-                                  //   fontSize: 30,
-                                  //   fontWeight: FontWeight.w700,
-                                  // ),
-                                  ),
-                              FadeAnimatedText('Cargando...',
+                                  textStyle: FontsApp.oldStandardTt),
+                              FadeAnimatedText('Bienvenido...',
                                   duration: const Duration(
                                     milliseconds: 2500,
                                   ),
-                                  textStyle: GoogleFonts.rye(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w700,
-                                  )
-                                  // const TextStyle(
-                                  //   fontSize: 30,
-                                  //   fontWeight: FontWeight.w700,
-                                  // ),
-                                  ),
+                                  textStyle: FontsApp.oldStandardTt),
                             ],
                           )
                         : const SizedBox(),

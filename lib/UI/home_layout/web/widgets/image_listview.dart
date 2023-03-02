@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import '../../../../utils/styles.dart';
-
 const listImagesListView = [
   'assets/clients/0.jpg',
   'assets/clients/1.jpg',
@@ -55,11 +53,11 @@ class _ImageListViewState extends State<ImageListView> {
 
   _autoScroll() {
     final currentPosition = _scrollController.offset;
-    final EndPosition = _scrollController.position.maxScrollExtent;
+    final endPosition = _scrollController.position.maxScrollExtent;
 
     scheduleMicrotask(() {
       _scrollController.animateTo(
-          currentPosition == EndPosition ? 0 : EndPosition,
+          currentPosition == endPosition ? 0 : endPosition,
           duration: Duration(seconds: widget.duration),
           curve: Curves.linear);
     });

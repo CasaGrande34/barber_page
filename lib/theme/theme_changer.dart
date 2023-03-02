@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/colors_app.dart';
+
 class ThemeCharger extends ChangeNotifier {
   ThemeCharger(int theme) {
     switch (theme) {
@@ -33,24 +35,10 @@ class ThemeCharger extends ChangeNotifier {
   }
 }
 
-final themeDark = ThemeData.dark().copyWith(
-  colorScheme: colorSchemedark,
-  // scaffoldBackgroundColor: Colors.black,
-  // textTheme: textTheme(context),
-  // appBarTheme: appBarTheme(context),
-  // inputDecorationTheme: inputDecorationData(context),
-  // colorScheme: lightThemeColors(context),
-);
+final themeDark = ThemeData.dark().copyWith(colorScheme: colorSchemedark);
+final themeLight = ThemeData.light().copyWith(colorScheme: colorSchemeLight);
 
-final themeLight = ThemeData.light().copyWith(colorScheme: colorSchemeLight
-    // scaffoldBackgroundColor: Colors.pink
-    // colorScheme:
-    // appBarTheme: appBarTheme(context),
-    // inputDecorationTheme: inputDecorationData(context),
-    // colorScheme: lightThemeColors(context),
-
-    );
-
+//LIGHT
 const ColorScheme colorSchemeLight = ColorScheme(
   background: Colors.white,
   onBackground: Colors.white,
@@ -64,15 +52,17 @@ const ColorScheme colorSchemeLight = ColorScheme(
   surface: Colors.yellow,
   onSurface: Colors.yellowAccent,
 );
-const ColorScheme colorSchemedark = ColorScheme(
-  background: Color.fromARGB(255, 52, 52, 52),
-  onBackground: Color(0xff464646),
+
+//DARK
+ColorScheme colorSchemedark = ColorScheme(
+  background: ColorsApp.mapsBlack[2]!,
+  onBackground: ColorsApp.mapsBlack[1]!,
   brightness: Brightness.dark,
-  primary: Color(0xffFFF8E1),
-  onPrimary: Colors.amber,
-  secondary: Colors.black,
-  onSecondary: Colors.grey,
-  error: Colors.red,
+  primary: ColorsApp.mapGrises[1]!,
+  onPrimary: ColorsApp.mapGrises[2]!,
+  secondary: ColorsApp.mapGrises[3]!,
+  onSecondary: ColorsApp.mapGrises[4]!,
+  error: ColorsApp.mapCream[2]!,
   onError: Colors.redAccent,
   surface: Colors.white,
   onSurface: Colors.yellowAccent,

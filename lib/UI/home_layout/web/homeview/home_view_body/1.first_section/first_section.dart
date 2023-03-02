@@ -1,15 +1,13 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:landing_page/providers/scroll_provider.dart';
-//dependencies
-import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
-//file addresses
-import '../../../../../../theme/theme_changer.dart';
-import '../../../../../../utils/spaces.dart';
-import 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
 
-import '../../../../../../utils/styles.dart';
+import 'package:provider/provider.dart';
+import '../../../../../../utils/spaces.dart';
+import '../../../../../../utils/fonts_app.dart';
+import '../../../../../../utils/colors_app.dart';
+import '../../../../../../theme/theme_changer.dart';
+import 'package:landing_page/providers/scroll_provider.dart';
+import 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
 
 class FirstSection extends StatelessWidget {
   const FirstSection({super.key});
@@ -38,28 +36,6 @@ class FirstSection extends StatelessWidget {
             )
           ],
         ),
-        //Simulamos el tamanio del header
-        // Header
-
-        //BORDERS
-        // Positioned(
-        //   top: 85,
-        //   right: 445,
-        //   child: Image.asset(
-        //     'assets/decoration/border.png',
-        //     fit: BoxFit.cover,
-        //     width: 640,
-        //   ),
-        // ),
-        // Positioned(
-        //   bottom: 15,
-        //   right: 142,
-        //   child: Image.asset(
-        //     'assets/decoration/border.png',
-        //     width: 640,
-        //     fit: BoxFit.cover,
-        //   ),
-        // ),
       ],
     );
   }
@@ -73,25 +49,11 @@ class _LeftBody extends StatefulWidget {
 }
 
 class _LeftBodyState extends State<_LeftBody> {
-  double pixels = 0.0;
-
-  @override
-  void didChangeDependencies() {
-    final controller =
-        Provider.of<ScrollHandlerProviderCustom>(context).scrollController;
-    final pixelsProvider = controller.position.pixels;
-    controller.addListener(() {
-      setState(() {
-        pixels = pixelsProvider;
-      });
-    });
-    super.didChangeDependencies();
-  }
-
   @override
   Widget build(BuildContext context) {
     ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
-    print(pixels);
+    final scrollProvider = Provider.of<ScrollHandlerProviderCustom>(context);
+    final pixels = scrollProvider.scrollController.position.pixels;
     return Stack(
       children: [
         Transform(
@@ -100,43 +62,38 @@ class _LeftBodyState extends State<_LeftBody> {
             height: 350.0,
             width: 700.0,
             decoration: BoxDecoration(
-              color: appTheme.colorScheme.onBackground,
+              color: appTheme.colorScheme.onSecondary,
               borderRadius: BorderRadius.circular(300.0),
             ),
           ),
         ),
         AnimatedPositioned(
-          duration: const Duration(milliseconds: 700),
+          duration: const Duration(milliseconds: 1000),
           curve: Curves.easeOutBack,
           top: 200.0,
-          left: pixels <= 480 ? 100.0 : 0,
+          left: pixels <= 670 ? 0 : 100.0,
           child: SizedBox(
             height: 400.0,
             width: 400.0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text('La barberia no es un trabajo, es un arte.',
+                    style: FontsApp.rye),
                 Text(
-                  'La barberia no es un trabajo, es un arte.',
-                  style: GoogleFonts.rye(
-                    fontSize: 38.0,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Text(
-                  'Ahora podés reservar un cita con tu barbero favorito online. Es muy fácil, rápido y cómodo.',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
+                    'Ahora podés reservar un cita con tu barbero favorito online. Es muy fácil, rápido y cómodo.',
+                    style: FontsApp.nunito.copyWith(
+                      fontSize: 24.0,
+                    )),
                 addVerticalSpace(20.0),
                 SizedBox(
                   width: 300.0,
                   child: Text(
                     'Afeitados clásicos a navaja con toallas calientes y frias, cortes de estilo europeo, arreglos de barbas y siempre a la vanguardia.',
-                    style: GoogleFonts.nunito(
-                        fontSize: 14.0, fontWeight: FontWeight.w300),
+                    style: FontsApp.nunito.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                    ),
                   ),
                 ),
                 addVerticalSpace(30.0),
@@ -148,7 +105,7 @@ class _LeftBodyState extends State<_LeftBody> {
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: 'Enter your mail address',
-                          hintStyle: GoogleFonts.nunito(fontSize: 12.0),
+                          hintStyle: FontsApp.nunito,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(50.0),
                           ),
@@ -168,13 +125,7 @@ class _LeftBodyState extends State<_LeftBody> {
                         height: 45.0,
                         width: 100.0,
                         child: Center(
-                          child: Text(
-                            'Get Invite',
-                            style: GoogleFonts.nunito(
-                              color: Colors.white,
-                              fontSize: 13.0,
-                            ),
-                          ),
+                          child: Text('Get Invite', style: FontsApp.nunito),
                         ),
                       ),
                     ),
@@ -210,7 +161,6 @@ class _RightBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     // final pixels = Provider.of<ScrollHandlerProvider>(context);
     return Stack(
       clipBehavior: Clip.none,
@@ -231,10 +181,10 @@ class _RightBody extends StatelessWidget {
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                     colors: [
-                      Styles.colorNegroMate,
+                      ColorsApp.colorNegroMate,
                       Colors.transparent,
                       Colors.transparent,
-                      Styles.colorNegroMate
+                      ColorsApp.colorNegroMate,
                     ],
                     stops: [0.1, 0.6, 0.5, 0.8],
                   ).createShader(bounds);
@@ -262,10 +212,10 @@ class _RightBody extends StatelessWidget {
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                     colors: [
-                      Styles.colorNegroMate,
+                      ColorsApp.colorNegroMate,
                       Colors.transparent,
                       Colors.transparent,
-                      Styles.colorNegroMate
+                      ColorsApp.colorNegroMate,
                     ],
                     stops: [0.1, 0.6, 0.5, 0.8],
                   ).createShader(bounds);

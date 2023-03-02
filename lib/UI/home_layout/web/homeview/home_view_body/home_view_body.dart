@@ -21,8 +21,6 @@ class HomeViewBody extends StatefulWidget {
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   Widget build(BuildContext context) {
-    // final h = MediaQuery.of(context).size.height;
-    //Controller
     final handleScroll = Provider.of<ScrollHandlerProviderCustom>(context);
     return WebSmoothScroll(
       controller: handleScroll.scrollController,

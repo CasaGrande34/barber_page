@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
-//dependencies
-import 'package:landing_page/providers/scroll_provider.dart';
+import 'navbar_item.dart';
+import 'package:provider/provider.dart';
+import '../../../../../utils/fonts_app.dart';
+import 'package:landing_page/utils/spaces.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 
-//file addresses
-import 'package:landing_page/utils/spaces.dart';
+import 'package:landing_page/providers/scroll_provider.dart';
 import 'package:landing_page/UI/home_layout/web/widgets/header/theme_charger_switch.dart';
-import 'package:provider/provider.dart';
-
-import '../../../../../utils/styles.dart';
-import 'navbar_item.dart';
 
 const cantidadDePaginas = 6;
 
@@ -33,11 +30,6 @@ class _HeaderState extends State<Header> {
     false,
   ];
 
-/* 
-recibimos un numero como parametro y vamos a indicar que si el indice es diferente de este numero dado entonces 
-le indicamos a la lista selected en la posicion del indice que sea falso pero si el numero dado es igual al indice entonces el valor 
-de la lista se transforma en true y se transforma en true entonces seguimos creando logica para nuestro header
- */
   void select(int n) {
     for (int i = 0; i < cantidadDePaginas; i++) {
       if (i != n) {
@@ -51,7 +43,7 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
-    //ScrollController
+
     final handleScroll = Provider.of<ScrollHandlerProviderCustom>(context);
 
     double w = MediaQuery.of(context).size.width;
@@ -59,7 +51,7 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
 
     return Container(
       color: appTheme.colorScheme.onSecondary,
-      height: h * .1,
+      height: h * .12,
       width: w,
       child: Row(
         children: [
@@ -74,15 +66,19 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
           addHorizontalSpace(5),
           if (w >= 789)
             // ----------------
-            const TypewriterText(
-              text: 'ShelbyBarber',
+            Text(
+              'Shelby Barber',
+              style: FontsApp.oldStandardTt.copyWith(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
             ),
           // ----------------
 
           const Spacer(),
           NavBarItem(
             text: 'Home',
-            //le indicamos a cada NavBarItem un valor de la lista con el indice
             active: selected[0],
             touched: () {
               setState(() {
@@ -151,51 +147,6 @@ de la lista se transforma en true y se transforma en true entonces seguimos crea
           addHorizontalSpace(13),
         ],
       ),
-    );
-  }
-}
-
-class TypewriterText extends StatefulWidget {
-  final String text;
-
-  const TypewriterText({super.key, required this.text});
-
-  @override
-  TypewriterTextState createState() => TypewriterTextState();
-}
-
-class TypewriterTextState extends State<TypewriterText> {
-  String _displayText = '';
-
-  @override
-  void initState() {
-    super.initState();
-    _startTyping();
-  }
-
-  int index = 0;
-  void _startTyping() async {
-    for (int i = 0; i < widget.text.length; i++) {
-      index = await Future.delayed(const Duration(milliseconds: 500));
-
-      index = widget.text.length;
-      _displayText = widget.text.substring(0, i + 1);
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(_displayText, style: Styles.oldStandardTt),
-        index >= _displayText.length
-            ? const SizedBox()
-            : Container(
-                height: 20,
-                width: 5,
-                color: Colors.red,
-              ),
-      ],
     );
   }
 }
