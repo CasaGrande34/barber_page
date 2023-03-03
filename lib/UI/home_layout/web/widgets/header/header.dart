@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../utils/sizes_app.dart';
 import 'navbar_item.dart';
 import 'package:provider/provider.dart';
 import '../../../../../utils/fonts_app.dart';
-import 'package:landing_page/utils/spaces.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 
 import 'package:landing_page/providers/scroll_provider.dart';
@@ -21,6 +21,31 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
+  @override
+  Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
+
+    final handleScroll = Provider.of<ScrollHandlerProviderCustom>(context);
+
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+
+    if (w > 1100) {
+      return const HeaderDesktop();
+    }
+
+    return HeaderMobile();
+  }
+}
+
+class HeaderDesktop extends StatefulWidget {
+  const HeaderDesktop({super.key});
+
+  @override
+  State<HeaderDesktop> createState() => HeaderDesktopState();
+}
+
+class HeaderDesktopState extends State<HeaderDesktop> {
   final List<bool> selected = [
     true,
     false,
@@ -55,7 +80,7 @@ class _HeaderState extends State<Header> {
       width: w,
       child: Row(
         children: [
-          addHorizontalSpace(30),
+          SizesApp.addHorizontalSpace(30),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 5),
             child: FadeInImage(
@@ -63,8 +88,8 @@ class _HeaderState extends State<Header> {
               placeholder: AssetImage('assets/props/loading.gif'),
             ),
           ),
-          addHorizontalSpace(5),
-          if (w >= 789)
+          SizesApp.addHorizontalSpace(5),
+          if (w >= 1200)
             // ----------------
             Text(
               'Shelby Barber',
@@ -87,7 +112,7 @@ class _HeaderState extends State<Header> {
               });
             },
           ),
-          addHorizontalSpace(50.0),
+          SizesApp.addHorizontalSpace(50.0),
           NavBarItem(
             text: 'Services',
             active: selected[1],
@@ -98,7 +123,7 @@ class _HeaderState extends State<Header> {
               });
             },
           ),
-          addHorizontalSpace(50.0),
+          SizesApp.addHorizontalSpace(50.0),
           NavBarItem(
             text: 'Products',
             active: selected[2],
@@ -109,7 +134,7 @@ class _HeaderState extends State<Header> {
               });
             },
           ),
-          addHorizontalSpace(50.0),
+          SizesApp.addHorizontalSpace(50.0),
           NavBarItem(
             text: 'Settings',
             active: selected[3],
@@ -120,7 +145,7 @@ class _HeaderState extends State<Header> {
               });
             },
           ),
-          addHorizontalSpace(50.0),
+          SizesApp.addHorizontalSpace(50.0),
           NavBarItem(
             text: 'otro1',
             active: selected[4],
@@ -131,7 +156,7 @@ class _HeaderState extends State<Header> {
               });
             },
           ),
-          addHorizontalSpace(50.0),
+          SizesApp.addHorizontalSpace(50.0),
           NavBarItem(
             text: 'Otro2',
             active: selected[5],
@@ -142,9 +167,68 @@ class _HeaderState extends State<Header> {
               });
             },
           ),
-          addHorizontalSpace(30),
+          SizesApp.addHorizontalSpace(30),
           if (w >= 636) const ThemeChangerButton(),
-          addHorizontalSpace(13),
+          SizesApp.addHorizontalSpace(13),
+        ],
+      ),
+    );
+  }
+}
+
+class HeaderMobile extends StatefulWidget {
+  const HeaderMobile({super.key});
+
+  @override
+  State<HeaderMobile> createState() => _HeaderMobileState();
+}
+
+class _HeaderMobileState extends State<HeaderMobile> {
+  final List<bool> selected = [
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
+
+  void select(int n) {
+    for (int i = 0; i < cantidadDePaginas; i++) {
+      if (i != n) {
+        selected[i] = false;
+      } else {
+        selected[i] = true;
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
+
+    final handleScroll = Provider.of<ScrollHandlerProviderCustom>(context);
+
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+
+    return Container(
+      color: appTheme.colorScheme.onSecondary,
+      height: h * .12,
+      width: w,
+      child: Row(
+        children: [
+          SizesApp.addHorizontalSpace(30),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 5),
+            child: FadeInImage(
+              image: AssetImage('assets/logos/logo_barberia_color.png'),
+              placeholder: AssetImage('assets/props/loading.gif'),
+            ),
+          ),
+          const Spacer(),
+          const Icon(Icons.home, size: SizesApp.padding25),
+          SizesApp.addHorizontalSpace(SizesApp.padding15),
         ],
       ),
     );

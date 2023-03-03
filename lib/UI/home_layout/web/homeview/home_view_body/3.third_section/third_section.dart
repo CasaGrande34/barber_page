@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-//dependencies
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 import 'package:provider/provider.dart';
-//file addresses
-import '../../../../../../utils/spaces.dart';
+
+import '../../../../../../utils/sizes_app.dart';
 import '../../../widgets/solo_icon.dart';
 import '../../../widgets/slider_custom.dart';
 
@@ -108,7 +108,7 @@ class _ThirdSectionState extends State<ThirdSection> {
                   style: GoogleFonts.rye(
                       fontWeight: FontWeight.w800, fontSize: 25.0),
                 ),
-                addVerticalSpace(15),
+                SizesApp.addVerticalSpace(15),
                 SizedBox(
                   width: 280.0,
                   child: Text(
@@ -120,7 +120,7 @@ class _ThirdSectionState extends State<ThirdSection> {
                     ),
                   ),
                 ),
-                addVerticalSpace(15),
+                SizesApp.addVerticalSpace(15),
                 TextButton(
                     style: TextButton.styleFrom(
                       shape: RoundedRectangleBorder(

@@ -2,10 +2,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-import '../../../../../../utils/spaces.dart';
+import '../../../../../../utils/sizes_app.dart';
+
 import '../../../../../../utils/fonts_app.dart';
 import '../../../../../../utils/colors_app.dart';
 import '../../../../../../theme/theme_changer.dart';
+
 import 'package:landing_page/providers/scroll_provider.dart';
 import 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
 
@@ -85,7 +87,7 @@ class _LeftBodyState extends State<_LeftBody> {
                     style: FontsApp.nunito.copyWith(
                       fontSize: 24.0,
                     )),
-                addVerticalSpace(20.0),
+                SizesApp.addVerticalSpace(20.0),
                 SizedBox(
                   width: 300.0,
                   child: Text(
@@ -96,7 +98,7 @@ class _LeftBodyState extends State<_LeftBody> {
                     ),
                   ),
                 ),
-                addVerticalSpace(30.0),
+                SizesApp.addVerticalSpace(30.0),
                 Row(
                   children: [
                     SizedBox(
@@ -112,7 +114,7 @@ class _LeftBodyState extends State<_LeftBody> {
                         ),
                       ),
                     ),
-                    addHorizontalSpace(20.0),
+                    SizesApp.addHorizontalSpace(20.0),
                     TextButton(
                       style: TextButton.styleFrom(
                         backgroundColor: Colors.black87,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-//dependencies
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 import 'package:provider/provider.dart';
-//file addresses
-import '../../../../../../utils/spaces.dart';
+
+import '../../../../../../utils/sizes_app.dart';
 
 class FourthSection extends StatelessWidget {
   const FourthSection({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class FourthSection extends StatelessWidget {
           Align(
             child: Column(
               children: [
-                addVerticalSpace(15),
+                SizesApp.addVerticalSpace(15),
                 Text(
                   'NUESTRO EQUIPO',
                   style: GoogleFonts.rye(
@@ -43,7 +43,7 @@ class FourthSection extends StatelessWidget {
                     fontSize: 14.0,
                   ),
                 ),
-                addVerticalSpace(30),
+                SizesApp.addVerticalSpace(30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -54,7 +54,7 @@ class FourthSection extends StatelessWidget {
                           'assets/props/barber_pole_brazo_inverso.png',
                           height: 320,
                         ),
-                        addHorizontalSpace(10),
+                        SizesApp.addHorizontalSpace(10),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -99,7 +99,7 @@ class FourthSection extends StatelessWidget {
                             // Text('hola'),
                           ],
                         ),
-                        addVerticalSpace(10),
+                        SizesApp.addVerticalSpace(10),
                         Image.asset(
                           'assets/props/barber_pole_brazo.png',
                           height: 320,

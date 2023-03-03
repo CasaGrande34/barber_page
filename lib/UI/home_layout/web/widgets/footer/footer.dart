@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/theme/theme_changer.dart';
-import 'package:landing_page/utils/spaces.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../../utils/sizes_app.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);
@@ -252,7 +253,7 @@ class Footer extends StatelessWidget {
               ),
             ],
           ),
-          addVerticalSpace(40.0),
+          SizesApp.addHorizontalSpace(40.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-//dependencies
+
 import 'package:google_fonts/google_fonts.dart';
-//file addresses
-import 'package:landing_page/utils/spaces.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../providers/scroll_provider.dart';
+import '../../../../utils/sizes_app.dart';
 
 class InfoPalette extends StatelessWidget {
   final String title;
   final String text;
   final IconData icon;
+  final String image;
 
   const InfoPalette({
     Key? key,
     required this.title,
     required this.text,
     required this.icon,
+    required this.image,
   }) : super(key: key);
 
   @override
@@ -21,19 +25,8 @@ class InfoPalette extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          padding: const EdgeInsets.all(6.0),
-          decoration: BoxDecoration(
-            color: Colors.grey[900],
-            borderRadius: BorderRadius.circular(12.0),
-          ),
-          child: Icon(
-            icon,
-            size: 22.0,
-            color: Colors.white,
-          ),
-        ),
-        addVerticalSpace(10.0),
+        CircleContainerInfoPalette(image: image),
+        SizesApp.addVerticalSpace(10.0),
         Text(
           title,
           style: GoogleFonts.nunito(
@@ -41,7 +34,7 @@ class InfoPalette extends StatelessWidget {
             fontSize: 18.0,
           ),
         ),
-        addVerticalSpace(15.0),
+        SizesApp.addVerticalSpace(15.0),
         SizedBox(
           width: 200.0,
           child: Text(
@@ -52,7 +45,7 @@ class InfoPalette extends StatelessWidget {
                 fontSize: 14.0),
           ),
         ),
-        addVerticalSpace(15.0),
+        SizesApp.addVerticalSpace(15.0),
         Text(
           'Leer mas..',
           style: GoogleFonts.nunito(
@@ -66,6 +59,35 @@ class InfoPalette extends StatelessWidget {
           color: Colors.black87,
         )
       ],
+    );
+  }
+}
+
+class CircleContainerInfoPalette extends StatelessWidget {
+  final String image;
+  const CircleContainerInfoPalette({
+    super.key,
+    required this.image,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final pixels = Provider.of<ScrollHandlerProviderCustom>(context)
+        .scrollController
+        .position
+        .pixels;
+
+    return AnimatedContainer(
+      clipBehavior: Clip.antiAlias,
+      curve: Curves.elasticInOut,
+      duration: const Duration(milliseconds: 1000),
+      height: pixels >= 1506 && pixels <= 2000 ? 170 : 120,
+      width: pixels >= 1506 && pixels <= 2000 ? 170 : 120,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(width: 2, color: Colors.red),
+      ),
+      child: Image.asset(image, fit: BoxFit.cover, isAntiAlias: false),
     );
   }
 }

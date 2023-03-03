@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
-//dependencies
+
+import 'package:provider/provider.dart';
+import '../../../../../../utils/sizes_app.dart';
+import '../../../widgets/footer/footer.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/theme/theme_changer.dart';
-import 'package:provider/provider.dart';
-//file addresses
-import '../../../../../../utils/spaces.dart';
-import '../../../widgets/footer/footer.dart';
 import '../../../../../../utils/buttons/textbutton_custom.dart';
 
 class FiveSection extends StatelessWidget {
@@ -31,7 +30,7 @@ class FiveSection extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  addVerticalSpace(80.0),
+                  SizesApp.addVerticalSpace(80.0),
                   Text(
                     'Get Started today',
                     style: GoogleFonts.josefinSans(
@@ -41,7 +40,7 @@ class FiveSection extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  addVerticalSpace(20.0),
+                  SizesApp.addVerticalSpace(20.0),
                   Text(
                     'Freelancer - community of People who values their time',
                     style: GoogleFonts.nunito(
@@ -50,7 +49,7 @@ class FiveSection extends StatelessWidget {
                       fontSize: 14.0,
                     ),
                   ),
-                  addVerticalSpace(30.0),
+                  SizesApp.addVerticalSpace(30.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -58,7 +57,7 @@ class FiveSection extends StatelessWidget {
                         onPressed: () {},
                         text: 'Get My price',
                       ),
-                      addHorizontalSpace(20.0),
+                      SizesApp.addHorizontalSpace(20.0),
                       TextButtonCustom(
                         onPressed: () {},
                         text: 'Try for free',

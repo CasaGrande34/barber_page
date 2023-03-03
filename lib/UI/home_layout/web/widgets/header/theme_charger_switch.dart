@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //file addresses
-import '../../../../../utils/spaces.dart';
 import '../../../../../theme/theme_changer.dart';
+import '../../../../../utils/sizes_app.dart';
 
 class ThemeChangerButton extends StatelessWidget {
   const ThemeChangerButton({
@@ -24,7 +24,7 @@ class ThemeChangerButton extends StatelessWidget {
         activeColor: appTheme.colorScheme.primary,
         activeTrackColor: appTheme.colorScheme.onPrimary,
       ),
-      addHorizontalSpace(5),
+      SizesApp.addHorizontalSpace(5),
       (themeChangerButton.isDark == true)
           ? Icon(FontAwesomeIcons.moon, color: appTheme.colorScheme.primary)
           : const Icon(FontAwesomeIcons.sun),
