@@ -76,7 +76,7 @@ class HeaderDesktopState extends State<HeaderDesktop> {
 
     return Container(
       color: appTheme.colorScheme.onSecondary,
-      height: h * .12,
+      height: h * .13,
       width: w,
       child: Row(
         children: [
