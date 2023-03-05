@@ -10,7 +10,7 @@ a la posicion en la singlechidlscrollview
 
  */
 List<Widget> containersWidget = [
-  const Presentacion(),
+  const Presentation(),
   const FirstSection(),
   const SecondSection(),
   const ThirdSection(),

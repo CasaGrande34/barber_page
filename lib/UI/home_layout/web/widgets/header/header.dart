@@ -75,101 +75,154 @@ class HeaderDesktopState extends State<HeaderDesktop> {
     double h = MediaQuery.of(context).size.height;
 
     return Container(
-      color: appTheme.colorScheme.onSecondary,
+      color: appTheme.colorScheme.primary,
       height: h * .13,
       width: w,
-      child: Row(
+      child: Stack(
         children: [
-          SizesApp.addHorizontalSpace(30),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 5),
-            child: FadeInImage(
-              image: AssetImage('assets/logos/logo_barberia_color.png'),
-              placeholder: AssetImage('assets/props/loading.gif'),
-            ),
-          ),
-          SizesApp.addHorizontalSpace(5),
-          if (w >= 1200)
-            // ----------------
-            Text(
-              'Shelby Barber',
-              style: FontsApp.oldStandardTt.copyWith(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+          Row(
+            children: [
+              SizesApp.addHorizontalSpace(30),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: FadeInImage(
+                  image: AssetImage('assets/logos/logo_barberia_color.png'),
+                  placeholder: AssetImage('assets/props/loading.gif'),
+                ),
               ),
-            ),
-          // ----------------
+              SizesApp.addHorizontalSpace(5),
+              if (w >= 1200)
+                // ----------------
+                Text(
+                  'Shelby Barber',
+                  style: FontsApp.oldStandardTt.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+              // ----------------
 
-          const Spacer(),
-          NavBarItem(
-            text: 'Home',
-            active: selected[0],
-            touched: () {
-              setState(() {
-                select(0);
-                handleScroll.boxScroll(0, Curves.ease, 3);
-              });
-            },
+              const Spacer(),
+              NavBarItem(
+                text: 'Home',
+                active: selected[0],
+                touched: () {
+                  setState(() {
+                    select(0);
+                    handleScroll.boxScroll(0, Curves.ease, 3);
+                  });
+                },
+              ),
+              SizesApp.addHorizontalSpace(50.0),
+              NavBarItem(
+                text: 'Services',
+                active: selected[1],
+                touched: () {
+                  setState(() {
+                    select(1);
+                    handleScroll.boxScroll(1, Curves.ease, 3);
+                  });
+                },
+              ),
+              SizesApp.addHorizontalSpace(50.0),
+              NavBarItem(
+                text: 'Products',
+                active: selected[2],
+                touched: () {
+                  setState(() {
+                    select(2);
+                    handleScroll.boxScroll(2, Curves.ease, 3);
+                  });
+                },
+              ),
+              SizesApp.addHorizontalSpace(50.0),
+              NavBarItem(
+                text: 'Settings',
+                active: selected[3],
+                touched: () {
+                  setState(() {
+                    select(3);
+                    handleScroll.boxScroll(3, Curves.ease, 3);
+                  });
+                },
+              ),
+              SizesApp.addHorizontalSpace(50.0),
+              NavBarItem(
+                text: 'otro1',
+                active: selected[4],
+                touched: () {
+                  setState(() {
+                    select(4);
+                    handleScroll.boxScroll(4, Curves.ease, 3);
+                  });
+                },
+              ),
+              SizesApp.addHorizontalSpace(50.0),
+              NavBarItem(
+                text: 'Otro2',
+                active: selected[5],
+                touched: () {
+                  setState(() {
+                    select(5);
+                    handleScroll.boxScroll(5, Curves.ease, 3);
+                  });
+                },
+              ),
+              SizesApp.addHorizontalSpace(30),
+              if (w >= 636) const ThemeChangerButton(),
+              SizesApp.addHorizontalSpace(13),
+            ],
           ),
-          SizesApp.addHorizontalSpace(50.0),
-          NavBarItem(
-            text: 'Services',
-            active: selected[1],
-            touched: () {
-              setState(() {
-                select(1);
-                handleScroll.boxScroll(1, Curves.ease, 3);
-              });
-            },
+          Positioned(
+            bottom: 0,
+            child: ProgressHeader(),
+          )
+        ],
+      ),
+    );
+  }
+
+  obtenerelPorcentaje() {
+    for (var i = 0; i < cantidadDePaginas; i++) {
+      Expanded(
+          flex: 1,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.red.withOpacity(0.5),
+                  blurRadius: 20,
+                  offset: const Offset(0, 10),
+                ),
+              ],
+            ),
+          ));
+    }
+  }
+}
+
+class ProgressHeader extends StatelessWidget {
+  const ProgressHeader({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 5,
+      width: 1200,
+      decoration: BoxDecoration(
+        color: Colors.red,
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.red.withOpacity(0.5),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
           ),
-          SizesApp.addHorizontalSpace(50.0),
-          NavBarItem(
-            text: 'Products',
-            active: selected[2],
-            touched: () {
-              setState(() {
-                select(2);
-                handleScroll.boxScroll(2, Curves.ease, 3);
-              });
-            },
-          ),
-          SizesApp.addHorizontalSpace(50.0),
-          NavBarItem(
-            text: 'Settings',
-            active: selected[3],
-            touched: () {
-              setState(() {
-                select(3);
-                handleScroll.boxScroll(3, Curves.ease, 3);
-              });
-            },
-          ),
-          SizesApp.addHorizontalSpace(50.0),
-          NavBarItem(
-            text: 'otro1',
-            active: selected[4],
-            touched: () {
-              setState(() {
-                select(4);
-                handleScroll.boxScroll(4, Curves.ease, 3);
-              });
-            },
-          ),
-          SizesApp.addHorizontalSpace(50.0),
-          NavBarItem(
-            text: 'Otro2',
-            active: selected[5],
-            touched: () {
-              setState(() {
-                select(5);
-                handleScroll.boxScroll(5, Curves.ease, 3);
-              });
-            },
-          ),
-          SizesApp.addHorizontalSpace(30),
-          if (w >= 636) const ThemeChangerButton(),
-          SizesApp.addHorizontalSpace(13),
         ],
       ),
     );

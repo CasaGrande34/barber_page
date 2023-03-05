@@ -1,5 +1,8 @@
+import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 
+import '../../../../../../utils/colors_app.dart';
 import '../../../../../../utils/fonts_app.dart';
 import '../../../../../../utils/sizes_app.dart';
 
@@ -7,19 +10,21 @@ import 'package:provider/provider.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 import 'package:landing_page/providers/scroll_provider.dart';
 
-class Presentacion extends StatefulWidget {
-  const Presentacion({super.key});
+class Presentation extends StatefulWidget {
+  const Presentation({super.key});
 
   @override
-  State<Presentacion> createState() => _PresentacionState();
+  State<Presentation> createState() => _PresentationState();
 }
 
-class _PresentacionState extends State<Presentacion> {
+class _PresentationState extends State<Presentation> {
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
+
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
+
     final scrollProvider = Provider.of<ScrollHandlerProviderCustom>(context);
     final pixels = scrollProvider.scrollController.position.pixels;
 
@@ -29,7 +34,7 @@ class _PresentacionState extends State<Presentacion> {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            appTheme.colorScheme.secondary,
+            ColorsApp.colorNegroMate,
             appTheme.colorScheme.background,
           ],
           begin: Alignment.topLeft,
@@ -39,7 +44,10 @@ class _PresentacionState extends State<Presentacion> {
       child: Stack(
         children: [
           const FondoStackPresentation(),
-          const DescriptionPresentation(),
+          const Positioned(
+            top: 120,
+            child: DescriptionPresentation(),
+          ),
           LineasDecorationPresentation(
             angle: 104.61,
             top: 50,
@@ -49,16 +57,59 @@ class _PresentacionState extends State<Presentacion> {
           ),
           LineasContainerPresentation(
             angle: 104.61,
-            top: 300,
-            left: 400,
+            top: 350,
+            left: 500,
             height: 90,
             color: Colors.red,
             pixels: pixels,
           ),
+          Positioned(
+            child: MyArcoArmado(),
+          )
         ],
       ),
     );
   }
+}
+
+class MyArcoArmado extends StatelessWidget {
+  const MyArcoArmado({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: MyArco(),
+      child: Container(
+        height: 300,
+        width: 300,
+        // color: Colors.red,
+      ),
+    );
+  }
+}
+
+class MyArco extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final startAngle = degreesToRads(10); // convertir a radianes
+    final endAngle = degreesToRads(20); // convertir a radianes
+    final center = Offset(size.width / 2, size.height / 2);
+    const radius = 200.0;
+    final paint = Paint()
+      ..strokeWidth = 5.0
+      ..color = Colors.white;
+    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), startAngle,
+        endAngle - startAngle, false, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
+  }
+}
+
+double degreesToRads(double deg) {
+  return (deg * pi) / 180.0;
 }
 
 class DescriptionPresentation extends StatelessWidget {
@@ -175,36 +226,81 @@ class LineasContainerPresentation extends StatelessWidget {
           angle: angle,
           child: Transform.scale(
             scale: value,
-            child: Column(
-              children: [
-                Container(
-                  height: 30,
-                  width: width,
-                  color: color,
-                ),
-                SizesApp.addVerticalSpace(50),
-                Container(
-                  height: 50,
-                  width: width,
-                  color: color,
-                ),
-                SizesApp.addVerticalSpace(SizesApp.padding25),
-                Container(
-                  height: 100,
-                  width: width,
-                  color: color,
-                ),
-                SizesApp.addVerticalSpace(SizesApp.padding20),
-                Container(
-                  height: 100,
-                  width: 300,
-                  color: color,
-                ),
-                SizesApp.addVerticalSpace(SizesApp.padding30),
-              ],
-            ),
+            child: const ContainerAnimationPresentation(),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ContainerAnimationPresentation extends StatefulWidget {
+  const ContainerAnimationPresentation({
+    super.key,
+  });
+
+  @override
+  State<ContainerAnimationPresentation> createState() =>
+      _ContainerAnimationPresentationState();
+}
+
+class _ContainerAnimationPresentationState
+    extends State<ContainerAnimationPresentation> {
+  bool isTapped = false;
+
+  @override
+  void initState() {
+    cambiodeValordeIsTapped();
+    super.initState();
+  }
+
+  cambiodeValordeIsTapped() {
+    Timer(const Duration(seconds: 10), () {
+      setState(() {
+        isTapped = true;
+      });
+    });
+    Timer(const Duration(seconds: 20), () {
+      setState(() {
+        isTapped = false;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
+    return Transform.rotate(
+      angle: 102.1,
+      child: AnimatedContainer(
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInBack,
+        height: isTapped ? 110 : 2,
+        width: 100,
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.red.withOpacity(0.5),
+              blurRadius: 20,
+              offset: const Offset(0, 10),
+            ),
+          ],
+        ),
+        child: Transform.rotate(
+            angle: 102.1,
+            child: Padding(
+              padding: const EdgeInsets.only(top: SizesApp.padding30),
+              child: isTapped
+                  ? Text(
+                      'No olvides reservar tu turno',
+                      style: FontsApp.roboto.copyWith(
+                          color: appTheme.colorScheme.background, fontSize: 12),
+                      textAlign: TextAlign.center,
+                    )
+                  : null,
+            )),
       ),
     );
   }
@@ -224,9 +320,6 @@ class TextPresentation extends StatelessWidget {
       padding: const EdgeInsets.all(SizesApp.padding5),
       height: 195,
       width: 480,
-      decoration: BoxDecoration(
-        border: Border.all(width: 4, color: appTheme.colorScheme.onPrimary),
-      ),
       child: Text(
         '''¡Bienvenido a nuestra barbería virtual en Argentina! 
                     Donde el estilo y la elegancia se combinan para brindarte la mejor experiencia de cuidado personal.\t 
@@ -273,18 +366,37 @@ class _IconFlotanteState extends State<IconFlotante>
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     return AnimatedBuilder(
       animation: animationController,
       builder: (context, child) => Container(
-        decoration: const ShapeDecoration(
-          color: Colors.white,
-          shape: CircleBorder(),
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.red.withOpacity(0.5),
+              blurRadius: 20,
+              offset: const Offset(0, 10),
+            ),
+          ],
         ),
         child: Padding(
           padding: EdgeInsets.all(8.0 * animationController.value),
-          child: CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 45,
+          child: Container(
+            width: 45,
+            height: 45,
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.red.withOpacity(0.5),
+                  blurRadius: 20,
+                  offset: const Offset(0, 10),
+                ),
+              ],
+            ),
             child: Transform.rotate(
               angle: 180,
               child: Padding(

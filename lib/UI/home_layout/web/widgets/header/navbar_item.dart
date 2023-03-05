@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../../utils/sizes_app.dart';
+
 class NavBarItem extends StatefulWidget {
   final String text;
   final Function touched;
@@ -28,25 +30,21 @@ class _NavBarItemState extends State<NavBarItem> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Spacer(),
-          Text( 
+          Text(
             widget.text,
             style: GoogleFonts.rye(
-              color: widget.active ? Colors.black : Colors.black26
-            ),
-           ),
+                color: widget.active ? Colors.black : Colors.black26),
+          ),
           const Spacer(),
           AnimatedContainer(
-          duration: const Duration( milliseconds: 475 ),
-          height: 5.0,
-          width: 35.0,
-          decoration: BoxDecoration(
-            color: widget.active ? Colors.black : Colors.transparent,
-            borderRadius: const BorderRadius.only(
-              topRight: Radius.circular( 10.0 ),
-              topLeft: Radius.circular( 10.0 ),
-              ),
-            ),
+            duration: const Duration(milliseconds: 475),
+            height: 5.0,
+            width: 35.0,
+            decoration: BoxDecoration(
+                color: widget.active ? Colors.black : Colors.transparent,
+                borderRadius: BorderRadius.circular(SizesApp.padding15)),
           ),
+          SizesApp.addVerticalSpace(5)
         ],
       ),
     );
