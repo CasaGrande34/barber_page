@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../utils/fonts_app.dart';
+import '../../../../../../utils/sizes_app.dart';
+
 import 'package:provider/provider.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 import 'package:landing_page/providers/scroll_provider.dart';
-
-import '../../../../../../utils/colors_app.dart';
-import '../../../../../../utils/fonts_app.dart';
-import '../../../../../../utils/sizes_app.dart';
 
 class Presentacion extends StatefulWidget {
   const Presentacion({super.key});
@@ -16,9 +15,6 @@ class Presentacion extends StatefulWidget {
 }
 
 class _PresentacionState extends State<Presentacion> {
-  double initialHeight = 0.0;
-  double initialWidth = 0.0;
-
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
@@ -26,6 +22,7 @@ class _PresentacionState extends State<Presentacion> {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     final scrollProvider = Provider.of<ScrollHandlerProviderCustom>(context);
     final pixels = scrollProvider.scrollController.position.pixels;
+
     return Container(
       height: h,
       width: w,
@@ -41,46 +38,37 @@ class _PresentacionState extends State<Presentacion> {
       ),
       child: Stack(
         children: [
-          Column(
-            children: [
-              Row(
-                children: const [
-                  LeftBody(),
-                  RightBody(),
-                ],
-              ),
-            ],
-          ),
-          ColumnaLineasDecorationPresentation(
-            pixels: pixels,
-            top: 250,
-            left: 590,
-            height: 30,
-            angle: 107.24,
-            color: appTheme.colorScheme.onBackground,
-          ),
-          ColumnaLineasDecorationPresentation(
-            pixels: pixels,
+          const FondoStackPresentation(),
+          const DescriptionPresentation(),
+          LineasDecorationPresentation(
+            angle: 104.61,
             top: 50,
-            left: 740,
-            height: 22,
-            angle: 107.24,
-            color: appTheme.colorScheme.onBackground,
-          )
+            left: 670,
+            height: 70,
+            pixels: pixels,
+          ),
+          LineasContainerPresentation(
+            angle: 104.61,
+            top: 300,
+            left: 400,
+            height: 90,
+            color: Colors.red,
+            pixels: pixels,
+          ),
         ],
       ),
     );
   }
 }
 
-class LeftBody extends StatelessWidget {
-  const LeftBody({super.key});
+class DescriptionPresentation extends StatelessWidget {
+  const DescriptionPresentation({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const TitleAndDescriptionPresentation(),
+        const TextPresentation(),
         SizesApp.addVerticalSpace(SizesApp.padding20),
         const IconFlotante(),
       ],
@@ -88,7 +76,7 @@ class LeftBody extends StatelessWidget {
   }
 }
 
-class ColumnaLineasDecorationPresentation extends StatelessWidget {
+class LineasDecorationPresentation extends StatelessWidget {
   final double top;
   final double left;
   final double height;
@@ -96,7 +84,7 @@ class ColumnaLineasDecorationPresentation extends StatelessWidget {
   final Color color;
   final double angle;
   final double pixels;
-  const ColumnaLineasDecorationPresentation({
+  const LineasDecorationPresentation({
     super.key,
     required this.top,
     required this.left,
@@ -110,49 +98,44 @@ class ColumnaLineasDecorationPresentation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
-      duration: const Duration(milliseconds: 3000),
+      duration: const Duration(milliseconds: 2000),
       curve: Curves.elasticOut,
-      tween: Tween<double>(begin: 0, end: height),
+      tween: Tween<double>(begin: 0, end: 1),
       builder: (context, value, child) => Positioned(
         top: top,
         left: left,
         child: Transform.rotate(
           angle: angle,
-          child: Column(
-            children: [
-              AnimatedContainer(
-                curve: Curves.bounceInOut,
-                duration: const Duration(milliseconds: 500),
-                height: pixels > 100 ? 0 : value + 50,
-                width: width,
-                color: color,
-              ),
-              SizesApp.addVerticalSpace(SizesApp.padding15),
-              AnimatedContainer(
-                curve: Curves.bounceInOut,
-                duration: const Duration(milliseconds: 500),
-                height: pixels > 100 ? 0 : value + 100,
-                width: width,
-                color: color,
-              ),
-              SizesApp.addVerticalSpace(SizesApp.padding25),
-              AnimatedContainer(
-                curve: Curves.bounceInOut,
-                duration: const Duration(milliseconds: 500),
-                height: pixels > 100 ? 0 : value + 30,
-                width: width,
-                color: color,
-              ),
-              SizesApp.addVerticalSpace(SizesApp.padding20),
-              AnimatedContainer(
-                curve: Curves.bounceInOut,
-                duration: const Duration(milliseconds: 500),
-                height: pixels > 100 ? 0 : value + 80,
-                width: width,
-                color: color,
-              ),
-              SizesApp.addVerticalSpace(SizesApp.padding30),
-            ],
+          child: Transform.scale(
+            scale: value,
+            child: Column(
+              children: [
+                Container(
+                  height: 50,
+                  width: width,
+                  color: color,
+                ),
+                SizesApp.addVerticalSpace(SizesApp.padding15),
+                Container(
+                  height: 100,
+                  width: width,
+                  color: color,
+                ),
+                SizesApp.addVerticalSpace(SizesApp.padding25),
+                Container(
+                  height: 30,
+                  width: width,
+                  color: color,
+                ),
+                SizesApp.addVerticalSpace(SizesApp.padding20),
+                Container(
+                  height: 80,
+                  width: width,
+                  color: color,
+                ),
+                SizesApp.addVerticalSpace(SizesApp.padding30),
+              ],
+            ),
           ),
         ),
       ),
@@ -160,8 +143,75 @@ class ColumnaLineasDecorationPresentation extends StatelessWidget {
   }
 }
 
-class TitleAndDescriptionPresentation extends StatelessWidget {
-  const TitleAndDescriptionPresentation({
+class LineasContainerPresentation extends StatelessWidget {
+  final double top;
+  final double left;
+  final double height;
+  final double width;
+  final Color color;
+  final double angle;
+  final double pixels;
+  const LineasContainerPresentation({
+    super.key,
+    required this.top,
+    required this.left,
+    required this.height,
+    this.width = 2.0,
+    this.color = Colors.white,
+    this.angle = 30,
+    required this.pixels,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TweenAnimationBuilder(
+      duration: const Duration(milliseconds: 2000),
+      curve: Curves.elasticOut,
+      tween: Tween<double>(begin: 0, end: 1),
+      builder: (context, value, child) => Positioned(
+        top: top,
+        left: left,
+        child: Transform.rotate(
+          angle: angle,
+          child: Transform.scale(
+            scale: value,
+            child: Column(
+              children: [
+                Container(
+                  height: 30,
+                  width: width,
+                  color: color,
+                ),
+                SizesApp.addVerticalSpace(50),
+                Container(
+                  height: 50,
+                  width: width,
+                  color: color,
+                ),
+                SizesApp.addVerticalSpace(SizesApp.padding25),
+                Container(
+                  height: 100,
+                  width: width,
+                  color: color,
+                ),
+                SizesApp.addVerticalSpace(SizesApp.padding20),
+                Container(
+                  height: 100,
+                  width: 300,
+                  color: color,
+                ),
+                SizesApp.addVerticalSpace(SizesApp.padding30),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class TextPresentation extends StatelessWidget {
+  const TextPresentation({
     super.key,
   });
 
@@ -249,8 +299,8 @@ class _IconFlotanteState extends State<IconFlotante>
   }
 }
 
-class RightBody extends StatelessWidget {
-  const RightBody({
+class FondoStackPresentation extends StatelessWidget {
+  const FondoStackPresentation({
     super.key,
   });
 
@@ -259,38 +309,27 @@ class RightBody extends StatelessWidget {
     final h = MediaQuery.of(context).size.height;
     final w = MediaQuery.of(context).size.width;
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
-    return ClipPath(
-      clipBehavior: Clip.antiAlias,
-      clipper: DiagonalClipper(),
-      child: SizedBox(
-        width: w,
-        height: h,
-        child: Stack(
-          children: [
-            const FadeInImage(
-              placeholder: NetworkImage(
-                  'https://media.giphy.com/media/cIbJ5bBlNLxynVGYzb/giphy.gif'),
-              image: AssetImage('assets/clients/10.jpg'),
-              fit: BoxFit.contain,
-              alignment: Alignment.center,
-              placeholderFit: BoxFit.contain,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.transparent,
-                    appTheme.colorScheme.background,
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomLeft,
-                  stops: const [0.2, 0.8],
-                ),
-              ),
-            )
-          ],
+    return Stack(
+      children: [
+        ClipPath(
+          clipper: DiagonalClipper(),
+          child:
+              Image.asset('assets/clients/10.jpg', width: w, fit: BoxFit.cover),
         ),
-      ),
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.transparent,
+                appTheme.colorScheme.background,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomLeft,
+              stops: const [0.2, 0.9],
+            ),
+          ),
+        )
+      ],
     );
   }
 }
@@ -303,7 +342,7 @@ class DiagonalClipper extends CustomClipper<Path> {
     path.lineTo(size.width, 0);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
-    path.lineTo(size.width, 0);
+    path.lineTo(size.width - 500, 0);
     path.close();
 
     return path;
