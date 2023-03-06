@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-const listImagesListView = [
+const clientsCarousel = [
   'assets/clients/0.jpg',
   'assets/clients/1.jpg',
   'assets/clients/2.jpg',
@@ -14,13 +14,10 @@ const listImagesListView = [
 ];
 
 class ImageListView extends StatefulWidget {
-  //🔥🔥Me tira un error el sumar el index con el positionindex tengo que acomodarlo
-  // final int positionIndex;
   final int duration;
   final bool reverse;
   const ImageListView({
     Key? key,
-    // required this.positionIndex,
     required this.duration,
     this.reverse = false,
   }) : super(key: key);
@@ -37,15 +34,11 @@ class _ImageListViewState extends State<ImageListView> {
     super.initState();
     _scrollController = ScrollController();
     _scrollController.addListener(() {
-      /* 
-      Agregamos una escucha y esta escuchando la propiedad atEdge que regresa un booleano
-      que indica si estamos en el borde superior o inferior del scroll
-       */
       if (_scrollController.position.atEdge) {
         _autoScroll();
       }
     });
-    //El autoScroll metodo se inicializa luego de que los widget se renderizen y actualicen
+
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _autoScroll();
     });
@@ -62,11 +55,6 @@ class _ImageListViewState extends State<ImageListView> {
           curve: Curves.linear);
     });
   }
-  /* 
-  
-    height: 250,
-      width: 900,
-   */
 
   @override
   Widget build(BuildContext context) {
@@ -74,10 +62,9 @@ class _ImageListViewState extends State<ImageListView> {
       reverse: widget.reverse,
       controller: _scrollController,
       scrollDirection: Axis.horizontal,
-      itemCount: listImagesListView.length,
+      itemCount: clientsCarousel.length,
       itemBuilder: ((context, index) {
-        //🔥🔥Me tira un error el sumar el index con el positionindex tengo que acomodarlo
-        final imageindex = listImagesListView[index];
+        final imageindex = clientsCarousel[index];
         return _ImageTile(
           image: imageindex,
         );

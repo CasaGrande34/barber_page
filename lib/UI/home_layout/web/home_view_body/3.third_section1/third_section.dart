@@ -184,11 +184,11 @@ class _ThirdSectionState extends State<ThirdSection> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Mi cuadro de diálogo'),
-          content: Text('Este es el contenido de mi cuadro de diálogo.'),
+          title: const Text('Mi cuadro de diálogo'),
+          content: const Text('Este es el contenido de mi cuadro de diálogo.'),
           actions: [
             TextButton(
-              child: Text('Cerrar'),
+              child: const Text('Cerrar'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -221,7 +221,7 @@ class TitleCustomSecondSection extends StatelessWidget {
           height: 5,
           width: 5,
           decoration:
-              BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+              const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
         ),
         SizesApp.addHorizontalSpace(SizesApp.padding10),
         Text(
@@ -233,7 +233,7 @@ class TitleCustomSecondSection extends StatelessWidget {
           height: 5,
           width: 5,
           decoration:
-              BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+              const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
         ),
         SizesApp.addHorizontalSpace(SizesApp.padding15),
         Container(

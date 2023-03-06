@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../utils/sizes_app.dart';
+import '../../../../../utils/utils.dart';
 import 'widgets/navbar_item.dart';
-import 'package:provider/provider.dart';
-import '../../../../../utils/fonts_app.dart';
-import 'package:landing_page/theme/theme_changer.dart';
 
+import 'package:provider/provider.dart';
 import 'package:landing_page/providers/scroll_provider.dart';
+
+import 'package:landing_page/theme/theme_changer.dart';
 import 'package:landing_page/UI/home_layout/web/home_view_body/0.header/widgets/theme_charger_switch.dart';
 
 const cantidadDePaginas = 6;
@@ -24,28 +24,27 @@ class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
-
     final handleScroll = Provider.of<ScrollHandlerProviderCustom>(context);
 
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
     if (w > 1100) {
-      return const HeaderDesktop();
+      return const _HeaderDesktop();
     }
 
-    return HeaderMobile();
+    return const _HeaderMobile();
   }
 }
 
-class HeaderDesktop extends StatefulWidget {
-  const HeaderDesktop({super.key});
+class _HeaderDesktop extends StatefulWidget {
+  const _HeaderDesktop();
 
   @override
-  State<HeaderDesktop> createState() => HeaderDesktopState();
+  State<_HeaderDesktop> createState() => _HeaderDesktopState();
 }
 
-class HeaderDesktopState extends State<HeaderDesktop> {
+class _HeaderDesktopState extends State<_HeaderDesktop> {
   final List<bool> selected = [
     true,
     false,
@@ -174,7 +173,7 @@ class HeaderDesktopState extends State<HeaderDesktop> {
               SizesApp.addHorizontalSpace(13),
             ],
           ),
-          Positioned(
+          const Positioned(
             bottom: 0,
             child: ProgressHeader(),
           )
@@ -229,14 +228,14 @@ class ProgressHeader extends StatelessWidget {
   }
 }
 
-class HeaderMobile extends StatefulWidget {
-  const HeaderMobile({super.key});
+class _HeaderMobile extends StatefulWidget {
+  const _HeaderMobile();
 
   @override
-  State<HeaderMobile> createState() => _HeaderMobileState();
+  State<_HeaderMobile> createState() => _HeaderMobileState();
 }
 
-class _HeaderMobileState extends State<HeaderMobile> {
+class _HeaderMobileState extends State<_HeaderMobile> {
   final List<bool> selected = [
     true,
     false,
@@ -259,7 +258,6 @@ class _HeaderMobileState extends State<HeaderMobile> {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
-
     final handleScroll = Provider.of<ScrollHandlerProviderCustom>(context);
 
     double w = MediaQuery.of(context).size.width;
