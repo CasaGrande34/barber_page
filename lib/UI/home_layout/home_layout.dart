@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:landing_page/UI/home_layout/mobile/screens/home_screen.dart';
-import 'package:landing_page/UI/home_layout/web/homeview/homeview.dart';
+import 'package:landing_page/UI/home_layout/web/homeview.dart';
 
 import '../../utils/responsive.dart';
 

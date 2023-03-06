@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../../utils/sizes_app.dart';
+import '../../../../../../utils/sizes_app.dart';
 
 class NavBarItem extends StatefulWidget {
   final String text;

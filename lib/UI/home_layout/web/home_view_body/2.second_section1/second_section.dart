@@ -2,17 +2,17 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-import '../../../../../../utils/sizes_app.dart';
+import '../../../../../utils/sizes_app.dart';
 
-import '../../../../../../utils/fonts_app.dart';
-import '../../../../../../utils/colors_app.dart';
-import '../../../../../../theme/theme_changer.dart';
+import '../../../../../utils/fonts_app.dart';
+import '../../../../../utils/colors_app.dart';
+import '../../../../../theme/theme_changer.dart';
 
 import 'package:landing_page/providers/scroll_provider.dart';
 import 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
 
-class FirstSection extends StatelessWidget {
-  const FirstSection({super.key});
+class SecondSection extends StatelessWidget {
+  const SecondSection({super.key});
 
   @override
   Widget build(BuildContext context) {

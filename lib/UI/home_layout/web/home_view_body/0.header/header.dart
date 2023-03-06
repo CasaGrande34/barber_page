@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/sizes_app.dart';
-import 'navbar_item.dart';
+import 'widgets/navbar_item.dart';
 import 'package:provider/provider.dart';
 import '../../../../../utils/fonts_app.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 
 import 'package:landing_page/providers/scroll_provider.dart';
-import 'package:landing_page/UI/home_layout/web/widgets/header/theme_charger_switch.dart';
+import 'package:landing_page/UI/home_layout/web/home_view_body/0.header/widgets/theme_charger_switch.dart';
 
 const cantidadDePaginas = 6;
 

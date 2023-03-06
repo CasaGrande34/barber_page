@@ -4,22 +4,22 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../utils/sizes_app.dart';
-import '../../../widgets/solo_icon.dart';
-import '../../../widgets/slider_custom.dart';
+import '../../../../../utils/sizes_app.dart';
+import '../../widgets/solo_icon.dart';
+import '../../widgets/slider_custom.dart';
 
-class ThirdSection extends StatefulWidget {
+class FourthSection extends StatefulWidget {
   final double? pixels;
-  const ThirdSection({
+  const FourthSection({
     Key? key,
     this.pixels = 0.0,
   }) : super(key: key);
 
   @override
-  State<ThirdSection> createState() => _ThirdSectionState();
+  State<FourthSection> createState() => _FourthSectionState();
 }
 
-class _ThirdSectionState extends State<ThirdSection> {
+class _FourthSectionState extends State<FourthSection> {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;

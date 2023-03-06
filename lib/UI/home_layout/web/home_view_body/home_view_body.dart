@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:landing_page/providers/scroll_provider.dart';
 
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
-import '../../widgets/list_widget_home/list_widget_home.dart';
+import '../widgets/list_widget_home/list_widget_home.dart';
 
 //Global var
 double pixelsSCroll = 0.0;

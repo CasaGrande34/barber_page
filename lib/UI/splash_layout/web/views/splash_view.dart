@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:landing_page/UI/home_layout/web/homeview/homeview.dart';
+import 'package:landing_page/UI/home_layout/web/homeview.dart';
 
-import '../../../utils/fonts_app.dart';
+import '../../../../utils/fonts_app.dart';
 
 /* 
 ESTUVO HACIENDO PRUEBAS PARA PROBAR LA APP EN LA WEB Y EN EL CELU Y AL PARECER CUADNO LLAMO AL SPLASHVIEW PASO DIRECTAMENTE

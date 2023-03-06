@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //file addresses
-import '../../homeview/home_view_body/export_sections.dart';
+import '../../home_view_body/export_sections.dart';
 
 /* 
 
@@ -10,12 +10,12 @@ a la posicion en la singlechidlscrollview
 
  */
 List<Widget> containersWidget = [
-  const Presentation(),
   const FirstSection(),
   const SecondSection(),
   const ThirdSection(),
   const FourthSection(),
   const FiveSection(),
+  const SixSection(),
 ];
 
 List<GlobalKey> keysList = [

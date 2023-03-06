@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../utils/sizes_app.dart';
+import '../../../../../utils/sizes_app.dart';
 
-class FourthSection extends StatelessWidget {
-  const FourthSection({Key? key}) : super(key: key);
+class FiveSection extends StatelessWidget {
+  const FiveSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

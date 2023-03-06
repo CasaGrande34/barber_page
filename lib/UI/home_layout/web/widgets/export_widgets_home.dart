@@ -1,7 +1,7 @@
-export 'package:landing_page/UI/home_layout/web/widgets/footer/footer.dart';
-export 'package:landing_page/UI/home_layout/web/widgets/header/header.dart';
-export 'package:landing_page/UI/home_layout/web/widgets/header/navbar_item.dart';
-export 'package:landing_page/UI/home_layout/web/widgets/header/theme_charger_switch.dart';
+export 'package:landing_page/UI/home_layout/web/home_view_body/7.footer/footer.dart';
+export 'package:landing_page/UI/home_layout/web/home_view_body/0.header/header.dart';
+export 'package:landing_page/UI/home_layout/web/home_view_body/0.header/widgets/navbar_item.dart';
+export 'package:landing_page/UI/home_layout/web/home_view_body/0.header/widgets/theme_charger_switch.dart';
 export 'package:landing_page/UI/home_layout/web/widgets/image_listview.dart';
 export 'package:landing_page/UI/home_layout/web/widgets/info_palette.dart';
 export 'package:landing_page/UI/home_layout/web/widgets/profile_image.dart';

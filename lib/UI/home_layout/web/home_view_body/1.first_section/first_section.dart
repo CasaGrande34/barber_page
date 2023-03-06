@@ -1,23 +1,22 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:flutter/material.dart';
 
-import '../../../../../../utils/colors_app.dart';
-import '../../../../../../utils/fonts_app.dart';
-import '../../../../../../utils/sizes_app.dart';
+import '../../../../../utils/colors_app.dart';
+import '../../../../../utils/fonts_app.dart';
+import '../../../../../utils/sizes_app.dart';
 
 import 'package:provider/provider.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 import 'package:landing_page/providers/scroll_provider.dart';
 
-class Presentation extends StatefulWidget {
-  const Presentation({super.key});
+class FirstSection extends StatefulWidget {
+  const FirstSection({super.key});
 
   @override
-  State<Presentation> createState() => _PresentationState();
+  State<FirstSection> createState() => _FirstSectionState();
 }
 
-class _PresentationState extends State<Presentation> {
+class _FirstSectionState extends State<FirstSection> {
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
@@ -63,53 +62,10 @@ class _PresentationState extends State<Presentation> {
             color: Colors.red,
             pixels: pixels,
           ),
-          Positioned(
-            child: MyArcoArmado(),
-          )
         ],
       ),
     );
   }
-}
-
-class MyArcoArmado extends StatelessWidget {
-  const MyArcoArmado({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: MyArco(),
-      child: Container(
-        height: 300,
-        width: 300,
-        // color: Colors.red,
-      ),
-    );
-  }
-}
-
-class MyArco extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final startAngle = degreesToRads(10); // convertir a radianes
-    final endAngle = degreesToRads(20); // convertir a radianes
-    final center = Offset(size.width / 2, size.height / 2);
-    const radius = 200.0;
-    final paint = Paint()
-      ..strokeWidth = 5.0
-      ..color = Colors.white;
-    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), startAngle,
-        endAngle - startAngle, false, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false;
-  }
-}
-
-double degreesToRads(double deg) {
-  return (deg * pi) / 180.0;
 }
 
 class DescriptionPresentation extends StatelessWidget {

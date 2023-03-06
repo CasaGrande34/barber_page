@@ -4,22 +4,22 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/providers/scroll_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../theme/theme_changer.dart';
-import '../../../../../../utils/colors_app.dart';
-import '../../../../../../utils/fonts_app.dart';
-import '../../../../../../utils/sizes_app.dart';
-import '../../../widgets/info_palette.dart';
+import '../../../../../theme/theme_changer.dart';
+import '../../../../../utils/colors_app.dart';
+import '../../../../../utils/fonts_app.dart';
+import '../../../../../utils/sizes_app.dart';
+import '../../widgets/info_palette.dart';
 
-class SecondSection extends StatefulWidget {
-  const SecondSection({
+class ThirdSection extends StatefulWidget {
+  const ThirdSection({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<SecondSection> createState() => _SecondSectionState();
+  State<ThirdSection> createState() => _ThirdSectionState();
 }
 
-class _SecondSectionState extends State<SecondSection> {
+class _ThirdSectionState extends State<ThirdSection> {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
