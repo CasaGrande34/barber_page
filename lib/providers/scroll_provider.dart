@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../UI/home_layout/web/widgets/export_widgets_home.dart';
+import 'package:landing_page/UI/home_layout/web/widgets/list_widget_home/list_widget_home.dart';
 
 class ScrollHandlerProviderCustom extends ChangeNotifier {
   final ScrollController scrollController = ScrollController();

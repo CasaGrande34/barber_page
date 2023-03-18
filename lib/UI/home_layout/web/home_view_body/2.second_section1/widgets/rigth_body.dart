@@ -25,16 +25,16 @@ class RightBody extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: const [
-          Positioned(
-            right: 300,
-            bottom: 190,
-            child: Carousel1(),
-          ),
-          Positioned(
-            right: 0,
-            bottom: 190,
-            child: Carousel2(),
-          ),
+          // Positioned(
+          //   right: 300,
+          //   bottom: 190,
+          //   child: Carousel1(),
+          // ),
+          // Positioned(
+          //   right: 0,
+          //   bottom: 190,
+          //   child: Carousel2(),
+          // ),
           Positioned(
             top: 30,
             right: 20,
