@@ -45,7 +45,8 @@ class _ContainerAnimationPresentationState extends State<ContainerAnimation> {
       angle: 102.1,
       child: AnimatedContainer(
         duration: const Duration(seconds: 1),
-        curve: Curves.easeInBack,
+        curve: Curves.linear,
+        constraints: const BoxConstraints(maxHeight: 110, minHeight: 2),
         height: isTapped ? 110 : 2,
         width: 100,
         decoration: BoxDecoration(
