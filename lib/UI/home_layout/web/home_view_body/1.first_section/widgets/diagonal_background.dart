@@ -18,9 +18,9 @@ class DiagonalBackground extends StatelessWidget {
     return Stack(
       children: [
         ClipPath(
-          clipper: DiagonalClipper(),
-          child:
-              Image.asset('assets/clients/10.jpg', width: w, fit: BoxFit.cover),
+          clipper: DiagonalClipper(context),
+          child: Image.asset('assets/clients/10.jpg',
+              width: w, height: h, fit: BoxFit.cover),
         ),
         Container(
           decoration: BoxDecoration(

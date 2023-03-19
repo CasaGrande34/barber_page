@@ -41,9 +41,11 @@ class _FirstSectionState extends State<FirstSection> {
       child: Stack(
         children: [
           const DiagonalBackground(),
-          const Positioned(
-            top: 120,
-            child: ColumnWlecome(),
+          Positioned(
+            top: 130,
+            // top: Responsive.isDesktop(context) ? 130 : 100,
+            left: Responsive.isDesktop(context) ? -60 : -40,
+            child: const ColumnWelcome(),
           ),
           LinesDecoration(
             angle: 104.61,
@@ -52,14 +54,14 @@ class _FirstSectionState extends State<FirstSection> {
             height: 70,
             pixels: pixels,
           ),
-          LinesBox(
-            angle: 104.61,
-            top: 350,
-            left: 500,
-            height: 90,
-            color: Colors.red,
-            pixels: pixels,
-          ),
+          // LinesBox(
+          //   angle: 104.61,
+          //   top: 350,
+          //   left: 500,
+          //   height: 90,
+          //   color: Colors.red,
+          //   pixels: pixels,
+          // ),
         ],
       ),
     );

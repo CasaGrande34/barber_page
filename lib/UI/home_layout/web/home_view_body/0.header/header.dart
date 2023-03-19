@@ -29,10 +29,9 @@ class _HeaderState extends State<Header> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    if (w > 1100) {
+    if (Responsive.isDesktop(context)) {
       return const _HeaderDesktop();
     }
-
     return const _HeaderMobile();
   }
 }
@@ -264,7 +263,7 @@ class _HeaderMobileState extends State<_HeaderMobile> {
     double h = MediaQuery.of(context).size.height;
 
     return Container(
-      color: appTheme.colorScheme.onSecondary,
+      color: appTheme.colorScheme.primary,
       height: h * .12,
       width: w,
       child: Row(
