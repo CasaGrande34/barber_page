@@ -89,7 +89,7 @@ class _HeaderDesktopState extends State<_HeaderDesktop> {
                 ),
               ),
               SizesApp.addHorizontalSpace(5),
-              if (w >= 1200)
+              if (w >= 730)
                 // ----------------
                 Text(
                   'Shelby Barber',

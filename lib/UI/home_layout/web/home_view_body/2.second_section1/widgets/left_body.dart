@@ -35,7 +35,7 @@ class _LeftBodyState extends State<LeftBody> {
             duration: const Duration(milliseconds: 1000),
             curve: Curves.easeOutBack,
             top: 200.0,
-            left: pixels <= 670 ? 0 : 100.0,
+            left: pixels <= 670 ? -800 : 100.0,
             child: const ColumnEmailSend(),
           ),
           const Positioned(

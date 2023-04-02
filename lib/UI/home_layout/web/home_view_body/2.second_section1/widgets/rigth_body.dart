@@ -24,22 +24,18 @@ class RightBody extends StatelessWidget {
       width: w * 0.55,
       child: Stack(
         clipBehavior: Clip.none,
-        children: const [
-          // Positioned(
-          //   right: 300,
-          //   bottom: 190,
-          //   child: Carousel1(),
-          // ),
-          // Positioned(
-          //   right: 0,
-          //   bottom: 190,
-          //   child: Carousel2(),
-          // ),
-          Positioned(
-            top: 30,
-            right: 20,
-            child: TijerasItem(),
+        children: [
+          SizedBox(
+            height: h,
+            width: w,
+            child: Image.asset('assets/clients/8.jpg', fit: BoxFit.cover),
           ),
+
+          // const Positioned(
+          //   top: 30,
+          //   right: 20,
+          //   child: TijerasItem(),
+          // ),
         ],
       ),
     );

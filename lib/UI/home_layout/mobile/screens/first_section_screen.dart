@@ -35,6 +35,7 @@ class LogoCustomForScreen extends StatelessWidget {
       height: 400,
       width: 400,
       color: Colors.red,
+      
       child: Stack(
         clipBehavior: Clip.none,
         children: [
