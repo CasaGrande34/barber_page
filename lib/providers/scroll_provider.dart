@@ -49,6 +49,7 @@ class ScrollHandlerProviderCustom extends ChangeNotifier {
 
   @override
   void dispose() {
+    scrollController.removeListener(() {});
     scrollController.dispose();
     super.dispose();
   }

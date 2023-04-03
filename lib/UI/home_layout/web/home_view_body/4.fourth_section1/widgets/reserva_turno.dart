@@ -25,12 +25,61 @@ class _ReservaTurnoState extends State<ReservaTurno> {
       today = day;
     });
     showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Reserve su turno'),
-          );
-        });
+      context: context,
+      builder: (context) {
+        final h = MediaQuery.of(context).size.height;
+        final w = MediaQuery.of(context).size.width;
+        return AlertDialog(
+          title: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Positioned(
+                top: -80,
+                left: 300,
+                child: Image.asset(
+                  'assets/logos/logo_barberia_color.png',
+                  width: 120,
+                  height: 120,
+                ),
+              ),
+              const Text('Reserve su turno'),
+            ],
+          ),
+          content: Container(
+            padding: EdgeInsets.all(SizesApp.padding15),
+            height: h * 0.6,
+            width: w * 0.5,
+            color: Colors.blueGrey,
+            child: Form(
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: StylesApp.inputDecorationItem,
+                    initialValue: 'manolo',
+                  ),
+                  SizesApp.addVerticalSpace(SizesApp.padding15),
+                  TextFormField(
+                    decoration: StylesApp.inputDecorationItem,
+                    initialValue: 'example@hotmaill.com',
+                  ),
+                  SizesApp.addVerticalSpace(SizesApp.padding15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const Text('Su turno sera: '),
+                      Text(today.toString().split(" ")[0]),
+                      SizesApp.addHorizontalSpace(SizesApp.padding10),
+                      const Icon(Icons.edit),
+                    ],
+                  ),
+                  SizesApp.addVerticalSpace(SizesApp.padding15),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
