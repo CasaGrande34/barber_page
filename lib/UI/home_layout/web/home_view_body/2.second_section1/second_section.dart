@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../providers/scroll_provider.dart';
+import '../../../../../utils/utils.dart';
 import 'widgets/2.widgets_exports.dart';
 
 class SecondSection extends StatelessWidget {
@@ -9,8 +10,6 @@ class SecondSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
     final scrollProvider = Provider.of<ScrollHandlerProviderCustom>(context);
     final pixels = scrollProvider.scrollController.position.pixels;
 
@@ -23,9 +22,30 @@ class SecondSection extends StatelessWidget {
             curve: Curves.easeOutBack,
             duration: const Duration(milliseconds: 1000),
             top: 400,
-            right: pixels <= 670 ? -600 : 200,
-            child: const BoxImageItem()),
+            right: pixels <= 670 ? -1000 : 200,
+            child: const RowBoxImageItems()),
       ],
+    );
+  }
+}
+
+class RowBoxImageItems extends StatelessWidget {
+  const RowBoxImageItems({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 700,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: const [
+          BoxImageItem(),
+          BoxImageItem(),
+          BoxImageItem(),
+        ],
+      ),
     );
   }
 }
@@ -37,25 +57,17 @@ class BoxImageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 700,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Container(
+      padding: const EdgeInsets.all(SizesApp.padding10),
+      height: 300,
+      width: 200,
+      color: Colors.black,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: 300,
-            width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            height: 300,
-            width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            height: 300,
-            width: 200,
-            color: Colors.red,
+          Text(
+            '01',
+            style: FontsApp.oldStandardTt.copyWith(fontSize: 20),
           ),
         ],
       ),

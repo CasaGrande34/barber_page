@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-//dependencies
-//file addresses
 
 class SoloIcon extends StatelessWidget {
   final double factor;
-  final double pixels;
   final IconData icon;
 
   const SoloIcon({
     Key? key,
     required this.factor,
     required this.icon,
-    this.pixels = 0.0,
   }) : super(key: key);
 
   @override

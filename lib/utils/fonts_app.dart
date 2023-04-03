@@ -19,5 +19,6 @@ class FontsApp {
   static final rye = GoogleFonts.rye(
     fontSize: 38.0,
     fontWeight: FontWeight.w700,
+    color: Colors.white,
   );
 }
