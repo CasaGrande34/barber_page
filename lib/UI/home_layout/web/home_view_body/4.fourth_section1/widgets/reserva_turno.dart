@@ -46,33 +46,124 @@ class _ReservaTurnoState extends State<ReservaTurno> {
             ],
           ),
           content: Container(
-            padding: EdgeInsets.all(SizesApp.padding15),
+            padding: const EdgeInsets.all(SizesApp.padding15),
             height: h * 0.6,
             width: w * 0.5,
-            color: Colors.blueGrey,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(SizesApp.padding10),
+              color: Colors.black,
+            ),
             child: Form(
               child: Column(
                 children: [
-                  TextFormField(
-                    decoration: StylesApp.inputDecorationItem,
-                    initialValue: 'manolo',
-                  ),
-                  SizesApp.addVerticalSpace(SizesApp.padding15),
-                  TextFormField(
-                    decoration: StylesApp.inputDecorationItem,
-                    initialValue: 'example@hotmaill.com',
-                  ),
                   SizesApp.addVerticalSpace(SizesApp.padding15),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      const Text('Su turno sera: '),
-                      Text(today.toString().split(" ")[0]),
-                      SizesApp.addHorizontalSpace(SizesApp.padding10),
-                      const Icon(Icons.edit),
+                      Column(
+                        children: [
+                          SizedBox(
+                            width: 400,
+                            child: TextFormField(
+                              decoration: StylesApp.inputDecorationName,
+                              initialValue: 'manolo',
+                            ),
+                          ),
+                          SizesApp.addVerticalSpace(SizesApp.padding15),
+                          SizedBox(
+                            width: 400,
+                            child: TextFormField(
+                              decoration: StylesApp.inputDecorationEmail,
+                              initialValue: 'example@hotmaill.com',
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizesApp.addHorizontalSpace(SizesApp.padding25),
+                      Column(
+                        children: [
+                          const Text('Su turno sera: '),
+                          SizesApp.addVerticalSpace(SizesApp.padding10),
+                          Text(today.toString().split(" ")[0]),
+                          SizesApp.addVerticalSpace(SizesApp.padding10),
+                          const Icon(Icons.edit),
+                        ],
+                      ),
                     ],
                   ),
                   SizesApp.addVerticalSpace(SizesApp.padding15),
+                  const Divider(
+                    color: Colors.white,
+                  ),
+                  SizesApp.addHorizontalSpace(SizesApp.padding15),
+                  const Text('Elija su servicio'),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        // height: 300,
+                        child: Column(
+                          children: [
+                            RadioListTile(
+                              title: const Text('Corte de pelo'),
+                              value: 1,
+                              groupValue: 1,
+                              onChanged: (value) {
+                                setState(() {});
+                              },
+                            ),
+                            RadioListTile(
+                              title: const Text('Recorte de barba'),
+                              value: 2,
+                              groupValue: 1,
+                              onChanged: (value) {
+                                setState(() {});
+                              },
+                            ),
+                            RadioListTile(
+                              title: const Text('Niños'),
+                              value: 3,
+                              groupValue: 1,
+                              onChanged: (value) {
+                                setState(() {});
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 200,
+                        // height: 300,
+                        child: Column(
+                          children: [
+                            RadioListTile(
+                              title: const Text('Corte de pelo'),
+                              value: 1,
+                              groupValue: 1,
+                              onChanged: (value) {
+                                setState(() {});
+                              },
+                            ),
+                            RadioListTile(
+                              title: const Text('Recorte de barba'),
+                              value: 2,
+                              groupValue: 1,
+                              onChanged: (value) {
+                                setState(() {});
+                              },
+                            ),
+                            RadioListTile(
+                              title: const Text('Niños'),
+                              value: 3,
+                              groupValue: 1,
+                              onChanged: (value) {
+                                setState(() {});
+                              },
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
@@ -98,17 +189,6 @@ class _ReservaTurnoState extends State<ReservaTurno> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Row(
-                children: const [
-                  SizedBox(
-                    width: 280,
-                    child: ListTile(
-                      title: Text('Elija su servicio:'),
-                      trailing: Text('Categoria'),
-                    ),
-                  ),
-                ],
-              ),
               SizedBox(
                 width: 280,
                 child: ListTile(
