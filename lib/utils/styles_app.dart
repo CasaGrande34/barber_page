@@ -17,7 +17,7 @@ class StylesApp {
       label: Text(
         'Escriba su email',
       ),
-      suffixIcon: Icon(FontAwesomeIcons.person),
+      suffixIcon: Icon(Icons.email_outlined),
       labelStyle: TextStyle(color: Colors.white),
       border: OutlineInputBorder());
 }

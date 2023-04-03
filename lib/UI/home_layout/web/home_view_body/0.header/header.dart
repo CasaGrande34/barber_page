@@ -136,7 +136,7 @@ class _HeaderDesktopState extends State<_HeaderDesktop> {
               ),
               SizesApp.addHorizontalSpace(50.0),
               NavBarItem(
-                text: 'Reservar Turno',
+                text: 'Turnos',
                 active: selected[3],
                 touched: () {
                   setState(() {
