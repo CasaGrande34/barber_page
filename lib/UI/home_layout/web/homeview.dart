@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 //dependencies
 
 //file addresses
-import 'home_view_body/0.header/header.dart';
+import 'home_view_body/0.header/header_layout.dart';
 import 'home_view_body/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
@@ -18,7 +18,12 @@ class _HomeViewState extends State<HomeView> {
       body: Stack(
         children: const [
           HomeViewBody(),
-          Header(),
+          Headerlayout(),
+          Positioned(
+            top: 76,
+            left: 0,
+            child: ProgressHeader(),
+          )
         ],
       ),
     );

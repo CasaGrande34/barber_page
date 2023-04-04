@@ -44,7 +44,6 @@ class _NavBarItemState extends State<NavBarItem> {
                 color: widget.active ? Colors.black : Colors.transparent,
                 borderRadius: BorderRadius.circular(SizesApp.padding15)),
           ),
-          SizesApp.addVerticalSpace(5)
         ],
       ),
     );
