@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:landing_page/UI/home_layout/web/home_view_body/1.first_section/widgets/1.widgets_exports.dart';
+import 'package:landing_page/theme/theme_changer.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../utils/utils.dart';
 // import 'package:flutter/services.dart';
@@ -8,18 +10,31 @@ import '../../../../utils/utils.dart';
 
 //file addresses
 
-class FirstSectionScreen extends StatelessWidget {
-  const FirstSectionScreen({super.key});
+class TurnosScreen extends StatelessWidget {
+  const TurnosScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizesApp.addVerticalSpace(SizesApp.padding20),
-        const TextWelcomeBarber(),
-        const LogoCustomForScreen(),
-        SizesApp.addVerticalSpace(SizesApp.padding20),
-      ],
+    final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Shelby Barber',
+          style: TextStyle(
+            color: appTheme.colorScheme.primary,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.black,
+      ),
+      body: Column(
+        children: [
+          SizesApp.addVerticalSpace(SizesApp.padding20),
+          const TextWelcomeBarber(),
+          const LogoCustomForScreen(),
+          SizesApp.addVerticalSpace(SizesApp.padding20),
+        ],
+      ),
     );
   }
 }
@@ -35,7 +50,6 @@ class LogoCustomForScreen extends StatelessWidget {
       height: 400,
       width: 400,
       color: Colors.red,
-      
       child: Stack(
         clipBehavior: Clip.none,
         children: [
