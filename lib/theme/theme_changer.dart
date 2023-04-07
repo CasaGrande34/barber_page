@@ -33,6 +33,11 @@ class ThemeCharger extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  void toggleTheme() {
+    _isDark = !_isDark;
+    notifyListeners();
+  }
 }
 
 final themeDark = ThemeData.dark().copyWith(colorScheme: colorSchemedark);

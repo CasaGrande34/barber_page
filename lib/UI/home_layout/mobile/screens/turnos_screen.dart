@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:landing_page/UI/home_layout/web/home_view_body/1.first_section/widgets/1.widgets_exports.dart';
-import 'package:landing_page/theme/theme_changer.dart';
+
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:table_calendar/table_calendar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../utils/utils.dart';
-// import 'package:flutter/services.dart';
-
-//dependencies
-
-//file addresses
+import '../../../../utils/buttons/button_blue.dart';
+import 'package:landing_page/theme/theme_changer.dart';
 
 class TurnosScreen extends StatelessWidget {
   const TurnosScreen({super.key});
@@ -16,58 +15,76 @@ class TurnosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
+    final themeChangerButton = Provider.of<ThemeCharger>(context);
+    DateTime today = DateTime.now();
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: themeChangerButton.toggleTheme,
+          icon: (themeChangerButton.isDark == true)
+              ? Icon(FontAwesomeIcons.moon, color: appTheme.colorScheme.primary)
+              : const Icon(FontAwesomeIcons.sun),
+        ),
         title: Text(
           'Shelby Barber',
-          style: TextStyle(
-            color: appTheme.colorScheme.primary,
-          ),
+          style: FontsApp.oldStandardTt.copyWith(fontSize: 22),
         ),
         centerTitle: true,
         backgroundColor: Colors.black,
       ),
-      body: Column(
-        children: [
-          SizesApp.addVerticalSpace(SizesApp.padding20),
-          const TextWelcomeBarber(),
-          const LogoCustomForScreen(),
-          SizesApp.addVerticalSpace(SizesApp.padding20),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: SizesApp.padding15),
+        child: Column(
+          children: [
+            SizesApp.addVerticalSpace(SizesApp.padding20),
+            const _FirstSection(),
+            TableCalendar(
+              selectedDayPredicate: (day) => isSameDay(day, today),
+              headerStyle: const HeaderStyle(
+                  formatButtonVisible: false, titleCentered: true),
+              rowHeight: 43,
+              availableGestures: AvailableGestures.all,
+              firstDay: DateTime.utc(2015, 05, 05),
+              focusedDay: today,
+              lastDay: DateTime.utc(2025, 05, 05),
+              
+            ),
+            SizesApp.addVerticalSpace(SizesApp.padding20),
+          ],
+        ),
       ),
     );
   }
 }
 
-class LogoCustomForScreen extends StatelessWidget {
-  const LogoCustomForScreen({
-    super.key,
-  });
+class _FirstSection extends StatelessWidget {
+  const _FirstSection();
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 400,
-      width: 400,
-      color: Colors.red,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Positioned(
-            bottom: 100,
-            left: -55,
-            child: Image.asset(
-              'assets/props/ramas.png',
-              scale: 1.5,
-              fit: BoxFit.contain,
+    return Row(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              DateFormat.yMMMMd().format(DateTime.now()),
+              // DateFormat.yMMMMd().format(DateTime.now()),
+              style: FontsApp.nunito.copyWith(fontSize: 19),
             ),
+            const Text('Hoy'),
+          ],
+        ),
+        const Spacer(),
+        SizedBox(
+          height: 40,
+          width: 100,
+          child: ButtonBlue(
+            text: 'Turno +',
+            onPressed: () {},
           ),
-          Positioned(
-              bottom: 200,
-              child: Image.asset('assets/logos/logo_barberia_color.png',
-                  scale: 4)),
-        ],
-      ),
+        )
+      ],
     );
   }
 }

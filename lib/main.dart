@@ -14,7 +14,9 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeCharger(2)),
-        ChangeNotifierProvider(create: (_) => ScrollHandlerProviderCustom()),
+        ChangeNotifierProvider(
+          create: (_) => ScrollHandlerProviderCustom(),
+        ),
       ],
       child: const MyApp(),
     ),
