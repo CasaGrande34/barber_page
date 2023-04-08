@@ -1,4 +1,5 @@
 import 'package:fluro/fluro.dart';
+import 'package:landing_page/UI/home_layout/mobile/screens/profile_screen.dart';
 import 'package:landing_page/UI/login_and_register/screens/register_screen.dart';
 
 // import 'package:landing_page/UI/splash_layout/views/splash_view.dart';
@@ -19,7 +20,7 @@ class RouterFluro {
     router.define(
       homeRoute,
       handler: Handler(
-        handlerFunc: ((context, parameters) => const RegisterScreen()),
+        handlerFunc: ((context, parameters) => const ProfileScreen()),
       ),
     );
     router.define(
