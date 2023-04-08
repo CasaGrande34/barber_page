@@ -9,14 +9,30 @@ import '../../../../utils/utils.dart';
 import '../../../../utils/buttons/button_blue.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 
-class TurnosScreen extends StatelessWidget {
+class TurnosScreen extends StatefulWidget {
   const TurnosScreen({super.key});
+
+  @override
+  State<TurnosScreen> createState() => _TurnosScreenState();
+}
+
+class _TurnosScreenState extends State<TurnosScreen> {
+  CalendarFormat format = CalendarFormat.week;
+  DateTime today = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     final themeChangerButton = Provider.of<ThemeCharger>(context);
+
     DateTime today = DateTime.now();
+
+    void onDaySelect(DateTime day, DateTime focusedDay) {
+      setState(() {
+        today = day;
+      });
+    }
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -26,7 +42,7 @@ class TurnosScreen extends StatelessWidget {
               : const Icon(FontAwesomeIcons.sun),
         ),
         title: Text(
-          'Shelby Barber',
+          'Turnos',
           style: FontsApp.oldStandardTt.copyWith(fontSize: 22),
         ),
         centerTitle: true,
@@ -39,15 +55,41 @@ class TurnosScreen extends StatelessWidget {
             SizesApp.addVerticalSpace(SizesApp.padding20),
             const _FirstSection(),
             TableCalendar(
+              calendarFormat: format,
+
+              //To style the calendar
+              calendarStyle: CalendarStyle(
+                  isTodayHighlighted: true,
+                  selectedDecoration: BoxDecoration(
+                    color: Colors.black38,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(SizesApp.padding5),
+                  ),
+                  selectedTextStyle: const TextStyle(color: Colors.white),
+                  todayDecoration: BoxDecoration(
+                    color: Colors.pink,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(SizesApp.padding5),
+                  )),
+              headerStyle: HeaderStyle(
+                  leftChevronVisible: false,
+                  rightChevronVisible: false,
+                  formatButtonVisible: false,
+                  titleCentered: true,
+                  formatButtonShowsNext: false,
+                  formatButtonDecoration: BoxDecoration(
+                    color: Colors.cyan,
+                    borderRadius: BorderRadius.circular(SizesApp.padding5),
+                  ),
+                  formatButtonTextStyle: const TextStyle(color: Colors.white)),
+
               selectedDayPredicate: (day) => isSameDay(day, today),
-              headerStyle: const HeaderStyle(
-                  formatButtonVisible: false, titleCentered: true),
               rowHeight: 43,
               availableGestures: AvailableGestures.all,
               firstDay: DateTime.utc(2015, 05, 05),
               focusedDay: today,
               lastDay: DateTime.utc(2025, 05, 05),
-              
+              onDaySelected: onDaySelect,
             ),
             SizesApp.addVerticalSpace(SizesApp.padding20),
           ],

@@ -20,7 +20,7 @@ class RouterFluro {
     router.define(
       homeRoute,
       handler: Handler(
-        handlerFunc: ((context, parameters) => const ProfileScreen()),
+        handlerFunc: ((context, parameters) => const HomeLayout()),
       ),
     );
     router.define(

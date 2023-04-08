@@ -129,33 +129,6 @@ class _ReservaTurnoState extends State<ReservaTurno> {
     );
   }
 
-  /* 
-    RadioListTile(
-                            title: const Text('Corte de pelo'),
-                            value: 1,
-                            groupValue: 1,
-                            onChanged: (value) {
-                              setState(() {});
-                            },
-                          ),
-                          RadioListTile(
-                            title: const Text('Recorte de barba'),
-                            value: 2,
-                            groupValue: 1,
-                            onChanged: (value) {
-                              setState(() {});
-                            },
-                          ),
-                          RadioListTile(
-                            title: const Text('Niños'),
-                            value: 3,
-                            groupValue: 1,
-                            onChanged: (value) {
-                              setState(() {});
-                            },
-                          ),
-   */
-
   @override
   Widget build(BuildContext context) {
     return Column(
