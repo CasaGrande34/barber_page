@@ -1,5 +1,5 @@
 class Turno {
-  final int id;
+  final int turn;
   bool isActive;
   final bool? abonado;
   final String user;
@@ -8,7 +8,7 @@ class Turno {
   final double price;
 
   Turno({
-    required this.id,
+    required this.turn,
     this.isActive = true,
     required this.abonado,
     required this.user,
@@ -18,11 +18,13 @@ class Turno {
   });
 
   factory Turno.fromMap(Map<String, dynamic> json) => Turno(
-        id: json['id'],
+        turn: json['turn'],
         abonado: json['abonado'],
         user: json['user'],
         time: json['time'],
         day: json['day'],
         price: json['price'],
       );
+
+  String formattedDay() => '${day.day}/${day.month}/${day.year}';
 }
