@@ -21,4 +21,19 @@ class FontsApp {
     fontWeight: FontWeight.w700,
     color: Colors.white,
   );
+  static final oswald = GoogleFonts.oswald(
+    fontSize: 25.0,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
+  static final lobster = GoogleFonts.lobster(
+    fontSize: 25.0,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
+  static final rajdhani = GoogleFonts.rajdhani(
+    fontSize: 25.0,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  );
 }
