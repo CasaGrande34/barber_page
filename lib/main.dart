@@ -51,3 +51,8 @@ class MyCustomScrollBehavior extends MaterialScrollBehavior {
         PointerDeviceKind.mouse,
       };
 }
+
+extension MediaQueryValues on BuildContext {
+  double get w => MediaQuery.of(this).size.width;
+  double get h => MediaQuery.of(this).size.height;
+}

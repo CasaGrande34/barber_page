@@ -1,3 +1,7 @@
+import 'package:landing_page/models/service.dart';
+
+import '../UI/home_layout/components/item_service.dart';
+
 class CategoryTurnos {
   final String title;
   final List<Turno> turnos;
@@ -11,32 +15,27 @@ class Turno {
   final bool abonado;
   final String user;
   final DateTime day;
-  final String service;
-  final double price;
-  final String iconService;
   final String profesionalElegido;
+  final ServiceBarber service;
 
   Turno({
+    required this.service,
     required this.turn,
     this.isActive = true,
     required this.abonado,
     required this.user,
     required this.day,
-    required this.service,
-    required this.price,
-    required this.iconService,
     required this.profesionalElegido,
   });
 
   factory Turno.fromMap(Map<String, dynamic> json) => Turno(
-      turn: json['turn'],
-      abonado: json['abonado'],
-      user: json['user'],
-      day: json['day'],
-      service: json['service'],
-      profesionalElegido: json['profesionalElegido'],
-      price: json['price'],
-      iconService: json['iconService']);
+        turn: json['turn'],
+        abonado: json['abonado'],
+        user: json['user'],
+        day: json['day'],
+        profesionalElegido: json['profesionalElegido'],
+        service: json['service'],
+      );
 
   String formattedDay() => '${day.day}/${day.month}/${day.year}';
 }
@@ -48,23 +47,23 @@ List<CategoryTurnos> listadeTurnos = [
     turnos: [
       Turno(
         turn: 1,
-        iconService: 'assets/icons/tijera_blanca.png',
+        service: ServiceBarber(
+            name: 'Corte de pelo',
+            price: 2300,
+            asset: 'assets/icons/tijera_blanca.png'),
         abonado: false,
         user: 'Matias Echavarria',
         day: DateTime.now(),
-        service: 'Corte de pelo',
-        profesionalElegido: 'Rodrigo Galloso',
-        price: 2400,
+        profesionalElegido: 'Rodrigo Perex',
       ),
       Turno(
         turn: 2,
-        iconService: 'assets/icons/barba_blanca.png',
         abonado: true,
+        service: ServiceBarber(
+            name: 'Barba', price: 1200, asset: 'assets/icons/barba_blanca.png'),
         user: 'Shakira',
         day: DateTime.now(),
-        service: 'Colorizado + Recorte de barba',
         profesionalElegido: 'Gerardo Fuseneco',
-        price: 2400,
       ),
     ],
   )
