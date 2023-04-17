@@ -1,8 +1,7 @@
 import 'package:fluro/fluro.dart';
-import 'package:landing_page/UI/home_layout/mobile/screens/turnos_screen.dart';
 
-import '../UI/404/screen_404.dart';
-
+import '../UI/404/mobile/screen_404.dart';
+import '../UI/home_layout/home_layout.dart';
 import '../UI/login_and_register/screens/login_screen.dart';
 import 'package:landing_page/UI/login_and_register/screens/register_screen.dart';
 
@@ -18,7 +17,7 @@ class RouterFluro {
     router.define(
       homeRoute,
       handler: Handler(
-        handlerFunc: ((context, parameters) => const TurnosScreen()),
+        handlerFunc: ((context, parameters) => const HomeLayout()),
       ),
     );
     router.define(

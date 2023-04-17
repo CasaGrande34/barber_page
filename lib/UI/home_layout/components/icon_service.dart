@@ -13,6 +13,7 @@ class IconService extends StatefulWidget {
 
 class _IconServiceState extends State<IconService> {
   String asset = 'assets/icons/tijera_blanca.png';
+
   final List<String> assets = [
     'assets/icons/tijera_blanca.png',
     'assets/icons/barba_blanca.png',

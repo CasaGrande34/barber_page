@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../utils/utils.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 
-import '../../components/first_section.dart';
+import '../../components/sacar_turno.dart';
 import '../../components/list_turns.dart';
 import '../../components/table_calendar_widget.dart';
 
@@ -65,6 +65,3 @@ class _TurnosScreenState extends State<TurnosScreen> {
     );
   }
 }
-
-
-

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:landing_page/UI/home_layout/mobile/screens/turnos_screen.dart';
 
 import '../../utils/responsive.dart';
-import 'mobile/home_screen.dart';
-import 'package:landing_page/UI/home_layout/web/homeview.dart';
+import 'package:landing_page/UI/home_layout/web/views/homeview.dart';
 
 class HomeLayout extends StatefulWidget {
   const HomeLayout({
@@ -31,7 +31,7 @@ class _HomeLayoutState extends State<HomeLayout> {
   Widget build(BuildContext context) {
     return const Responsive(
       desktop: HomeView(),
-      mobile: HomeScreen(),
+      mobile: TurnosScreen(),
     );
   }
 }

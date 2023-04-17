@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:landing_page/UI/home_layout/web/homeview.dart';
+import 'package:landing_page/UI/home_layout/web/views/homeview.dart';
 
 import '../../../../utils/fonts_app.dart';
 

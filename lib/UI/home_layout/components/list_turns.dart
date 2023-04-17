@@ -49,7 +49,9 @@ class _ListTurnsState extends State<ListTurns>
                   front: ItemTurnos(
                     turno: turno,
                   ),
-                  back: const ItemTurnosBack(),
+                  back: ItemTurnosBack(
+                    turno: turno,
+                  ),
                 );
               },
             ),
@@ -61,7 +63,8 @@ class _ListTurnsState extends State<ListTurns>
 }
 
 class ItemTurnosBack extends StatelessWidget {
-  const ItemTurnosBack({super.key});
+  final Turno turno;
+  const ItemTurnosBack({super.key, required this.turno});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +79,18 @@ class ItemTurnosBack extends StatelessWidget {
         color: Colors.red,
         borderRadius: BorderRadius.circular(SizesApp.padding10),
       ),
-      child: const Text('Hola'),
+      child: Stack(
+        children: [
+          SizedBox(
+            height: 90,
+            width: 90,
+            child: IconService(
+              service: turno.service,
+              factor: context.w * 0.07,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -282,7 +296,7 @@ class ItemTurnos extends StatelessWidget {
                           SizesApp.addVerticalSpace(SizesApp.padding10),
                           Row(
                             children: [
-                              ItemService(
+                              IconService(
                                 service: turno.service,
                                 factor: 0.04,
                               ),
@@ -303,33 +317,69 @@ class ItemTurnos extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        CircleAvatar(
-                          radius: w * 0.05,
+                        Container(
+                          height: w * 0.09,
+                          width: w * 0.09,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.grey,
+                            border: Border(
+                              right: BorderSide(color: Colors.black),
+                              left: BorderSide(color: Colors.black),
+                              top: BorderSide(color: Colors.black),
+                              bottom: BorderSide(color: Colors.black),
+                            ),
+                          ),
                           child: IconButton(
                             onPressed: () {},
                             icon: Icon(
                               Icons.delete,
                               size: context.w * 0.047,
+                              color: Colors.black,
                             ),
                           ),
                         ),
-                        CircleAvatar(
-                          radius: w * 0.05,
+                        Container(
+                          height: w * 0.09,
+                          width: w * 0.09,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.grey,
+                            border: Border(
+                              right: BorderSide(color: Colors.black),
+                              left: BorderSide(color: Colors.black),
+                              top: BorderSide(color: Colors.black),
+                              bottom: BorderSide(color: Colors.black),
+                            ),
+                          ),
                           child: IconButton(
                             onPressed: () {},
                             icon: Icon(
                               FontAwesomeIcons.pencil,
                               size: context.w * 0.047,
+                              color: Colors.black,
                             ),
                           ),
                         ),
-                        CircleAvatar(
-                          radius: w * 0.05,
+                        Container(
+                          height: w * 0.09,
+                          width: w * 0.09,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.grey,
+                            border: Border(
+                              right: BorderSide(color: Colors.black),
+                              left: BorderSide(color: Colors.black),
+                              top: BorderSide(color: Colors.black),
+                              bottom: BorderSide(color: Colors.black),
+                            ),
+                          ),
                           child: IconButton(
                             onPressed: () {},
                             icon: Icon(
                               FontAwesomeIcons.dollarSign,
                               size: context.w * 0.047,
+                              color: Colors.black,
                             ),
                           ),
                         ),

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:landing_page/providers/bottomnavbar_state.dart';
+import 'package:landing_page/providers/dialog_provider.dart';
 
 import 'package:provider/provider.dart';
 import 'package:landing_page/providers/scroll_provider.dart';
@@ -14,12 +15,17 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ThemeCharger(2)),
+        ChangeNotifierProvider(
+          create: (_) => ThemeCharger(2),
+        ),
         ChangeNotifierProvider(
           create: (_) => ScrollHandlerProviderCustom(),
         ),
         ChangeNotifierProvider(
           create: (_) => BottomNavbarState(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => DialogProvider(),
         ),
       ],
       child: const MyApp(),
