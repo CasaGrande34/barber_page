@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
+import 'package:landing_page/UI/home_layout/home_layout.dart';
 
 import '../UI/404/mobile/screen_404.dart';
-import '../UI/home_layout/home_layout.dart';
 import '../UI/login_and_register/screens/login_screen.dart';
 import 'package:landing_page/UI/login_and_register/screens/register_screen.dart';
 

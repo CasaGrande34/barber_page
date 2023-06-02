@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/login_form_provider.dart';
 import '../../../providers/register_form_provider.dart';
 import '../../../utils/utils.dart';
 import '../components/auth_components_exports.dart';

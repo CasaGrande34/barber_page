@@ -54,8 +54,8 @@ class _SplashWidgetState extends State<SplashWidget>
     animationCircle = CurveTween(
       curve: const Interval(0.0, 0.5),
     ).animate(controller);
-    print(' ------------ tapPositionInitState  ------------- ');
-    print(tapPosition);
+    // print(' ------------ tapPositionInitState  ------------- ');
+    // print(tapPosition);
     super.initState();
   }
 
@@ -63,7 +63,7 @@ class _SplashWidgetState extends State<SplashWidget>
     setState(() {
       tapPosition = details.localPosition;
     });
-    print(details.localPosition);
+    // print(details.localPosition);
     controller.forward(from: 0);
   }
 

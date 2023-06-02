@@ -1,7 +1,5 @@
 import 'package:landing_page/models/service.dart';
 
-import '../UI/home_layout/components/item_service.dart';
-
 class CategoryTurnos {
   final String title;
   final List<Turno> turnos;

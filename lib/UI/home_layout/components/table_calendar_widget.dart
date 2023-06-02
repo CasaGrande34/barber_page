@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:table_calendar/table_calendar.dart';
 
 import '../../../utils/sizes_app.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class TableCalendarWidget extends StatefulWidget {
   const TableCalendarWidget({
@@ -14,21 +14,21 @@ class TableCalendarWidget extends StatefulWidget {
 
 class _TableCalendarWidgetState extends State<TableCalendarWidget> {
   CalendarFormat format = CalendarFormat.week;
-  late DateTime _focusedDay;
+  late DateTime focusedDay1;
   late DateTime _selectedDay;
 
   @override
   void initState() {
     _selectedDay = DateTime.now();
-    _focusedDay = DateTime.now();
+    focusedDay1 = DateTime.now();
     super.initState();
   }
 
   void onDaySelect(DateTime selectedDay, DateTime focusedDay) {
     setState(() {
       _selectedDay = selectedDay;
-      _focusedDay = focusedDay;
-      print(_selectedDay);
+      focusedDay1 = focusedDay;
+      // print(_selectedDay);
     });
   }
 

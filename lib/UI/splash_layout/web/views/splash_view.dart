@@ -2,7 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:landing_page/UI/home_layout/web/views/homeview.dart';
+import 'package:landing_page/UI/home_layout/mobile/para_acomodar/turnos_screen.dart';
+
 
 import '../../../../utils/fonts_app.dart';
 
@@ -76,7 +77,7 @@ class _SplashViewState extends State<SplashView>
         Navigator.of(context).pushReplacement(
           ThisIsFadeRoute(
             begin: const Offset(0.0, 1.0),
-            route: const HomeView(),
+            route: const TurnosScreen(),
           ),
         );
       });

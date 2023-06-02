@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:landing_page/providers/login_form_provider.dart';
 
 import 'package:provider/provider.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 import '../../../utils/utils.dart';
 import '../../../theme/theme_changer.dart';
 import '../components/auth_components_exports.dart';
+import 'package:landing_page/providers/login_form_provider.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

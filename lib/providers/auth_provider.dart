@@ -16,7 +16,7 @@ class AuthProvider extends ChangeNotifier {
   // -----------------------------------------------
   login(String email, String password) {
     _token = 'akgdskgoadswe43523t.2343252tesgsgs.124fdsgvs';
-    print('Almacenar JWT: $_token');
+    // print('Almacenar JWT: $_token');
     LocalStorage.prefs.setString('token', _token!);
 
     status = AuthStatus.authenticated;

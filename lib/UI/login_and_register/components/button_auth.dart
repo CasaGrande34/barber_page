@@ -18,7 +18,7 @@ class ButtonAuth extends StatelessWidget {
         final isValid = validate;
         if (isValid) {
           // authProvider.login(loginForm.email, loginForm.password);
-          print('Aca lllegue al buttonlogin');
+          // print('Aca lllegue al buttonlogin');
         }
       },
       color: Colors.amber,

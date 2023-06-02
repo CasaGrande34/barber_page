@@ -3,30 +3,30 @@ import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 import '../../../../utils/constant.dart';
 import '../../../../utils/utils.dart';
-import '../../components/my_appbar_custom.dart';
+import '../components/my_appbar_custom.dart';
 
-class HomeView extends StatelessWidget {
+class HomeViewTablet extends StatelessWidget {
   final ScrollController scrollHandler;
-  const HomeView({super.key, required this.scrollHandler});
+  const HomeViewTablet({super.key, required this.scrollHandler});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBarCustom(),
-      body: _HomeViewBody( controller: scrollHandler ),
+      body: _BodyTablet(controller: scrollHandler),
     );
   }
 }
 
-class _HomeViewBody extends StatefulWidget {
+class _BodyTablet extends StatefulWidget {
   final ScrollController controller;
-  const _HomeViewBody({required this.controller});
+  const _BodyTablet({required this.controller});
 
   @override
-  State<_HomeViewBody> createState() => _HomeViewBodyState();
+  State<_BodyTablet> createState() => _BodyTabletState();
 }
 
-class _HomeViewBodyState extends State<_HomeViewBody> {
+class _BodyTabletState extends State<_BodyTablet> {
   @override
   Widget build(BuildContext context) {
     return WebSmoothScroll(

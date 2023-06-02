@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:landing_page/UI/home_layout/components/item_service.dart';
-import 'package:landing_page/main.dart';
 
 import 'package:marquee/marquee.dart';
 import 'package:flip_card/flip_card.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:landing_page/UI/home_layout/components/icon_service.dart';
 
-import '../../../models/service.dart';
 import '../../../utils/utils.dart';
 import '../../../models/turno.dart';
+import '../../../models/service.dart';
+import 'package:landing_page/main.dart';
 
 class ListTurns extends StatefulWidget {
   const ListTurns({
@@ -49,7 +49,7 @@ class _ListTurnsState extends State<ListTurns>
                   front: ItemTurnos(
                     turno: turno,
                   ),
-                  back: ItemTurnosBack(
+                  back: _ItemTurnosBack(
                     turno: turno,
                   ),
                 );
@@ -62,9 +62,9 @@ class _ListTurnsState extends State<ListTurns>
   }
 }
 
-class ItemTurnosBack extends StatelessWidget {
+class _ItemTurnosBack extends StatelessWidget {
   final Turno turno;
-  const ItemTurnosBack({super.key, required this.turno});
+  const _ItemTurnosBack({required this.turno});
 
   @override
   Widget build(BuildContext context) {

@@ -19,8 +19,8 @@ class LoginFormProvider extends ChangeNotifier {
         buttonController.success();
         Timer(const Duration(milliseconds: 1200), () {
           buttonController.reset();
-          print('form valid');
-          print('$email ===== $password');
+          // print('form valid');
+          // print('$email ===== $password');
         });
       });
       buttonController.success();

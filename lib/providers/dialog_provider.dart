@@ -14,8 +14,6 @@ class DialogProvider extends ChangeNotifier {
     showDialog(
       context: _context,
       builder: (context) {
-        final h = MediaQuery.of(context).size.height;
-        final w = MediaQuery.of(context).size.width;
         return AlertDialog(
           title: Stack(
             clipBehavior: Clip.none,

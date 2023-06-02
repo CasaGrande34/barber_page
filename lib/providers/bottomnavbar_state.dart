@@ -1,13 +1,14 @@
 import 'package:flutter/widgets.dart';
+import 'package:landing_page/UI/home_layout/mobile/para_acomodar/turnos_screen.dart';
 
-import '../UI/home_layout/mobile/screens/screens_exports.dart';
+import '../UI/home_layout/mobile/para_acomodar/screens_exports.dart';
 
 class BottomNavbarState extends ChangeNotifier {
   final List<Widget> screens = const [
     TurnosScreen(),
     ChatScreen(),
     NotificationsScreen(),
-    ProfileScreen(),
+    // ProfileScreen(),
   ];
 
   int selectedIndex = 0;

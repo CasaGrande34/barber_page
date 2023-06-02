@@ -1,19 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:landing_page/UI/home_layout/components/widgets/list_widget_home/list_widget_home.dart';
+import 'package:flutter/rendering.dart';
+
+import '../utils/constant.dart';
+
 
 class ScrollHandlerProviderCustom extends ChangeNotifier {
   final ScrollController scrollController = ScrollController();
 
   ScrollHandlerProviderCustom() {
+    ConstantApp.appBarHeight = 60;
     scrollController.addListener(() {
       scrollController.position.pixels;
+      scrollListener();
       notifyListeners();
     });
   }
 
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  void scrollListener() {
+    if (scrollController.position.userScrollDirection ==
+        ScrollDirection.reverse) {
+      ConstantApp.appBarHeight = 0;
+      notifyListeners();
+    } else {
+      ConstantApp.appBarHeight = 60;
+      notifyListeners();
+    }
+  }
+
+  //🔥 -------------------------------- title>Trabajo logrado. date>17/2/23
   void boxScroll(int position, Curve curve, int seconds) {
     final RenderBox renderBox =
-        keysList[position].currentContext!.findRenderObject() as RenderBox;
+        ConstantApp.keysList[position].currentContext!.findRenderObject() as RenderBox;
     //Tamanio del height del container con el key.
     final double widgetHeight = renderBox.size.height;
     double totalHeight = 0;
@@ -21,7 +44,7 @@ class ScrollHandlerProviderCustom extends ChangeNotifier {
 
     for (int i = 0; i < position; i++) {
       RenderBox box =
-          keysList[i].currentContext!.findRenderObject() as RenderBox;
+          ConstantApp.keysList[i].currentContext!.findRenderObject() as RenderBox;
       totalHeight += box.size.height;
     }
 
@@ -41,16 +64,9 @@ class ScrollHandlerProviderCustom extends ChangeNotifier {
     }
   }
 
-  void navegateScroll(double offset, int seconds, Curve curve) async {
-    await scrollController.animateTo(offset,
+  void navegateScroll(double offset, int seconds, Curve curve) {
+    scrollController.animateTo(offset,
         duration: Duration(seconds: seconds), curve: curve);
     notifyListeners();
-  }
-
-  @override
-  void dispose() {
-    scrollController.removeListener(() {});
-    scrollController.dispose();
-    super.dispose();
   }
 }

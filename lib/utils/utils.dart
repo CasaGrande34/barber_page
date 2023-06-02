@@ -1,3 +1,5 @@
+export 'package:landing_page/utils/constant.dart';
+
 export 'package:landing_page/utils/styles_app.dart';
 
 export 'package:landing_page/utils/colors_app.dart';

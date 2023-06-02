@@ -20,8 +20,8 @@ class RegisterFormProvider extends ChangeNotifier {
         buttonController.success();
         Timer(const Duration(milliseconds: 1200), () {
           buttonController.reset();
-          print('form valid');
-          print('==== $email =====');
+          // print('form valid');
+          // print('==== $email =====');
         });
       });
       return true;
@@ -30,7 +30,7 @@ class RegisterFormProvider extends ChangeNotifier {
         buttonController.error();
         Timer(const Duration(milliseconds: 1700), () {
           buttonController.reset();
-          print('form no valid');
+          // print('form no valid');
         });
       });
       return false;
