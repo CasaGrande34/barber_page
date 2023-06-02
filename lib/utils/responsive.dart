@@ -16,14 +16,14 @@ class Responsive extends StatelessWidget {
 
   // This isMobile, isTablet, isDesktop helep us later
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width < 650;
+      MediaQuery.of(context).size.width < 612;
 
   static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width < 950 &&
-      MediaQuery.of(context).size.width >= 650;
+      MediaQuery.of(context).size.width < 850 &&
+      MediaQuery.of(context).size.width >= 612;
 
   static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1100;
+      MediaQuery.of(context).size.width >= 850;
 
   static late String tag;
 
@@ -36,7 +36,7 @@ class Responsive extends StatelessWidget {
       return desktop;
     }
     // If width it less then 1100 and more then 850 we consider it as tablet
-    else if (size.width >= 630 && tablet != null) {
+    else if (size.width >= 612 && tablet != null) {
       tag = 'Tablet';
       return tablet!;
     }
