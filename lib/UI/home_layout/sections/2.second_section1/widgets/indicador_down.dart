@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-import '../../../../../../../theme/theme_changer.dart';
-import '../../../../../../../providers/scroll_provider.dart';
+import '../../../../../theme/theme_changer.dart';
+import '../../../../../providers/scroll_provider.dart';
 
 class IndicadorDown extends StatelessWidget {
   const IndicadorDown({

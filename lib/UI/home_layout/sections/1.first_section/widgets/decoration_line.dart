@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../../theme/theme_changer.dart';
+import '../../../../../theme/theme_changer.dart';
 
 class DecorationLine extends StatelessWidget {
   const DecorationLine({
@@ -11,6 +11,7 @@ class DecorationLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
+
     final appTheme = Provider.of<ThemeCharger>(context).currentTheme;
     return Positioned(
       top: 10,

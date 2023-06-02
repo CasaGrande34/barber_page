@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../providers/scroll_provider.dart';
-import '../../../../../../utils/utils.dart';
+import '../../../../providers/scroll_provider.dart';
+import '../../../../utils/utils.dart';
 import 'widgets/2.widgets_exports.dart';
 
 class SecondSection extends StatelessWidget {

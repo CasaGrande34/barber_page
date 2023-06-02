@@ -30,7 +30,8 @@ class _MyAppBarCustomState extends State<MyAppBarCustom> {
         FontsApp.nunito.copyWith(color: Colors.white, fontSize: 17);
 
     final scroll = Provider.of<ScrollHandlerProviderCustom>(context);
-
+    final w = MediaQuery.of(context).size.width.toString();
+   
     if (Responsive.isDesktop(context)) {
       //WEB
       return AnimatedContainer(
@@ -48,6 +49,10 @@ class _MyAppBarCustomState extends State<MyAppBarCustom> {
             backgroundColor: Colors.white.withOpacity(0.3),
             elevation: 0,
             actions: [
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Text('${Responsive.tag} - $w', style: FontsApp.lobster.copyWith(fontSize: 15, color: Colors.black),),
+              ),
               ...ConstantApp.listaAppbar.asMap().entries.map((entry) {
                 final index = entry.key;
                 final item = entry.value;
@@ -85,6 +90,9 @@ class _MyAppBarCustomState extends State<MyAppBarCustom> {
           backgroundColor: Colors.white.withOpacity(0.3),
           elevation: 0,
           actions: [
+            Padding(
+ padding: const EdgeInsets.only(top: 20),
+                child: Text('${Responsive.tag} - $w', style: FontsApp.lobster.copyWith(fontSize: 15, color: Colors.black),),            ),
             PopupMenuButton(
               color: Colors.blueGrey,
               icon: const Icon(Icons.menu, color: Colors.white),

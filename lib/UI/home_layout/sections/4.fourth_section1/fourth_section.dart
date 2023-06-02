@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:landing_page/UI/home_layout/web/views/home_view_sections/4.fourth_section1/widgets/reserva_turno.dart';
+import 'package:landing_page/UI/home_layout/sections/4.fourth_section1/widgets/reserva_turno.dart';
 import 'package:landing_page/theme/theme_changer.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../providers/dialog_provider.dart';
-import '../../../../../../providers/scroll_provider.dart';
-import '../../../../components/solo_icon.dart';
-import '../../../../components/slider_custom.dart';
+import '../../../../providers/dialog_provider.dart';
+import '../../../../providers/scroll_provider.dart';
+import '../../components/solo_icon.dart';
+import '../../components/slider_custom.dart';
 
 class FourthSection extends StatefulWidget {
   final double? pixels;

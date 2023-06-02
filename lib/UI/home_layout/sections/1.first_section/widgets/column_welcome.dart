@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-import 'package:landing_page/UI/home_layout/web/views/home_view_sections/1.first_section/widgets/text_welcome_barber.dart';
+import 'package:landing_page/UI/home_layout/sections/1.first_section/widgets/text_welcome_barber.dart';
 import 'item_flotante.dart';
 
 class ColumnWelcome extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-import '../../../../../../../theme/theme_changer.dart';
+import '../../../../../theme/theme_changer.dart';
 
 class RightBody extends StatelessWidget {
   const RightBody({super.key});

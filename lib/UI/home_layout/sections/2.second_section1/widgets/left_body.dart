@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '2.widgets_exports.dart';
 
 import 'package:provider/provider.dart';
-import '../../../../../../../providers/scroll_provider.dart';
-import '../../../../../../../theme/theme_changer.dart';
+import '../../../../../providers/scroll_provider.dart';
+import '../../../../../theme/theme_changer.dart';
 
 class LeftBody extends StatefulWidget {
   const LeftBody({super.key});

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-import '../../../../../../utils/sizes_app.dart';
+import '../../../../utils/sizes_app.dart';
 import '../7.footer/footer.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/theme/theme_changer.dart';
-import '../../../../../../utils/buttons/textbutton_custom.dart';
+import '../../../../utils/buttons/textbutton_custom.dart';
 
 class SixSection extends StatelessWidget {
   const SixSection({super.key});

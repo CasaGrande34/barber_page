@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '1.widgets_exports.dart';
 
 import 'package:provider/provider.dart';
-import '../../../../../../../theme/theme_changer.dart';
+import '../../../../../theme/theme_changer.dart';
 
 class DiagonalBackground extends StatelessWidget {
   const DiagonalBackground({

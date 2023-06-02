@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../UI/home_layout/web/views/home_view_sections/export_sections.dart';
+import '../UI/home_layout/sections/export_sections.dart';
 
 class ConstantApp {
   static const List<String> listaAppbar = [

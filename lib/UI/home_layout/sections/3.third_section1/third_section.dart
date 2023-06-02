@@ -4,10 +4,10 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:landing_page/providers/scroll_provider.dart';
 
-import '../../../../../../utils/colors_app.dart';
-import '../../../../../../utils/fonts_app.dart';
-import '../../../../../../utils/sizes_app.dart';
-import '../../../../../../theme/theme_changer.dart';
+import '../../../../utils/colors_app.dart';
+import '../../../../utils/fonts_app.dart';
+import '../../../../utils/sizes_app.dart';
+import '../../../../theme/theme_changer.dart';
 
 class ThirdSection extends StatefulWidget {
   const ThirdSection({
